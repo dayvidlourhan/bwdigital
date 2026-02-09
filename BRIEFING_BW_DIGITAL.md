@@ -47,6 +47,18 @@ Este documento consolida as decisões, marcos e especificações técnicas estab
 - **Design de Card:** Gradientes lineares sutis, bordas interativas que brilham no hover e micro-checklists de features.
 - **Energy Flow System:** Visual de "Níveis de Energia" interativos (ícones que se conectam ao centro via caminhos energizados por SVG).
 
+### Sessão 03: Service Hub (Sessão Especializada)
+- **Service Marquee:** Carrossel infinito com 25+ ícones de serviços especializados (Design, B.I., Tráfego, Dev, etc.).
+- **Process Pipeline:** Fluxograma interativo de 4 estágios (Solicitação -> Análise -> Match -> Entrega) com lógica de animação sequencial.
+- **Status Panel:** Painel de monitoramento em tempo real simulado com detalhes de engenharia e IDs de requisição.
+- **Guarantees Grid:** Destaque para SLA de 72h, segurança de dados e experts validados.
+
+### Sessão 04: Strategic Solutions (Hub de Alavancagem)
+- **Interface de Tabs:** Sistema de alternância estilo "Switch Físico" para navegar entre Estruturação, Curso e Gestão.
+- **Mentoria de Escala:** Foco em processos e faturamento gerado (R$2M+).
+- **Curso de Contingência:** Oferta direta com visual de "VIP Access" e checkout facilitado.
+- **Planos de Gestão:** Tabela comparativa (Start, Pro, Scale) com selos de popularidade e foco em tráfego internacional.
+
 ---
 
 ## 4. Stack Tecnológica
@@ -56,9 +68,10 @@ Este documento consolida as decisões, marcos e especificações técnicas estab
 
 ---
 
-## 5. Próximos Passos (Sessão 3)
-- Planejamento e implementação da terceira dobra do site.
-- Manutenção da consistência com os tokens de design definidos no `tailwind.config.js`.
+## 5. Próximos Passos (Sessão 5 e Além)
+- Implementação de Seção de Depoimentos / Prova Social com estética industrial.
+- Criação do Rodapé (Footer) com log de sistema operacional.
+- Otimização final de performance e SEO.
 
 ---
-*Documento atualizado de acordo com o diretório atual do projeto (bw-platform).*
+*Documento atualizado de acordo com o diretório atual do projeto (bw_digital).*

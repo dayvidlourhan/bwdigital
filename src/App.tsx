@@ -2,6 +2,7 @@ import HeroSection from './Hero'
 import AtivosAds from './AtivosAds'
 import ServiceHub from './ServiceHub'
 import StrategicSolutions from './StrategicSolutions'
+import MarketTrends from './MarketTrends'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <AtivosAds />
       <ServiceHub />
       <StrategicSolutions />
+      <MarketTrends />
     </>
   )
 }

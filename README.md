@@ -1,13 +1,13 @@
-# BW Digital - Hero Section
+# BW Digital platform
 
-Este projeto contém a implementação da "Sessão Hero" (Primeira Dobra) para a plataforma **BW Digital**, seguindo rigorosamente as especificações de design "Void" e "High-Converting SaaS".
+Este repositório contém a implementação completa da plataforma **BW Digital**, seguindo rigorosamente as especificações de design "Void" e "Raw Industrial".
 
 ## 🚀 Como Visualizar
 
-O projeto foi configurado com Vite + React + Tailwind CSS.
+O projeto foi configurado com Vite + React 19 + Tailwind CSS 4.
 
-1.  Abra o terminal neste diretório: `bw-platform`
-2.  Instale as dependências (se ainda não fez):
+1.  Abra o terminal na raiz do projeto: `bw_digital`
+2.  Instale as dependências:
     ```bash
     npm install
     ```
@@ -17,24 +17,28 @@ O projeto foi configurado com Vite + React + Tailwind CSS.
     ```
 4.  Acesse `http://localhost:5173` no seu navegador.
 
-## 🎨 Design System Implementado
+## 🎨 Design System & Sessões
 
-### Tema "Void"
-- **Background**: `#050505` (Preto Absoluto) com textura de grid sutil.
-- **Brand Colors**: Laranja Neon (`#FF5500`).
-- **Accent**: Verde Neon para dados de sucesso.
+A plataforma está dividida em 4 sessões principais até o momento:
 
-### UI/UX Decisions
-- **Glassmorphism**: Painéis translúcidos (`backdrop-blur-xl`) para Navbar e Cards, criando profundidade moderna.
-- **Tipografia**: `Inter` (UI) e `Space Grotesk` (Display) para autoridade tecnológica.
-- **Layout Assimetrico**: Foco visual no Dashboard flutuante à direita, equilibrando o copy de alta conversão à esquerda.
-- **Animações**:
-    - `float`: Efeito de flutuação suave no Dashboard para dar vida ("Tech Vibe").
-    - `fade-in-up`: Entrada sequencial dos elementos para guiar o olhar.
-    - `glow`: Sombras coloridas pulsantes para destacar ações principais.
+1.  **Hero Section:** Console macOS centralizado com dashboard operacional.
+2.  **Ativos Ads:** Vitrine de plataformas (Meta, Google, TikTok) com sistema de fluxo de energia.
+3.  **Service Hub:** Marquee de serviços especializados e pipeline de processo em 4 estágios.
+4.  **Strategic Solutions:** Hub de soluções estratégicas (Mentoria, Cursos e Gestão) com interface de troca física.
 
-## 📁 Estrutura de Arquivos
+### Stack Tecnológica
+- **React 19 / TypeScript**
+- **Tailwind CSS 4**
+- **Lucide React** (Ícones técnicos)
+- **Framer Motion** (Subjacente / CSS para animações de alta performance)
 
-- `src/components/Hero.tsx`: Componente principal contendo toda a lógica e markup da Hero Section.
-- `src/index.css`: Definições globais de estilos, animações personalizadas (`float`, `gradient-x`) e utilitários de vidro (`.glass-panel`).
-- `tailwind.config.js`: Configuração completa do Design System (Cores, Fontes, Sombras).
+## 📁 Estrutura de Arquivos Principal
+
+- `src/Hero.tsx`: Primeira dobra e Stats Strip.
+- `src/AtivosAds.tsx`: Grid de ativos e Energy Orb.
+- `src/ServiceHub.tsx`: Marquee de serviços e Process Pipeline.
+- `src/StrategicSolutions.tsx`: Tabbed solutions hub.
+- `src/index.css`: Definições globais de estilos e animações customizadas.
+
+---
+*BW Digital - Scalability Infrastructure Protocol*
