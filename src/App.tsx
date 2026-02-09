@@ -1,5 +1,5 @@
-import HeroSection from './components/Hero'
-import AtivosAds from './components/AtivosAds'
+import HeroSection from './Hero'
+import AtivosAds from './AtivosAds'
 
 function App() {
   return (

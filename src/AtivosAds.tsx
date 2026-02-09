@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Cpu, Shield, Crosshair, Lightbulb, Server, Lock as LockIcon, Activity } from 'lucide-react';
-import { MetaIcon, GoogleIcon, TikTokIcon, ShopifyIcon, DatabaseIcon, ArrowUpRight, FeatureCheck } from './icons/AdsIcons';
+import { MetaIcon, GoogleIcon, TikTokIcon, ShopifyIcon, DatabaseIcon, ArrowUpRight, FeatureCheck } from './AdsIcons';
 
 const adsCards = [
     {
