@@ -293,7 +293,7 @@ const ServiceHub = () => {
                                         <span className="text-[7px] text-[#FF5500]/30 -mt-0.5 tracking-tighter">REQ_ID: 9812-BW</span>
                                     </div>
                                     <span className="text-white/10">—</span>
-                                    <span className="text-[11px] text-white/80 tracking-tight font-sans">Solicitação recebida no gateway</span>
+                                    <span className="text-[11px] text-white/80 tracking-tight font-sans">Solicitação recebida no sistema</span>
                                 </div>
                             </div>
 
