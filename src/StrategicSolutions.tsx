@@ -6,12 +6,13 @@ import {
 } from 'lucide-react';
 
 const StrategicSolutions = () => {
-    const [activeTab, setActiveTab] = useState(0);
+    // Definimos o ID 2 (Gestão de Tráfego) como aba inicial para bater com a nova ordem da navbar
+    const [activeTab, setActiveTab] = useState(2);
 
     const tabs = [
+        { id: 2, label: 'GESTÃO DE TRÁFEGO PAGO' },
         { id: 0, label: 'ESTRUTURAÇÃO DE EMPRESAS' },
-        { id: 1, label: 'CURSO DE CONTINGÊNCIA' },
-        { id: 2, label: 'GESTÃO DE TRÁFEGO' }
+        { id: 1, label: 'CURSO DE CONTINGÊNCIA' }
     ];
 
     // MASTER CTA STYLE: Efeito Tátil Industrial (Bevel, Innershadow, Gradiente Sutil)
@@ -24,6 +25,16 @@ const StrategicSolutions = () => {
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
 
+                {/* Título e Subtítulo da Seção */}
+                <div className="text-center mb-16 animate-fade-in-up">
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 uppercase tracking-tighter">
+                        Três Módulos <span className="text-[#FF5500]">Poderosos</span>
+                    </h2>
+                    <p className="text-gray-400 font-sans text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                        Escolha o caminho perfeito para transformar seu negócio
+                    </p>
+                </div>
+
                 {/* 1. REFINAMENTO DA NAVEGAÇÃO (Tabs como "Switch" Físico) */}
                 <div className="flex justify-center mb-32">
                     <div className="inline-flex p-1 bg-white/[0.02] border border-white/[0.05] rounded-full backdrop-blur-3xl shadow-2xl relative">
@@ -32,8 +43,8 @@ const StrategicSolutions = () => {
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
                                 className={`px-10 py-3.5 rounded-full text-[10px] font-display font-bold uppercase tracking-[0.2em] transition-all duration-500 relative ${activeTab === tab.id
-                                    ? 'bg-white/10 text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)]'
-                                    : 'text-gray-500 hover:text-gray-300'
+                                        ? 'bg-white/10 text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)]'
+                                        : 'text-gray-500 hover:text-gray-300'
                                     }`}
                             >
                                 {tab.label}
@@ -48,6 +59,108 @@ const StrategicSolutions = () => {
                 {/* 2. CONTEÚDO DINÂMICO */}
                 <div className="relative">
 
+                    {/* ABA 3: GESTÃO (Agora como primeira opção lógica) */}
+                    {activeTab === 2 && (
+                        <div className="grid lg:grid-cols-2 gap-24 items-center animate-fade-in-up">
+                            <div>
+                                <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
+                                    Deixe seu tráfego <br />
+                                    <span className="text-[#FF5500]">com especialistas</span>
+                                </h2>
+                                <p className="text-gray-400 font-sans text-lg mb-14 max-w-xl leading-relaxed">
+                                    Nossa equipe cuida de todas as suas campanhas enquanto você foca no que realmente importa: seu negócio.
+                                </p>
+
+                                <div className="grid md:grid-cols-2 gap-y-12 gap-x-10 mb-16">
+                                    {[
+                                        { icon: TrendingUp, title: 'Meta & Google Ads', sub: 'Gestão completa de campanhas' },
+                                        { icon: Server, title: 'Relatórios Semanais', sub: 'Acompanhamento detalhado' },
+                                        { icon: Zap, title: 'Otimização Contínua', sub: 'Melhorias constantes' },
+                                        { icon: Headphones, title: 'Suporte Dedicado', sub: 'WhatsApp exclusivo' },
+                                        { icon: Shield, title: 'Ativos Próprios', sub: 'BMs e contas da BW' },
+                                        { icon: Medal, title: 'ROI 5x+', sub: 'Retorno comprovado' },
+                                    ].map((item, idx) => (
+                                        <div key={idx} className="flex gap-5 group">
+                                            <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center shrink-0 group-hover:border-[#FF5500]/30 transition-all duration-500">
+                                                <item.icon size={22} className="text-[#FF5500]" strokeWidth={1.5} />
+                                            </div>
+                                            <div>
+                                                <h4 className="text-white font-display font-bold text-xs uppercase tracking-widest mb-1">{item.title}</h4>
+                                                <p className="text-gray-500 font-sans text-[11px] leading-relaxed italic">{item.sub}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <button className={masterButtonStyle}>
+                                    Conhecer os Planos
+                                    <ChevronRight size={18} />
+                                </button>
+                            </div>
+
+                            <div className="relative group">
+                                <div className="absolute -inset-24 bg-white/5 blur-[140px] rounded-full opacity-20" />
+
+                                <div className="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 border-t-white/25 rounded-2xl p-10 shadow-2xl">
+                                    <h3 className="text-2xl font-display font-bold mb-2 text-white uppercase tracking-tight">Nossos Planos de Gestão</h3>
+                                    <p className="text-gray-500 font-mono text-[9px] uppercase tracking-[0.2em] mb-10 block font-bold">Escolha o ideal para seu momento</p>
+
+                                    <div className="space-y-4">
+                                        {[
+                                            {
+                                                name: 'START',
+                                                sub: 'Tráfego Local',
+                                                price: 'Sob consulta',
+                                                items: ['Até R$10.000/mês em ads', 'Facebook e Google Ads', 'Relatórios quinzenais', 'Contingência inclusa']
+                                            },
+                                            {
+                                                name: 'PRO',
+                                                sub: 'Tráfego Nacional',
+                                                price: 'Sob consulta',
+                                                popular: true,
+                                                items: ['Até R$20.000/mês em ads', 'Meta, Google e Instagram Ads', 'Relatórios semanais', 'Criativos com testes A/B']
+                                            },
+                                            {
+                                                name: 'SCALE',
+                                                sub: 'Tráfego Internacional',
+                                                price: 'Sob consulta',
+                                                items: ['Investimento ilimitado', 'Meta, Google e TikTok Ads', 'Suporte 24/7', 'Criativos premium e UGC']
+                                            }
+                                        ].map((plan, idx) => (
+                                            <div key={idx} className={`relative p-8 rounded-xl border transition-all duration-500 overflow-hidden group/plan ${plan.popular
+                                                    ? 'bg-[#FF5500]/5 border-[#FF5500]/20 shadow-[0_0_40px_rgba(255,85,0,0.05)]'
+                                                    : 'bg-white/[0.02] border-white/5 hover:border-white/10'
+                                                }`}>
+                                                {plan.popular && (
+                                                    <span className="absolute top-0 right-0 bg-[#FF5500] text-white text-[9px] font-mono font-black px-4 py-1.5 rounded-bl-lg tracking-[0.2em] shadow-lg">
+                                                        MAIS POPULAR
+                                                    </span>
+                                                )}
+
+                                                <div className="flex justify-between items-start mb-5">
+                                                    <div>
+                                                        <h4 className="text-white font-display font-bold text-lg tracking-widest leading-none">PLANO {plan.name}</h4>
+                                                        <p className="text-gray-600 text-[10px] mt-2 uppercase font-bold tracking-tighter">{plan.sub}</p>
+                                                    </div>
+                                                    <span className="text-gray-400 font-sans font-bold text-[10px] uppercase tracking-widest">{plan.price}</span>
+                                                </div>
+
+                                                <div className="space-y-2 mt-4">
+                                                    {plan.items.map((item, iidx) => (
+                                                        <div key={iidx} className="flex items-center gap-2">
+                                                            <Check size={12} className="text-[#FF5500]" strokeWidth={4} />
+                                                            <span className="text-gray-400 text-[11px] font-medium opacity-80">{item}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* ABA 1: ESTRUTURAÇÃO */}
                     {activeTab === 0 && (
                         <div className="grid lg:grid-cols-2 gap-24 items-center animate-fade-in-up">
@@ -60,7 +173,6 @@ const StrategicSolutions = () => {
                                     Nossa mentoria vai além do básico. Ajudamos você a estruturar seu negócio do zero, definir processos, organizar finanças e criar um plano de crescimento sustentável.
                                 </p>
 
-                                {/* 5. OTIMIZAÇÃO DO GRID DE ÍCONES (Hierarquia) */}
                                 <div className="grid md:grid-cols-2 gap-y-12 gap-x-10 mb-16">
                                     {[
                                         { icon: Shield, title: 'Diagnóstico Completo', sub: 'Análise profunda do seu negócio' },
@@ -88,9 +200,7 @@ const StrategicSolutions = () => {
                                 </button>
                             </div>
 
-                            {/* 2. PROFUNDIDADE NOS CARDS (Efeito Spotlight) */}
                             <div className="relative group">
-                                {/* Spotlight Background */}
                                 <div className="absolute -inset-24 bg-[#FF5500]/5 blur-[140px] rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-1000" />
 
                                 <div className="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 border-t-white/25 rounded-2xl p-12 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
@@ -175,7 +285,6 @@ const StrategicSolutions = () => {
                                         <GraduationCap size={28} className="text-white" />
                                     </div>
 
-                                    {/* 3. LIMPEZA DA TIPOGRAFIA DE PREÇO */}
                                     <div className="mb-14">
                                         <p className="text-gray-600 font-mono text-[10px] uppercase tracking-[0.2em] line-through mb-1">De R$297</p>
                                         <div className="flex items-baseline gap-3">
@@ -205,109 +314,6 @@ const StrategicSolutions = () => {
                                         Quero Garantir Minha Vaga
                                         <ChevronRight size={22} />
                                     </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* ABA 3: GESTÃO */}
-                    {activeTab === 2 && (
-                        <div className="grid lg:grid-cols-2 gap-24 items-center animate-fade-in-up">
-                            <div>
-                                <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
-                                    Deixe seu tráfego <br />
-                                    <span className="text-[#FF5500]">com especialistas</span>
-                                </h2>
-                                <p className="text-gray-400 font-sans text-lg mb-14 max-w-xl leading-relaxed">
-                                    Nossa equipe cuida de todas as suas campanhas enquanto você foca no que realmente importa: seu negócio.
-                                </p>
-
-                                <div className="grid md:grid-cols-2 gap-y-12 gap-x-10 mb-16">
-                                    {[
-                                        { icon: TrendingUp, title: 'Meta & Google Ads', sub: 'Gestão completa de campanhas' },
-                                        { icon: Server, title: 'Relatórios Semanais', sub: 'Acompanhamento detalhado' },
-                                        { icon: Zap, title: 'Otimização Contínua', sub: 'Melhorias constantes' },
-                                        { icon: Headphones, title: 'Suporte Dedicado', sub: 'WhatsApp exclusivo' },
-                                        { icon: Shield, title: 'Ativos Próprios', sub: 'BMs e contas da BW' },
-                                        { icon: Medal, title: 'ROI 5x+', sub: 'Retorno comprovado' },
-                                    ].map((item, idx) => (
-                                        <div key={idx} className="flex gap-5 group">
-                                            <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center shrink-0 group-hover:border-[#FF5500]/30 transition-all duration-500">
-                                                <item.icon size={22} className="text-[#FF5500]" strokeWidth={1.5} />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-white font-display font-bold text-xs uppercase tracking-widest mb-1">{item.title}</h4>
-                                                <p className="text-gray-500 font-sans text-[11px] leading-relaxed italic">{item.sub}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <button className={masterButtonStyle}>
-                                    Conhecer os Planos
-                                    <ChevronRight size={18} />
-                                </button>
-                            </div>
-
-                            <div className="relative group">
-                                <div className="absolute -inset-24 bg-white/5 blur-[140px] rounded-full opacity-20" />
-
-                                <div className="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 border-t-white/25 rounded-2xl p-10 shadow-2xl">
-                                    <h3 className="text-2xl font-display font-bold mb-2 text-white uppercase tracking-tight">Nossos Planos de Gestão</h3>
-                                    <p className="text-gray-500 font-mono text-[9px] uppercase tracking-[0.2em] mb-10 block font-bold">Escolha o ideal para seu momento</p>
-
-                                    <div className="space-y-4">
-                                        {[
-                                            {
-                                                name: 'START',
-                                                sub: 'Tráfego Local',
-                                                price: 'Sob consulta',
-                                                items: ['Até R$10.000/mês em ads', 'Facebook e Google Ads', 'Relatórios quinzenais', 'Contingência inclusa']
-                                            },
-                                            {
-                                                name: 'PRO',
-                                                sub: 'Tráfego Nacional',
-                                                price: 'Sob consulta',
-                                                popular: true,
-                                                items: ['Até R$20.000/mês em ads', 'Meta, Google e Instagram Ads', 'Relatórios semanais', 'Criativos com testes A/B']
-                                            },
-                                            {
-                                                name: 'SCALE',
-                                                sub: 'Tráfego Internacional',
-                                                price: 'Sob consulta',
-                                                items: ['Investimento ilimitado', 'Meta, Google e TikTok Ads', 'Suporte 24/7', 'Criativos premium e UGC']
-                                            }
-                                        ].map((plan, idx) => (
-                                            <div key={idx} className={`relative p-8 rounded-xl border transition-all duration-500 overflow-hidden group/plan ${plan.popular
-                                                ? 'bg-[#FF5500]/5 border-[#FF5500]/20 shadow-[0_0_40px_rgba(255,85,0,0.05)]'
-                                                : 'bg-white/[0.02] border-white/5 hover:border-white/10'
-                                                }`}>
-                                                {plan.popular && (
-                                                    <span className="absolute top-0 right-0 bg-[#FF5500] text-white text-[9px] font-mono font-black px-4 py-1.5 rounded-bl-lg tracking-[0.2em] shadow-lg">
-                                                        MAIS POPULAR
-                                                    </span>
-                                                )}
-
-                                                <div className="flex justify-between items-start mb-5">
-                                                    <div>
-                                                        <h4 className="text-white font-display font-bold text-lg tracking-widest leading-none">PLANO {plan.name}</h4>
-                                                        <p className="text-gray-600 text-[10px] mt-2 uppercase font-bold tracking-tighter">{plan.sub}</p>
-                                                    </div>
-                                                    {/* 3. PREÇO "SOB CONSULTA" DISCRETO */}
-                                                    <span className="text-gray-400 font-sans font-bold text-[10px] uppercase tracking-widest">{plan.price}</span>
-                                                </div>
-
-                                                <div className="space-y-2 mt-4">
-                                                    {plan.items.map((item, iidx) => (
-                                                        <div key={iidx} className="flex items-center gap-2">
-                                                            <Check size={12} className="text-[#FF5500]" strokeWidth={4} />
-                                                            <span className="text-gray-400 text-[11px] font-medium opacity-80">{item}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
                                 </div>
                             </div>
                         </div>
