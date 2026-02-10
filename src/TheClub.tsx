@@ -80,7 +80,7 @@ const TheClub = () => {
                                     <div className="w-5 h-5 rounded-sm border-2 border-[#FF5500] flex items-center justify-center text-[#FF5500]">
                                         <Check size={12} strokeWidth={4} />
                                     </div>
-                                    <span className="text-gray-300 font-bold text-base uppercase tracking-wider">DASHBOARD COMPLETO</span>
+                                    <span className="text-gray-300 font-bold text-base uppercase tracking-wider">SUPORTE 24 HORAS</span>
                                 </div>
                             </div>
                         </div>
