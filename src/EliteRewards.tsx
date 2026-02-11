@@ -9,7 +9,6 @@ import {
     Camera,
     ArrowRight,
     Target,
-    ShieldCheck,
     Award
 } from 'lucide-react';
 
