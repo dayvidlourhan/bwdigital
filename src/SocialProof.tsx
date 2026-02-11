@@ -4,24 +4,28 @@ import { motion } from 'framer-motion';
 const SocialProof = () => {
     const stats = [
         {
-            icon: <Trophy className="w-10 h-10 text-[#FF5500]" />, // Reduzido para h-10
-            color: "rgba(255, 85, 0, 0.15)", // Suavizado
-            tag: "RANK_A"
+            icon: <Trophy className="w-10 h-10 text-[#FF5500]" />,
+            color: "rgba(255, 85, 0, 0.15)",
+            tag: "RANK_A",
+            image: '/1P_11zon.webp'
         },
         {
             icon: <Medal className="w-10 h-10 text-white/90" />,
             color: "rgba(255, 255, 255, 0.1)",
-            tag: "LEVEL_UP"
+            tag: "LEVEL_UP",
+            image: '/2P_11zon.webp'
         },
         {
             icon: <Gem className="w-10 h-10 text-[#A5F3FC]" />,
             color: "rgba(165, 243, 252, 0.1)",
-            tag: "RESERVE"
+            tag: "RESERVE",
+            image: '/3_11zon.webp'
         },
         {
             icon: <Rocket className="w-10 h-10 text-[#FF5500]" />,
             color: "rgba(255, 85, 0, 0.15)",
-            tag: "SCALE_X"
+            tag: "SCALE_X",
+            image: '/3P_11zon.webp'
         }
     ];
 
@@ -92,25 +96,32 @@ const SocialProof = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05 }}
-                            className="aspect-[3/4] relative flex items-center justify-center rounded-3xl bg-white/[0.03] border border-white/10 group transition-all duration-500 hover:border-[#FF5500]/30 hover:shadow-[0_0_30px_rgba(255,85,0,0.15)]"
+                            className="aspect-[3/4] relative flex items-center justify-center rounded-3xl bg-white/[0.03] border border-white/10 group transition-all duration-500 hover:border-[#FF5500]/30 hover:shadow-[0_0_30px_rgba(255,85,0,0.15)] overflow-hidden"
                         >
-                            {/* Reflection line synced with AtivosAds */}
-                            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            {/* Image or Icon Fallback */}
+                            {stat.image ? (
+                                <img
+                                    src={stat.image}
+                                    alt={stat.tag}
+                                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                />
+                            ) : (
+                                <>
+                                    {/* Hologram Glow suave */}
+                                    <div
+                                        className="absolute inset-0 m-auto w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-60 transition-all duration-700"
+                                        style={{ backgroundColor: stat.color }}
+                                    />
+                                    <div className="relative z-10 flex flex-col items-center gap-4">
+                                        <div className="p-2 transition-all duration-700 group-hover:scale-110">
+                                            {stat.icon}
+                                        </div>
+                                    </div>
+                                </>
+                            )}
 
-                            {/* Hologram Glow suave */}
-                            <div
-                                className="absolute inset-0 m-auto w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-60 transition-all duration-700"
-                                style={{ backgroundColor: stat.color }}
-                            />
-
-                            <div className="relative z-10 flex flex-col items-center gap-4">
-                                <div className="p-2 transition-all duration-700 group-hover:scale-110">
-                                    {stat.icon}
-                                </div>
-                                <span className="font-mono text-[8px] text-white/30 tracking-[0.4em] uppercase group-hover:text-[#FF5500]/60 transition-colors">
-                                    {stat.tag}
-                                </span>
-                            </div>
+                            {/* Reflection line */}
+                            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
                         </motion.div>
                     ))}
                 </div>

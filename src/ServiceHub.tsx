@@ -248,8 +248,8 @@ const ServiceHub = () => {
                 </div>
 
                 {/* Layer 2: Pipeline de Processo - UI-REFINED */}
-                <div className="mt-60 mb-60">
-                    <div className="text-center mb-32">
+                <div className="mt-24 mb-24">
+                    <div className="text-center mb-16">
                         <h3 className="text-[11px] font-mono text-[#FF5500] tracking-[0.5em] uppercase">COMO FUNCIONA</h3>
                     </div>
                     <div
