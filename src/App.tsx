@@ -5,6 +5,10 @@ import StrategicSolutions from './StrategicSolutions'
 import MarketTrends from './MarketTrends'
 import ExclusiveTools from './ExclusiveTools'
 import TheClub from './TheClub'
+import EliteRewards from './EliteRewards'
+import SocialProof from './SocialProof'
+import FAQ from './FAQ'
+import Footer from './Footer'
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
       <MarketTrends />
       <ExclusiveTools />
       <TheClub />
+      <EliteRewards />
+      <SocialProof />
+      <FAQ />
+      <Footer />
     </>
   )
 }
