@@ -145,7 +145,7 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="relative bg-[#000] py-40 overflow-hidden">
+        <section id="faq" className="relative bg-[#000] py-24 overflow-hidden">
             {/* BACKGROUND SYSTEM: Grid + Atmospheric Lighting */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="background-container !opacity-[0.03]" />
@@ -156,7 +156,7 @@ const FAQ = () => {
             <div className="max-w-5xl mx-auto px-6 relative z-10">
 
                 {/* 1. CABEÇALHO (Industrial & Technical) */}
-                <div className="text-center mb-32 relative">
+                <div className="text-center mb-20 relative">
 
                     <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter uppercase leading-none">
                         Dúvidas <span className="text-[#FF5500] drop-shadow-[0_0_20px_rgba(255,85,0,0.3)]">Frequentes</span>
@@ -173,7 +173,7 @@ const FAQ = () => {
                 </div>
 
                 {/* 2. A LISTA (High-End Accordions) */}
-                <div className="mb-40 grid gap-1">
+                <div className="mb-24 grid gap-1">
                     {faqData.map((item, index) => (
                         <AccordionItem
                             key={index}
@@ -186,41 +186,19 @@ const FAQ = () => {
                     ))}
                 </div>
 
-                {/* 4. RODAPÉ (Tactile Industrial Card) */}
-                <div className="relative group max-w-4xl mx-auto">
-                    {/* Shadow/Glow layers */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[#FF5500]/20 to-orange-500/0 rounded-[24px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                {/* 4. RODAPÉ (CTA Button Only) */}
+                <div className="flex justify-center mb-6 pb-6 relative z-10">
+                    <button className="relative h-20 px-12 rounded-2xl bg-gradient-to-b from-[#FF6A1A] to-[#E54800] border-t border-white/20 text-sm font-sans font-extrabold text-white uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-4 active:scale-[0.97] outline-none group/btn shadow-[0_20px_50px_-10px_rgba(255,85,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:shadow-[0_30px_60px_-5px_rgba(255,85,0,0.5)] hover:-translate-y-2">
+                        <MessageCircle size={22} className="transition-transform group-hover/btn:scale-110" strokeWidth={2.5} />
+                        Falar com Especialista
+                    </button>
 
-                    <div className="relative rounded-[24px] border border-white/10 bg-[#080808] p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-16 group-hover:border-[#FF5500]/20 transition-colors duration-500">
-
-
-                        <div className="flex-1 text-center md:text-left relative z-10">
-                            <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                                <span className="h-2 w-2 rounded-full bg-[#FF5500] animate-pulse" />
-                                <span className="text-[10px] font-mono text-[#FF5500] tracking-[0.3em] font-bold uppercase">Suporte de Elite Ativo</span>
-                            </div>
-
-                            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4 tracking-tight leading-tight">
-                                Precisa de uma <br />
-                                <span className="text-white/60 italic">análise técnica?</span>
-                            </h3>
-
-                            <p className="text-gray-500 font-sans text-xs md:text-sm leading-relaxed antialiased max-w-sm md:max-w-none mx-auto">
-                                Nossos arquitetos de tráfego estão prontos para auditar sua operação e desenhar o roadmap para seus próximos múltiplos 7 dígitos.
-                            </p>
-                        </div>
-
-                        <div className="shrink-0 relative z-10 w-full md:w-auto">
-                            <button className="relative w-full md:w-auto h-16 px-10 rounded-xl bg-gradient-to-b from-[#FF6A1A] to-[#E54800] border-t border-white/20 text-[12px] font-sans font-extrabold text-white uppercase tracking-[0.12em] transition-all flex items-center justify-center gap-4 active:scale-[0.97] outline-none group/btn shadow-[0_10px_30px_-5px_rgba(255,85,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(255,85,0,0.5)] hover:-translate-y-1">
-                                <MessageCircle size={20} className="transition-transform group-hover/btn:scale-110" strokeWidth={2.5} />
-                                Falar com Especialista
-                            </button>
-                        </div>
-                    </div>
+                    {/* Subtle Glow beneath the button */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-[#FF5500]/20 blur-[60px] pointer-events-none" />
                 </div>
 
                 {/* Industrial Divider Section */}
-                <div className="mt-40 flex flex-col items-center gap-8 opacity-20 group">
+                <div className="mt-20 flex flex-col items-center gap-8 opacity-20 group">
                     <div className="flex items-center gap-4">
                         <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/20" />
                         <ShieldCheck size={20} className="text-[#FF5500]" />
