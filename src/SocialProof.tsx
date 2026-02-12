@@ -173,15 +173,15 @@ const SocialProof = () => {
 
                     <div className="flex overflow-hidden px-4 md:px-0">
                         <motion.div
-                            className="flex gap-6 md:gap-7 py-20 will-change-transform" // Applied will-change-transform for performance
+                            className="flex gap-6 md:gap-7 py-20 will-change-transform flex-nowrap" // Applied will-change-transform for performance
                             animate={{
-                                x: [0, -((testimonials.length * 350) + (testimonials.length * 28))]
+                                x: ["0%", "-50%"]
                             }}
                             transition={{
                                 x: {
                                     repeat: Infinity,
                                     repeatType: "loop",
-                                    duration: 60,
+                                    duration: 40,
                                     ease: "linear",
                                 },
                             }}

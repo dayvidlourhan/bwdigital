@@ -204,13 +204,13 @@ const ServiceHub = () => {
 
             {/* Technical Divider (ENGINE CORE TRANSMISSION) */}
             <div className="relative w-full py-24 flex items-center justify-center z-20">
-                <div className="absolute w-full h-px bg-white/10" />
-                <div className="relative px-6 bg-[#050505] flex items-center gap-4">
-                    <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 flex items-center justify-center">
+                <div className="absolute w-full h-px bg-white/10 hidden md:block" />
+                <div className="relative px-0 md:px-6 bg-[#050505] flex items-center gap-4 text-center w-full justify-center">
+                    <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 hidden md:flex items-center justify-center">
                         <div className="w-1 h-1 bg-[#FF5500]" />
                     </div>
-                    <span className="text-[10px] font-mono text-white/40 tracking-[0.6em] uppercase">Engine Core Transmission</span>
-                    <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 flex items-center justify-center">
+                    <span className="text-[9px] md:text-[10px] font-mono text-white/40 tracking-[0.2em] md:tracking-[0.6em] uppercase">Engine Core Transmission</span>
+                    <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 hidden md:flex items-center justify-center">
                         <div className="w-1 h-1 bg-[#FF5500]" />
                     </div>
                 </div>
@@ -392,7 +392,7 @@ const ServiceHub = () => {
                         INICIAR ANÁLISE DE PROJETO
                         <RocketIcon className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </button>
-                    <span className="mt-10 text-[11px] font-mono text-gray-700 uppercase tracking-[0.5em]">Scalability Infrastructure Protocol</span>
+                    <span className="mt-10 text-[9px] md:text-[11px] font-mono text-gray-700 uppercase tracking-[0.2em] md:tracking-[0.5em] text-center">Scalability Infrastructure Protocol</span>
                 </div>
             </div>
         </section>

@@ -226,9 +226,9 @@ const EliteRewards = () => {
                                     </div>
                                     <p className="text-white/30 font-mono text-[9px] mt-1.5 text-right">Próxima vaga disponível</p>
                                 </div>
-                                <button className="shrink-0 w-full md:w-auto px-5 py-3 rounded-lg bg-[#FF5500] text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-[#FF6600] transition-all duration-300 shadow-[0_0_20px_rgba(255,85,0,0.3)] active:scale-95">
+                                <a href="https://digitalbw.com.br/auth" className="shrink-0 w-full md:w-auto px-5 py-3 rounded-lg bg-[#FF5500] text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-[#FF6600] transition-all duration-300 shadow-[0_0_20px_rgba(255,85,0,0.3)] active:scale-95 flex items-center justify-center">
                                     Começar Agora
-                                </button>
+                                </a>
                             </div>
 
 
@@ -361,10 +361,10 @@ const EliteRewards = () => {
 
                 {/* MASTER CTA */}
                 <div className="mt-20">
-                    <button className={masterButtonStyle}>
+                    <a href="https://digitalbw.com.br/auth" className={masterButtonStyle}>
                         COMEÇAR A ACUMULAR AGORA
                         <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-300" />
-                    </button>
+                    </a>
                 </div>
 
             </div>

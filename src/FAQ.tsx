@@ -198,13 +198,13 @@ const FAQ = () => {
                 </div>
 
                 {/* Industrial Divider Section */}
-                <div className="mt-20 flex flex-col items-center gap-8 opacity-20 group">
+                <div className="mt-20 flex flex-col items-center gap-8 opacity-30 md:opacity-20 group">
                     <div className="flex items-center gap-4">
-                        <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/20" />
-                        <ShieldCheck size={20} className="text-[#FF5500]" />
-                        <div className="h-px w-24 bg-gradient-to-l from-transparent to-white/20" />
+                        <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/20 hidden md:block" />
+                        <ShieldCheck size={20} className="text-[#FF5500] hidden md:block" />
+                        <div className="h-px w-24 bg-gradient-to-l from-transparent to-white/20 hidden md:block" />
                     </div>
-                    <span className="text-[9px] font-mono text-white/40 tracking-[0.8em] uppercase group-hover:text-[#FF5500]/60 transition-colors duration-700">BW Digital Global Infrastructure</span>
+                    <span className="text-[9px] font-mono text-white/40 md:text-white/40 tracking-[0.2em] md:tracking-[0.8em] uppercase group-hover:text-[#FF5500]/60 transition-colors duration-700 text-center">BW Digital Global Infrastructure</span>
                 </div>
             </div>
         </section>
