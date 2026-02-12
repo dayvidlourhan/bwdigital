@@ -1,5 +1,6 @@
 import { Trophy, Medal, Gem, Rocket, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SectionHeader from './components/ui/SectionHeader';
 
 const SocialProof = () => {
     const stats = [
@@ -99,7 +100,7 @@ const SocialProof = () => {
     const cardBaseStyle = "relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 hover:bg-white/[0.08] hover:border-[#FF5500]/40 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu w-[300px] md:w-[350px] flex-shrink-0";
 
     return (
-        <section id="social" className="relative bg-[#050505] py-24 md:py-48 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
+        <section id="social" className="relative bg-[#050505] pt-24 md:pt-48 pb-12 md:pb-20 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
 
             {/* Background Atmosphere synced with project style */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -108,27 +109,15 @@ const SocialProof = () => {
 
             <div className="max-w-7xl mx-auto relative z-10">
 
-                {/* 1. CABEÇALHO - Consistent Header System */}
-                <div className="text-center mb-16 md:mb-24">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase"
-                    >
-                        NOSSOS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">CLIENTES</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed px-4"
-                    >
-                        Conquistas, resultados operacionais e feedback de quem já utiliza os serviços da BW Digital.
-                    </motion.p>
-                </div>
+                <SectionHeader
+                    title="NOSSOS"
+                    highlight="CLIENTES"
+                    subtitle="Conquistas, resultados operacionais e feedback de quem já utiliza os serviços da BW Digital."
+                    className="mb-16 md:mb-24"
+                />
 
                 {/* 2. GRID SUPERIOR (Holo-Glass Infrastructure) - Synchronized with AtivosAds small cards */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 mb-24">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 mb-16">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
@@ -173,7 +162,7 @@ const SocialProof = () => {
 
                     <div className="flex overflow-hidden px-4 md:px-0">
                         <motion.div
-                            className="flex gap-6 md:gap-7 py-20 will-change-transform flex-nowrap" // Applied will-change-transform for performance
+                            className="flex gap-6 md:gap-7 py-8 will-change-transform flex-nowrap"
                             animate={{
                                 x: ["0%", "-50%"]
                             }}

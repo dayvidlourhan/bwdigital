@@ -1,4 +1,5 @@
 import { Smartphone, Check, ArrowUpRight } from 'lucide-react';
+import MasterButton from './components/ui/MasterButton';
 
 const IPhoneMockup = ({ className = "" }) => {
     return (
@@ -88,10 +89,10 @@ const TheClub = () => {
 
                         {/* Botão Tactile Industrial */}
                         <div className="pt-4 flex justify-center lg:justify-start">
-                            <button className="relative h-16 px-10 rounded-md bg-gradient-to-b from-[#FF6600] to-[#FF4400] text-sm font-sans font-extrabold text-white uppercase tracking-[0.15em] transition-all flex items-center justify-center gap-4 active:scale-[0.97] outline-none group shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_10px_20px_-5px_rgba(255,85,0,0.4)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3),0_15px_30px_-5px_rgba(255,85,0,0.5)] hover:-translate-y-1">
+                            <MasterButton className="h-16 px-10 rounded-md">
                                 <span className="text-base">INSTALAR APP BW</span>
                                 <ArrowUpRight size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </button>
+                            </MasterButton>
                         </div>
                     </div>
                 </div>

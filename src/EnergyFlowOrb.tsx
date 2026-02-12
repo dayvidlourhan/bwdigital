@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Cpu, Shield, Crosshair, Lightbulb, Server, Activity } from 'lucide-react';
+import { Cpu, Shield, Crosshair, Lightbulb, Server, Activity, type LucideIcon } from 'lucide-react';
 
 const nodesData = [
     {
@@ -59,7 +59,15 @@ const nodesData = [
     },
 ];
 
-const ConnectionPath = ({ d, isEnergized, delay = 0, length = 1000, duration = 1500 }: any) => {
+interface ConnectionPathProps {
+    d: string;
+    isEnergized: boolean;
+    delay?: number;
+    length?: number;
+    duration?: number;
+}
+
+const ConnectionPath = ({ d, isEnergized, delay = 0, length = 1000, duration = 1500 }: ConnectionPathProps) => {
     return (
         <g style={{
             opacity: isEnergized ? 1 : 0,
@@ -138,7 +146,22 @@ const ConnectionPath = ({ d, isEnergized, delay = 0, length = 1000, duration = 1
     );
 };
 
-const OrbNode = ({ data, isEnergized }: any) => {
+interface OrbNodeProps {
+    data: {
+        id: number;
+        icon: LucideIcon;
+        label: string;
+        gridPos: { left: string; top: string };
+        orbitPos: { left: string; top: string };
+        animClass: string;
+        delay: number;
+        pathLength: number;
+        lineDuration: number;
+    };
+    isEnergized: boolean;
+}
+
+const OrbNode = ({ data, isEnergized }: OrbNodeProps) => {
     const { icon: Icon, gridPos, orbitPos, animClass, delay } = data;
     const currentPos = isEnergized ? gridPos : orbitPos;
 

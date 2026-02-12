@@ -1,33 +1,19 @@
 import { TrendingUp, Bot, Search, Swords, Trophy, Monitor } from 'lucide-react';
+import SectionHeader from './components/ui/SectionHeader';
 
 const MarketTrends = () => {
     return (
-        <section id="mercado" className="relative bg-[#050505] py-32 overflow-hidden selection:bg-[#FF5500]/30">
+        <section id="mercado" className="relative bg-[#050505] pt-32 pb-32 overflow-hidden selection:bg-[#FF5500]/30">
             {/* Background Decorative Element */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-
-                {/* Header - Centralizado */}
-                <div className="text-center mb-24 animate-fade-in-up">
-                    <div className="inline-flex items-center gap-2.5 h-7 px-4 rounded-full border border-white/10 bg-white/[0.01] backdrop-blur-sm mb-10 shadow-inner group cursor-default">
-                        <div className="relative flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#FF5500] animate-ping absolute opacity-60"></div>
-                            <div className="relative w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_10px_#FF5500]"></div>
-                        </div>
-                        <span className="text-[11px] font-semibold text-white/90 tracking-widest uppercase font-sans">
-                            Inteligência de Mercado
-                        </span>
-                    </div>
-
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tighter uppercase">
-                        Mercado em <span className="text-[#FF5500]">Alta</span>
-                    </h2>
-
-                    <p className="text-gray-500 font-sans text-base md:text-lg mx-auto leading-relaxed max-w-2xl">
-                        Análises avançadas com base em dados reais e Inteligência Artificial.
-                    </p>
-                </div>
+                <SectionHeader
+                    title="Mercado em"
+                    highlight="Alta"
+                    subtitle="Análises avançadas com base em dados reais e Inteligência Artificial."
+                    className="mb-24"
+                />
 
                 {/* Bento Grid Structure */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">

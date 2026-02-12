@@ -4,8 +4,10 @@ import {
     Bot, Users, Search, Palette, Mail, Rocket, Box, ShoppingBag,
     ShieldAlert, MapPin, Layers, Briefcase, Globe, Film, Headphones,
     BarChart, Server, FileInput, Cpu, Zap, Shield, CheckCircle, Clock, Lock,
-    RefreshCw, Target
+    RefreshCw, Target, type LucideIcon
 } from 'lucide-react';
+import SectionHeader from './components/ui/SectionHeader';
+import MasterButton from './components/ui/MasterButton';
 
 const RocketIcon = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -67,23 +69,19 @@ const steps = [
     },
 ];
 
-const ServiceTicket = ({ title, icon: Icon }: any) => (
+interface ServiceTicketProps {
+    title: string;
+    icon: LucideIcon;
+}
+
+const ServiceTicket = ({ title, icon: Icon }: ServiceTicketProps) => (
     <div className="group flex flex-col items-center gap-2 flex-shrink-0 w-24 cursor-pointer transition-all duration-500">
         <div className="relative">
-            {/* Tech Radar Pulse - Outer Ring */}
             <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
-
-            {/* Tech Radar Pulse - Inner Ring */}
             <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
-
-            {/* Digital Glow */}
             <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            {/* Main Circle - Tech Core with Internal "Spice" Volume */}
             <div className="relative w-16 h-16 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
-                {/* Internal Spotlight effect */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
-
                 <Icon
                     size={24}
                     strokeWidth={1}
@@ -91,11 +89,9 @@ const ServiceTicket = ({ title, icon: Icon }: any) => (
                 />
             </div>
         </div>
-
-        {/* Title */}
         <div className="text-center">
-            <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.2em] leading-tight group-hover:text-white transition-colors duration-500">
-                {title.split(' ').map((word: string, i: number) => (
+            <span className="text-[11px] font-mono text-white/50 uppercase tracking-[0.15em] leading-tight group-hover:text-white transition-colors duration-500">
+                {title.split(' ').map((word, i) => (
                     <span key={i} className="block">
                         {word}
                     </span>
@@ -105,13 +101,24 @@ const ServiceTicket = ({ title, icon: Icon }: any) => (
     </div>
 );
 
-const PipelineNode = ({ step, isLast, index, activeIndex, onHover }: any) => {
+interface PipelineNodeProps {
+    step: {
+        id: string;
+        title: string;
+        icon: LucideIcon;
+    };
+    isLast: boolean;
+    index: number;
+    activeIndex: number;
+    onHover: (index: number) => void;
+}
+
+const PipelineNode = ({ step, isLast, index, activeIndex, onHover }: PipelineNodeProps) => {
     const isEngaged = activeIndex >= index;
     const isLineEngaged = activeIndex > index;
-    const totalSteps = 4; // steps.length
+    const totalSteps = 4;
     const speed = 300;
 
-    // Delay dinâmico: Ida (index * speed) | Volta ((total - 1 - index) * speed)
     const expansionDelay = index * speed;
     const retractionDelay = (totalSteps - 1 - index) * speed;
     const activeDelay = isEngaged ? expansionDelay : retractionDelay;
@@ -122,7 +129,6 @@ const PipelineNode = ({ step, isLast, index, activeIndex, onHover }: any) => {
             className="flex-1 flex flex-col items-center group relative"
             onMouseEnter={() => onHover(index)}
         >
-            {/* Connector Line - Realistic Sequential Flow (In & Out) */}
             {!isLast && (
                 <div className="absolute top-8 left-1/2 w-full h-[4px] bg-white/5 z-0 hidden md:block overflow-hidden">
                     <div
@@ -136,7 +142,6 @@ const PipelineNode = ({ step, isLast, index, activeIndex, onHover }: any) => {
             )}
 
             <div className="relative z-10 flex flex-col items-center">
-                {/* Technical Diamond Frame */}
                 <div
                     className={`relative w-16 h-16 flex items-center justify-center transition-all duration-500 ${isEngaged ? 'scale-110' : 'group-hover:scale-110'}`}
                     style={{
@@ -151,10 +156,9 @@ const PipelineNode = ({ step, isLast, index, activeIndex, onHover }: any) => {
                     />
                 </div>
 
-                {/* Labels */}
-                <div className="mt-12 text-center max-w-[160px]">
+                <div className="mt-12 text-center max-w-[220px]">
                     <span
-                        className={`block text-[10px] font-mono tracking-[0.5em] uppercase mb-4 transition-colors duration-500 ${isEngaged ? 'text-white' : 'text-gray-600 group-hover:text-gray-300'}`}
+                        className={`block text-[15px] font-mono tracking-[0.5em] uppercase mb-4 transition-colors duration-500 ${isEngaged ? 'text-white' : 'text-white/30 group-hover:text-white/60'}`}
                         style={{
                             transitionDelay: `${activeDelay}ms`
                         }}
@@ -162,7 +166,7 @@ const PipelineNode = ({ step, isLast, index, activeIndex, onHover }: any) => {
                         {step.id}
                     </span>
                     <p
-                        className={`font-sans text-[10px] font-medium leading-relaxed transition-colors duration-500 ${isEngaged ? 'text-gray-400' : 'text-gray-600 group-hover:text-gray-400'}`}
+                        className={`font-sans text-[14px] font-medium leading-relaxed transition-colors duration-500 ${isEngaged ? 'text-white/90' : 'text-white/30 group-hover:text-white/50'}`}
                         style={{
                             transitionDelay: `${activeDelay}ms`
                         }}
@@ -180,11 +184,8 @@ const ServiceHub = () => {
 
     return (
         <section id="servicos" className="relative bg-[#050505] pb-32 pt-0">
-
-            {/* Background grid effect */}
             <div className="background-container !opacity-[0.08]" />
 
-            {/* PREMIUM FUSION GRADIENT - Ultra-smooth Session Transition */}
             <div
                 className="absolute top-0 left-0 w-full pointer-events-none z-10"
                 style={{
@@ -202,14 +203,13 @@ const ServiceHub = () => {
                 }}
             />
 
-            {/* Technical Divider (ENGINE CORE TRANSMISSION) */}
             <div className="relative w-full py-24 flex items-center justify-center z-20">
                 <div className="absolute w-full h-px bg-white/10 hidden md:block" />
                 <div className="relative px-0 md:px-6 bg-[#050505] flex items-center gap-4 text-center w-full justify-center">
                     <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 hidden md:flex items-center justify-center">
                         <div className="w-1 h-1 bg-[#FF5500]" />
                     </div>
-                    <span className="text-[9px] md:text-[10px] font-mono text-white/40 tracking-[0.2em] md:tracking-[0.6em] uppercase">Engine Core Transmission</span>
+                    <span className="text-[10px] md:text-xs font-mono text-white/40 tracking-[0.3em] md:tracking-[0.6em] uppercase">Engine Core Transmission</span>
                     <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 hidden md:flex items-center justify-center">
                         <div className="w-1 h-1 bg-[#FF5500]" />
                     </div>
@@ -217,23 +217,15 @@ const ServiceHub = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 pt-12">
-                {/* Layer 1: Header & Service Marquee */}
-                <div id="servicos" className="text-center mb-16 md:mb-20 animate-fade-in-up">
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 uppercase tracking-tighter leading-tight">
-                        <span className="text-white">Solicite um </span>
-                        <span className="text-[#FF5500]">Serviço Especializado</span>
-                    </h2>
-                    <p className="text-gray-400 text-sm md:text-base font-sans max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
-                        Faça sua solicitação abaixo e a BW Digital conecta você a um profissional / especialista validado em até 72 horas.
-                    </p>
-                </div>
+                <SectionHeader
+                    title="Solicite um"
+                    highlight="Serviço Especializado"
+                    subtitle="Faça sua solicitação abaixo e a BW Digital conecta você a um profissional / especialista validado em até 72 horas."
+                    className="mb-16 md:mb-20"
+                />
 
-                {/* Carousel Container with Balanced Layout */}
                 <div className="relative pt-6 pb-16 -mx-6">
-                    {/* Glassmorphism Rectangle - Shifted up */}
                     <div className="absolute inset-x-0 -top-2 h-48 bg-white/[0.01] backdrop-blur-[2px] border-y border-white/[0.03] z-0" />
-
-                    {/* Marquee Container */}
                     <div className="relative flex overflow-hidden z-10 will-change-transform">
                         <div className="flex gap-10 animate-marquee py-4">
                             {[...services, ...services].map((service, idx) => (
@@ -241,16 +233,13 @@ const ServiceHub = () => {
                             ))}
                         </div>
                     </div>
-
-                    {/* Edge Fades for the Marquee */}
                     <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
                 </div>
 
-                {/* Layer 2: Pipeline de Processo - UI-REFINED */}
                 <div className="mt-24 mb-24">
                     <div className="text-center mb-16">
-                        <h3 className="text-[11px] font-mono text-[#FF5500] tracking-[0.5em] uppercase">COMO FUNCIONA</h3>
+                        <h3 className="text-[13px] font-mono text-[#FF5500] tracking-[0.5em] uppercase">COMO FUNCIONA</h3>
                     </div>
                     <div
                         className="flex flex-col md:flex-row items-center md:items-start justify-between gap-16 md:gap-4 max-w-6xl mx-auto px-4"
@@ -269,31 +258,27 @@ const ServiceHub = () => {
                     </div>
                 </div>
 
-                {/* Layer 3: Real-time Status Panel */}
                 <div className="max-w-4xl mx-auto mb-24 md:mb-40 px-4">
                     <div className="rounded-xl bg-[#080808] border border-white/5 p-6 md:p-8 relative overflow-hidden backdrop-blur-sm">
-                        {/* Header */}
                         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 md:mb-12 pb-6 border-b border-white/5 font-mono">
-                            <span className="text-[10px] text-gray-500 uppercase tracking-[0.3em]">STATUS EM TEMPO REAL</span>
-                            <span className="text-[9px] text-[#00FF66]/40 uppercase tracking-widest">SOCKET: CONNECTED_V4</span>
+                            <span className="text-xs text-gray-500 uppercase tracking-[0.3em]">STATUS EM TEMPO REAL</span>
+                            <span className="text-[11px] text-[#00FF66]/40 uppercase tracking-widest">SOCKET: CONNECTED_V4</span>
                         </div>
 
                         <div className="relative flex flex-col gap-10">
-                            {/* Vertical Connector Line - Precise alignment */}
                             <div className="absolute left-[13.5px] top-4 bottom-4 w-[1px] bg-white/5 z-0" />
 
-                            {/* Status Items - With Engineering Details */}
                             <div className="relative z-10 flex items-center gap-6 group">
                                 <div className="w-7 h-7 rounded-full bg-[#0a0a0a] border border-[#FF5500]/40 flex items-center justify-center shadow-[0_0_10px_rgba(255,85,0,0.1)]">
                                     <RefreshCw size={13} className="text-[#FF5500] animate-spin" />
                                 </div>
                                 <div className="flex flex-wrap items-center gap-2 md:gap-5 font-mono">
                                     <div className="flex flex-col">
-                                        <span className="text-[11px] text-[#FF5500] font-bold uppercase tracking-widest">PENDENTE</span>
-                                        <span className="text-[7px] text-[#FF5500]/30 -mt-0.5 tracking-tighter">REQ_ID: 9812-BW</span>
+                                        <span className="text-xs text-[#FF5500] font-bold uppercase tracking-widest">PENDENTE</span>
+                                        <span className="text-[9px] text-[#FF5500]/30 -mt-0.5 tracking-tighter">REQ_ID: 9812-BW</span>
                                     </div>
                                     <span className="text-white/10 hidden sm:inline">—</span>
-                                    <span className="text-[10px] md:text-[11px] text-white/80 tracking-tight font-sans">Solicitação recebida no sistema</span>
+                                    <span className="text-xs md:text-sm text-white/80 tracking-tight font-sans">Solicitação recebida no sistema</span>
                                 </div>
                             </div>
 
@@ -303,11 +288,11 @@ const ServiceHub = () => {
                                 </div>
                                 <div className="flex flex-wrap items-center gap-2 md:gap-5 font-mono">
                                     <div className="flex flex-col">
-                                        <span className="text-[11px] text-[#00A3FF] font-bold uppercase tracking-widest">EM ANÁLISE</span>
-                                        <span className="text-[7px] text-[#00A3FF]/30 -mt-0.5 tracking-tighter">ALGO_PROC: ACTIVE</span>
+                                        <span className="text-xs text-[#00A3FF] font-bold uppercase tracking-widest">EM ANÁLISE</span>
+                                        <span className="text-[9px] text-[#00A3FF]/30 -mt-0.5 tracking-tighter">ALGO_PROC: ACTIVE</span>
                                     </div>
                                     <span className="text-white/10 hidden sm:inline">—</span>
-                                    <span className="text-[10px] md:text-[11px] text-white/50 tracking-tight font-sans">Triagem técnica e de viabilidade</span>
+                                    <span className="text-xs md:text-sm text-white/50 tracking-tight font-sans">Triagem técnica e de viabilidade</span>
                                 </div>
                             </div>
 
@@ -317,82 +302,46 @@ const ServiceHub = () => {
                                 </div>
                                 <div className="flex flex-wrap items-center gap-2 md:gap-5 font-mono">
                                     <div className="flex flex-col">
-                                        <span className="text-[11px] text-[#00FF66] font-bold uppercase tracking-widest">ACEITO</span>
-                                        <span className="text-[7px] text-[#00FF66]/30 -mt-0.5 tracking-tighter">NODE: PRODUCTION_01</span>
+                                        <span className="text-xs text-[#00FF66] font-bold uppercase tracking-widest">ACEITO</span>
+                                        <span className="text-[9px] text-[#00FF66]/30 -mt-0.5 tracking-tighter">NODE: PRODUCTION_01</span>
                                     </div>
                                     <span className="text-white/10 hidden sm:inline">—</span>
-                                    <span className="text-[10px] md:text-[11px] text-white font-medium tracking-tight font-sans">Especialista dedicado alocado</span>
+                                    <span className="text-xs md:text-sm text-white font-medium tracking-tight font-sans">Especialista dedicado alocado</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Layer 4: Grid de Garantias - Unified Icon Aesthetic */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto mb-24 px-4 font-sans">
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                        <div className="relative mb-6">
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
-                            <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative w-9 h-9 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
-                                <Shield size={16} strokeWidth={1} className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500" />
+                    {[
+                        { icon: Shield, title: 'Sem Custo Inicial', sub: 'Análise de viabilidade gratuita' },
+                        { icon: CheckCircle, title: 'Experts Validados', sub: 'Profissionais com track record' },
+                        { icon: Clock, title: 'SLA de 72h', sub: 'Resposta rápida e ágil' },
+                        { icon: Lock, title: 'Dados Criptografados', sub: 'Segurança total das informações' },
+                    ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col items-center md:items-start text-center md:text-left group">
+                            <div className="relative mb-6">
+                                <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
+                                <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
+                                <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="relative w-9 h-9 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
+                                    <item.icon size={16} strokeWidth={1} className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500" />
+                                </div>
                             </div>
+                            <h4 className="text-white font-bold text-sm uppercase tracking-tight mb-1">{item.title}</h4>
+                            <p className="text-gray-500 text-xs font-medium leading-tight tracking-tight">{item.sub}</p>
                         </div>
-                        <h4 className="text-white font-bold text-xs uppercase tracking-tight mb-1">Sem Custo Inicial</h4>
-                        <p className="text-gray-500 text-[10px] font-medium leading-tight tracking-tight">Análise de viabilidade gratuita</p>
-                    </div>
-
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                        <div className="relative mb-6">
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
-                            <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative w-9 h-9 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
-                                <CheckCircle size={16} strokeWidth={1} className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500" />
-                            </div>
-                        </div>
-                        <h4 className="text-white font-bold text-xs uppercase tracking-tight mb-1">Experts Validados</h4>
-                        <p className="text-gray-500 text-[10px] font-medium leading-tight tracking-tight">Profissionais com track record</p>
-                    </div>
-
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                        <div className="relative mb-6">
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
-                            <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative w-9 h-9 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
-                                <Clock size={16} strokeWidth={1} className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500" />
-                            </div>
-                        </div>
-                        <h4 className="text-white font-bold text-xs uppercase tracking-tight mb-1">SLA de 72h</h4>
-                        <p className="text-gray-500 text-[10px] font-medium leading-tight tracking-tight">Resposta rápida e ágil</p>
-                    </div>
-
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                        <div className="relative mb-6">
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
-                            <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
-                            <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative w-9 h-9 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
-                                <Lock size={16} strokeWidth={1} className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500" />
-                            </div>
-                        </div>
-                        <h4 className="text-white font-bold text-xs uppercase tracking-tight mb-1">Dados Criptografados</h4>
-                        <p className="text-gray-500 text-[10px] font-medium leading-tight tracking-tight">Segurança total das informações</p>
-                    </div>
+                    ))}
                 </div>
 
                 <div className="flex flex-col items-center animate-fade-in-up">
-                    <button className="h-20 px-12 rounded-[10px] bg-gradient-to-b from-[#FF6010] to-[#E04800] border border-white/5 text-[18px] font-sans font-bold text-white uppercase tracking-[0.1em] transition-all flex items-center gap-6 active:scale-[0.98] outline-none group shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_20px_50px_-10px_rgba(255,85,0,0.3)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_0_60px_-5px_rgba(255,85,0,0.4)] hover:-translate-y-px">
+                    <MasterButton className="h-20 px-12 !rounded-[10px] text-[18px]">
                         INICIAR ANÁLISE DE PROJETO
                         <RocketIcon className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </button>
-                    <span className="mt-10 text-[9px] md:text-[11px] font-mono text-gray-700 uppercase tracking-[0.2em] md:tracking-[0.5em] text-center">Scalability Infrastructure Protocol</span>
+                    </MasterButton>
+                    <span className="mt-10 text-xs md:text-sm font-mono text-gray-700 uppercase tracking-[0.2em] md:tracking-[0.5em] text-center">Scalability Infrastructure Protocol</span>
                 </div>
             </div>
         </section>

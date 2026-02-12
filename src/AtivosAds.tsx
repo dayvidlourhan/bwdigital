@@ -1,5 +1,6 @@
 import { Lock as LockIcon } from 'lucide-react';
 import { MetaIcon, GoogleIcon, TikTokIcon, ShopifyIcon, DatabaseIcon, ArrowUpRight, FeatureCheck } from './AdsIcons';
+import SectionHeader from './components/ui/SectionHeader';
 
 const adsCards = [
     {
@@ -43,14 +44,12 @@ const AtivosAds = () => {
     return (
         <section id="ativos" className="relative bg-[#050505] py-24 md:pt-48 md:pb-24 px-6 md:px-12 overflow-visible border-t border-white/[0.03]">
             <div className="max-w-7xl mx-auto overflow-visible relative z-10">
-                <div className="mb-20 md:mb-24 text-center">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase flex flex-col md:flex-row items-center gap-2 md:gap-4 justify-center">
-                        ATIVOS ADS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">DE ALTA PERFORMANCE</span>
-                    </h2>
-                    <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed">
-                        Soluções para operações comerciais digitais, estruturadas para escalar com segurança, estabilidade e eficiência.
-                    </p>
-                </div>
+                <SectionHeader
+                    title="ATIVOS ADS"
+                    highlight="DE ALTA PERFORMANCE"
+                    subtitle="Soluções para operações comerciais digitais, estruturadas para escalar com segurança, estabilidade e eficiência."
+                    className="mb-20 md:mb-24"
+                />
 
                 <div className="overflow-visible p-4 md:p-12 -m-4 md:-m-12">
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-7 overflow-visible">

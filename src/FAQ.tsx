@@ -1,87 +1,49 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, MessageCircle, ShieldCheck } from 'lucide-react';
+import SectionHeader from './components/ui/SectionHeader';
+import MasterButton from './components/ui/MasterButton';
 
 const faqData = [
     {
-        question: "Como funciona a gestão de Tráfego Pago?",
-        answer: "Nossa equipe especializada cuida de todas as suas campanhas em Meta Ads, Google Ads e TikTok Ads. Fazemos desde a configuração inicial, criação de segmentações, testes de criativos, até otimização contínua para maximizar seu ROI. Você recebe relatórios semanais com todas as métricas e insights."
+        question: "O que é a BW Digital?",
+        answer: "A BW Digital é uma empresa de marketing digital que atua com estruturação de empresas, mentorias, gestão de tráfego pago e soluções de infraestrutura publicitária, ajudando negócios a crescerem e escalarem de forma organizada e sustentável."
     },
     {
-        question: "Qual é o investimento mínimo em anúncios?",
-        answer: "Nossos planos começam a partir de R$10.000/mês para o plano START. O investimento varia conforme seu objetivo e nicho. Quanto maior o investimento, maiores as oportunidades de teste e otimização. Consultamos você para definir o melhor investimento inicial para seu negócio."
+        question: "A BW Digital é vinculada ao Meta, Google ou TikTok?",
+        answer: "Não. A BW Digital não possui vínculo com Meta Platforms, Google ou TikTok. As marcas citadas pertencem a seus respectivos proprietários. Apenas temos contato com especialistas sobre atualizações e suporte."
     },
     {
-        question: "Quanto tempo leva para ver resultados?",
-        answer: "Normalmente vemos resultados positivos nos primeiros 7 a 14 dias. Fazemos testes rápidos para identificar qual estratégia funciona melhor para seu negócio. Após identificar o melhor desempenho, escalamos a campanha para maximizar lucros."
+        question: "Os serviços e ativos são legais e seguros?",
+        answer: "Sim. Trabalhamos apenas com serviços e ativos lícitos, obtidos e utilizados conforme a legislação vigente e as políticas das plataformas de anúncios."
     },
     {
-        question: "Como vocês garantem o ROI de 5x?",
-        answer: "O ROI de 5x+ é baseado em nossa experiência e histórico com clientes. Não é uma garantia contratual, mas sim uma meta que buscamos atingir. Dependendo do nicho, produto e mercado, os resultados variam. Fazemos tudo ao nosso alcance para potencializar seus ganhos."
+        question: "O que são os ativos de anúncios oferecidos pela BW Digital?",
+        answer: "Os ativos de anúncios são recursos e ambientes publicitários utilizados para a operação de campanhas em plataformas como Meta Ads e Google Ads. A BW Digital fornece ativos, infraestrutura e suporte técnico, podendo ou não operar as campanhas, de acordo com o serviço contratado."
     },
     {
-        question: "O que é Contingência em Tráfego Pago?",
-        answer: "Contingência é o conjunto de estratégias e estruturas para proteger suas contas de anúncios contra bloqueios e limitações das plataformas. Usamos BMs (Business Managers) e contas próprias da Digital BW para garantir continuidade de campanhas e evitar perda de investimento."
+        question: "Os ativos já vêm prontos para anunciar?",
+        answer: "Os ativos são fornecidos estruturados para uso, porém a estratégia, criação de anúncios e operação variam conforme o serviço contratado. Em mentorias e estruturação, o cliente opera. Em gestão de tráfego, a operação é feita pela BW Digital."
     },
     {
-        question: "Como funciona a Estruturação de Empresas?",
-        answer: "Fazemos um diagnóstico completo de seu negócio, definimos processos, organizamos finanças, criamos fluxos de trabalho e desenvolvemos um plano de crescimento sustentável. Você recebe templates, documentos prontos e acompanhamento semanal com especialistas para implementar tudo corretamente."
+        question: "A BW Digital atua como gestora de tráfego?",
+        answer: "Sim. Em projetos específicos, a BW Digital atua como gestora de tráfego pago, sendo responsável pela criação, configuração, otimização e acompanhamento das campanhas, conforme o modelo contratado."
     },
     {
-        question: "Quanto tempo dura o programa de Estruturação?",
-        answer: "Nosso programa completo de estruturação dura 3 meses com acompanhamento intenso. Neste período, você recebe calls semanais, templates exclusivos, acesso à comunidade e suporte prioritário. Após os 3 meses, você tem acesso vitalício à comunidade e bônus."
+        question: "Existe garantia de resultados em anúncios?",
+        answer: "Não. A BW Digital não garante resultados, faturamento, aprovação ou desempenho, pois os resultados dependem de fatores como mercado, produto, orçamento, estratégia e execução."
     },
     {
-        question: "Preciso ter experiência anterior para começar?",
-        answer: "Não! Nossos programas são desenvolvidos desde o básico até o avançado. Mesmo que você seja iniciante, conseguirá acompanhar e implementar todas as estratégias. Oferecemos suporte personalizado para tirar suas dúvidas a qualquer momento."
+        question: "Quanto tempo leva a entrega dos ativos?",
+        answer: "Os ativos são entregues em até 24h úteis após confirmação do pagamento."
     },
     {
-        question: "Como acessar os Ativos Publicitários (ADS)?",
-        answer: "Você acessa nosso catálogo de Ativos ADS diretamente na plataforma Digital BW. Lá você encontra desde Meta Ads, Google Ads, estruturas prontas, templates de campanhas, criativos e mais. Pode comprar individual ou por pacotes. A entrega é imediata após confirmação do pagamento."
+        question: "Como acompanho os resultados das minhas campanhas?",
+        answer: "Na gestão de tráfego, fornecemos relatórios periódicos com métricas de desempenho. Você também pode acompanhar em tempo real através do painel da plataforma de anúncios."
     },
     {
-        question: "Os Ativos ADS estão prontos para usar?",
-        answer: "Sim! Todos os nossos Ativos ADS são testados e aprovados. Você recebe documentações completas explicando como usar, parametrizações recomendadas e boas práticas. Para planos de tráfego gerenciado, nós mesmos implementamos e otimizamos."
-    },
-    {
-        question: "Quais são os canais de comunicação com meu gestor?",
-        answer: "Você tem acesso via WhatsApp exclusivo, Email, calls agendadas e grupo de comunidade. Os clientes dos planos PRO e SCALE têm suporte 24/7. Planos START têm suporte em horário comercial com resposta rápida."
-    },
-    {
-        question: "Como funciona o Curso de Contingência e Tráfego?",
-        answer: "O curso contém +20 aulas práticas desde o básico até estratégias avançadas. Você aprende a montar contingência, escalar campanhas, usar gatilhos de vendas e evitar bloqueios. Tem acesso vitalício, grupo exclusivo no WhatsApp e templates de campanhas como bônus."
-    },
-    {
-        question: "O acesso ao curso é realmente vitalício?",
-        answer: "Sim! Você compra uma única vez e tem acesso vitalício ao conteúdo. Além disso, recebe todas as futuras atualizações e novas aulas sem custo adicional. Também mantém acesso ao grupo exclusivo de alunos para tirar dúvidas."
-    },
-    {
-        question: "Como funciona a Mercado Intelligence?",
-        answer: "Analisamos dados em tempo real com IA para identificar tendências, nichos promissores, anúncios concorrentes, produtos em alta, e oportunidades de mercado. Você recebe insights acionáveis para tomar melhores decisões em seus investimentos."
-    },
-    {
-        question: "As ferramentas BW são realmente gratuitas?",
-        answer: "Sim! Extensões Chrome, Validador de Nicho, Calculadora ROI e Gerador de Copy são ferramentas 100% gratuitas para todos os usuários. Você só paga se quiser acessar versões premium com recursos avançados."
-    },
-    {
-        question: "Posso usar o app em iOS e Android?",
-        answer: "Sim! O App Digital BW está disponível para iOS e Android. Você pode acessar toda a plataforma, comprar ativos, solicitar serviços, acompanhar métricas e receber notificações em tempo real direto do seu celular."
-    },
-    {
-        question: "Como funciona o Ranking de Premiações?",
-        answer: "Rastreamos as compras e engajamento dos clientes. Os tops 1, 2 e 3 compradores do mês recebem reconhecimento, benefícios exclusivos e menção na hall da fama. Quanto mais você compra e se engaja, maiores suas chances de premiação."
-    },
-    {
-        question: "Existe contrato de longo prazo obrigatório?",
-        answer: "Não! Para ativos e cursos, não há contrato. Para serviços gerenciados de tráfego, recomendamos mínimo de 3 meses para ver resultados sólidos, mas você pode cancelar a qualquer momento. Somos transparentes em nossas políticas."
-    },
-    {
-        question: "Como recebo suporte se tiver dúvidas?",
-        answer: "Temos suporte 24/7 via WhatsApp, Email e dentro da plataforma. Além disso, você tem acesso a comunidade exclusiva, calls agendadas com especialistas e documentações completas. A resposta média é de 2-4 horas."
-    },
-    {
-        question: "Como começo meu primeiro serviço?",
-        answer: "É simples! Clique em \"Solicitar um serviço\" ou \"Falar com especialista\". Preencha um formulário rápido com suas informações. Um especialista entrará em contato para entender suas necessidades e recomendar a solução perfeita para seu negócio."
+        question: "Como entro em contato com o suporte?",
+        answer: "Clique no botão \"Pedido Personalizado\" na página de suporte para ser redirecionado ao WhatsApp da nossa equipe."
     }
 ];
 
@@ -155,22 +117,12 @@ const FAQ = () => {
 
             <div className="max-w-5xl mx-auto px-6 relative z-10">
 
-                {/* 1. CABEÇALHO (Industrial & Technical) */}
-                <div className="text-center mb-20 relative">
-
-                    <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter uppercase leading-none">
-                        Dúvidas <span className="text-[#FF5500] drop-shadow-[0_0_20px_rgba(255,85,0,0.3)]">Frequentes</span>
-                    </h2>
-
-                    <p className="text-gray-500 text-sm md:text-lg font-sans max-w-2xl mx-auto leading-relaxed antialiased px-4">
-                        Sua jornada para a escala global começa com clareza técnica. <br className="hidden md:block" />
-                        Explore os parâmetros do nosso ecossistema de alta performance.
-                    </p>
-
-                    {/* Decorative side lines */}
-                    <div className="absolute top-1/2 -left-20 w-40 h-[1px] bg-gradient-to-r from-transparent to-white/5 hidden xl:block" />
-                    <div className="absolute top-1/2 -right-20 w-40 h-[1px] bg-gradient-to-l from-transparent to-white/5 hidden xl:block" />
-                </div>
+                <SectionHeader
+                    title="Dúvidas"
+                    highlight="Frequentes"
+                    subtitle="Sua jornada para a escala global começa com clareza técnica. Explore os parâmetros do nosso ecossistema de alta performance."
+                    className="mb-20"
+                />
 
                 {/* 2. A LISTA (High-End Accordions) */}
                 <div className="mb-24 grid gap-1">
@@ -188,10 +140,10 @@ const FAQ = () => {
 
                 {/* 4. RODAPÉ (CTA Button Only) */}
                 <div className="flex justify-center mb-6 pb-6 relative z-10">
-                    <button className="relative h-20 px-12 rounded-2xl bg-gradient-to-b from-[#FF6A1A] to-[#E54800] border-t border-white/20 text-sm font-sans font-extrabold text-white uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-4 active:scale-[0.97] outline-none group/btn shadow-[0_20px_50px_-10px_rgba(255,85,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:shadow-[0_30px_60px_-5px_rgba(255,85,0,0.5)] hover:-translate-y-2">
+                    <MasterButton href="https://api.whatsapp.com/send/?phone=553184780515&text&type=phone_number&app_absent=0" className="h-20 px-12 !rounded-2xl text-sm">
                         <MessageCircle size={22} className="transition-transform group-hover/btn:scale-110" strokeWidth={2.5} />
-                        Falar com Especialista
-                    </button>
+                        Falar no WhatsApp
+                    </MasterButton>
 
                     {/* Subtle Glow beneath the button */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-[#FF5500]/20 blur-[60px] pointer-events-none" />

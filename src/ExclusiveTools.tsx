@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Shield, Database, LayoutDashboard, Share2, Palette, Code2 } from 'lucide-react';
+import SectionHeader from './components/ui/SectionHeader';
 
 const ExclusiveTools = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -74,13 +75,13 @@ const ExclusiveTools = () => {
                 }}
             />
 
-            <div className="relative z-10 text-center mb-16 md:mb-24 max-w-3xl">
-                <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white tracking-tighter uppercase mb-6">
-                    Ferramentas <span className="text-[#FF5500]">BW</span>
-                </h2>
-                <p className="text-gray-500 font-sans text-base md:text-lg max-w-xl mx-auto leading-relaxed px-4 md:px-0">
-                    Mais de 20 Ferramentas gratuitas e extensões inteligentes para acelerar seus resultados no digital.
-                </p>
+            <div className="relative z-10 w-full mb-16 md:mb-24">
+                <SectionHeader
+                    title="Ferramentas"
+                    highlight="BW"
+                    subtitle="Mais de 20 Ferramentas gratuitas e extensões inteligentes para acelerar seus resultados no digital."
+                    className="max-w-3xl mx-auto"
+                />
             </div>
 
             {/* RADIAL PIZZA SELECTOR - Desktop Only */}
