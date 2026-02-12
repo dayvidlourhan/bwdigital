@@ -1,5 +1,6 @@
-import { TrendingUp, Bot, Search, Swords, Trophy, Monitor } from 'lucide-react';
+import { TrendingUp, Bot, Search, Swords, Trophy, Monitor, ArrowRight } from 'lucide-react';
 import SectionHeader from './components/ui/SectionHeader';
+import MasterButton from './components/ui/MasterButton';
 
 const MarketTrends = () => {
     return (
@@ -210,6 +211,13 @@ const MarketTrends = () => {
                             <p className="text-[10px] text-white/40 font-sans leading-relaxed group-hover/mini:text-white/60 transition-colors relative z-10">{card.sub}</p>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-12 flex justify-center md:hidden">
+                    <MasterButton href="https://digitalbw.com.br/central" className="w-full">
+                        Explorar Ferramentas
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </MasterButton>
                 </div>
 
             </div>

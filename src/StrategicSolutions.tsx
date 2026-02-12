@@ -26,12 +26,32 @@ const StrategicSolutions = () => {
 
                 {/* Navigation Tabs */}
                 <div className="flex justify-center mb-20 md:mb-32">
-                    <div className="inline-flex p-1 bg-white/[0.02] border border-white/[0.05] rounded-full backdrop-blur-3xl shadow-2xl relative max-w-full overflow-x-auto no-scrollbar scroll-smooth px-4 sm:px-1">
+                    {/* Mobile: Vertical stacked tabs */}
+                    <div className="flex flex-col gap-2 w-full max-w-sm md:hidden">
                         {SOLUTIONS_DATA.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`px-6 md:px-10 py-3 md:py-3.5 rounded-full text-[9px] md:text-[10px] font-display font-bold uppercase tracking-[0.2em] transition-all duration-500 relative whitespace-nowrap ${activeTab === tab.id
+                                className={`relative px-5 py-3.5 rounded-xl text-[11px] font-display font-bold uppercase tracking-[0.15em] transition-all duration-400 text-left min-h-[48px] flex items-center ${activeTab === tab.id
+                                    ? 'bg-white/10 text-white border border-white/10'
+                                    : 'bg-white/[0.02] text-gray-500 border border-transparent hover:bg-white/[0.04] hover:text-gray-300'
+                                    }`}
+                            >
+                                {activeTab === tab.id && (
+                                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#FF5500] rounded-r-full" />
+                                )}
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Desktop: Horizontal pill tabs */}
+                    <div className="hidden md:inline-flex p-1 bg-white/[0.02] border border-white/[0.05] rounded-full backdrop-blur-3xl shadow-2xl relative">
+                        {SOLUTIONS_DATA.map((tab) => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`px-10 py-3.5 rounded-full text-[10px] font-display font-bold uppercase tracking-[0.2em] transition-all duration-500 relative whitespace-nowrap ${activeTab === tab.id
                                     ? 'bg-white/10 text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)]'
                                     : 'text-gray-500 hover:text-gray-300'
                                     }`}

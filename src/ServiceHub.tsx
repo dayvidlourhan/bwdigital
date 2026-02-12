@@ -75,22 +75,22 @@ interface ServiceTicketProps {
 }
 
 const ServiceTicket = ({ title, icon: Icon }: ServiceTicketProps) => (
-    <div className="group flex flex-col items-center gap-2 flex-shrink-0 w-24 cursor-pointer transition-all duration-500">
+    <div className="group flex flex-col items-center gap-1.5 flex-shrink-0 w-[72px] md:w-24 cursor-pointer transition-all duration-500">
         <div className="relative">
             <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
             <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
             <div className="absolute -inset-1 rounded-full bg-[#FF5500]/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative w-16 h-16 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:border-[#FF5500] group-hover:bg-[#0d0d0d] group-hover:shadow-[0_0_15px_rgba(255,85,0,0.2)] z-10 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_0%,rgba(255,85,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
                 <Icon
-                    size={24}
+                    size={20}
                     strokeWidth={1}
-                    className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500 scale-100 group-hover:scale-110"
+                    className="relative z-10 text-white/30 group-hover:text-[#FF5500] transition-all duration-500 scale-100 group-hover:scale-110 md:[&]:!w-6 md:[&]:!h-6"
                 />
             </div>
         </div>
         <div className="text-center">
-            <span className="text-[11px] font-mono text-white/50 uppercase tracking-[0.15em] leading-tight group-hover:text-white transition-colors duration-500">
+            <span className="text-[10px] md:text-[11px] font-mono text-white/70 uppercase tracking-[0.1em] md:tracking-[0.15em] leading-tight group-hover:text-white transition-colors duration-500">
                 {title.split(' ').map((word, i) => (
                     <span key={i} className="block">
                         {word}
@@ -227,7 +227,7 @@ const ServiceHub = () => {
                 <div className="relative pt-6 pb-16 -mx-6">
                     <div className="absolute inset-x-0 -top-2 h-48 bg-white/[0.01] backdrop-blur-[2px] border-y border-white/[0.03] z-0" />
                     <div className="relative flex overflow-hidden z-10 will-change-transform">
-                        <div className="flex gap-10 animate-marquee py-4">
+                        <div className="flex gap-5 md:gap-10 animate-marquee py-4">
                             {[...services, ...services].map((service, idx) => (
                                 <ServiceTicket key={idx} title={service.title} icon={service.icon} />
                             ))}

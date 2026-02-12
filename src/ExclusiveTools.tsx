@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Shield, Database, LayoutDashboard, Share2, Palette, Code2 } from 'lucide-react';
+import { Shield, Database, LayoutDashboard, Share2, Palette, Code2, ArrowRight } from 'lucide-react';
 import SectionHeader from './components/ui/SectionHeader';
+import MasterButton from './components/ui/MasterButton';
 
 const ExclusiveTools = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -208,6 +209,14 @@ const ExclusiveTools = () => {
                         </div>
                     </div>
                 ))}
+
+                {/* Mobile CTA Button - Standard Size */}
+                <div className="mt-8 flex justify-center w-full md:hidden">
+                    <MasterButton href="https://digitalbw.com.br/central" className="w-full max-w-[320px] mx-auto">
+                        ACESSAR FERRAMENTAS
+                        <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-300" />
+                    </MasterButton>
+                </div>
             </div>
 
             <style dangerouslySetInnerHTML={{

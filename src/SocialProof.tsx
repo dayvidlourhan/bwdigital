@@ -97,7 +97,7 @@ const SocialProof = () => {
     const scrollingTestimonials = [...testimonials, ...testimonials];
 
     // Card Glass Style synced with AtivosAds.tsx
-    const cardBaseStyle = "relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 hover:bg-white/[0.08] hover:border-[#FF5500]/40 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu w-[300px] md:w-[350px] flex-shrink-0";
+    const cardBaseStyle = "relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 md:hover:bg-white/[0.08] md:hover:border-[#FF5500]/40 overflow-hidden flex flex-col md:hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu w-[260px] md:w-[350px] flex-shrink-0";
 
     return (
         <section id="social" className="relative bg-[#050505] pt-24 md:pt-48 pb-12 md:pb-20 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
@@ -157,12 +157,12 @@ const SocialProof = () => {
                 {/* 3. CARROSSEL INFINITO (Marquee Depoimentos) */}
                 <div className="relative -mx-6 md:-mx-12">
                     {/* Shadow Fades for Premium Look */}
-                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-20 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-20 pointer-events-none" />
 
                     <div className="flex overflow-hidden px-4 md:px-0">
                         <motion.div
-                            className="flex gap-6 md:gap-7 py-8 will-change-transform flex-nowrap"
+                            className="flex gap-4 md:gap-7 py-8 will-change-transform flex-nowrap"
                             animate={{
                                 x: ["0%", "-50%"]
                             }}

@@ -136,19 +136,19 @@ const EliteRewards = () => {
                             </div>
 
                             <div className="relative z-10 overflow-x-auto no-scrollbar">
-                                <div className="grid grid-cols-12 gap-2 sm:gap-4 pb-4 mb-2 border-b border-white/[0.05] min-w-[450px] sm:min-w-0">
-                                    <div className="col-span-2 sm:col-span-1 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest px-1">#</div>
-                                    <div className="col-span-6 sm:col-span-7 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest px-1">Operador</div>
-                                    <div className="col-span-4 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest text-right px-1">Faturamento</div>
+                                <div className="grid grid-cols-12 gap-2 sm:gap-4 pb-4 mb-2 border-b border-white/[0.05] min-w-[320px] sm:min-w-0">
+                                    <div className="col-span-2 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest px-1 pl-2">#</div>
+                                    <div className="col-span-6 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest px-1">Operador</div>
+                                    <div className="col-span-4 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest text-right px-1">Fat.</div>
                                 </div>
 
                                 <div className="space-y-0">
                                     {ranking.map((r) => (
                                         <div
                                             key={r.pos}
-                                            className={`grid grid-cols-12 gap-4 items-center py-3.5 border-b border-white/[0.03] transition-all duration-300 hover:bg-white/[0.02] rounded-lg px-2 -mx-2 group/row ${r.highlight ? 'bg-[#FF5500]/[0.04]' : ''}`}
+                                            className={`grid grid-cols-12 gap-2 items-center py-3.5 border-b border-white/[0.03] transition-all duration-300 hover:bg-white/[0.02] rounded-lg px-2 -mx-2 group/row ${r.highlight ? 'bg-[#FF5500]/[0.04]' : ''}`}
                                         >
-                                            <div className="col-span-1">
+                                            <div className="col-span-2 pl-2">
                                                 {r.pos <= 3 ? (
                                                     <div className={`w-7 h-7 rounded-lg flex items-center justify-center font-display font-black text-xs ${r.pos === 1 ? 'bg-[#FF5500] text-white shadow-[0_0_20px_rgba(255,85,0,0.4)]' :
                                                         r.pos === 2 ? 'bg-white/10 text-white border border-white/20' :
@@ -157,21 +157,23 @@ const EliteRewards = () => {
                                                         {r.pos}
                                                     </div>
                                                 ) : (
-                                                    <span className="text-white/30 font-mono text-sm font-bold [font-variant-numeric:tabular-nums] pl-1.5">{r.pos}</span>
+                                                    <div className="w-7 h-7 flex items-center justify-center">
+                                                        <span className="text-white/30 font-mono text-xs font-bold [font-variant-numeric:tabular-nums]">{r.pos}</span>
+                                                    </div>
                                                 )}
                                             </div>
-                                            <div className="col-span-7 flex items-center gap-3">
-                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold ${r.pos === 1 ? 'bg-[#FF5500]/20 border border-[#FF5500]/40 text-[#FF5500]' :
+                                            <div className="col-span-6 flex items-center gap-3 overflow-hidden">
+                                                <div className={`w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-[10px] font-bold ${r.pos === 1 ? 'bg-[#FF5500]/20 border border-[#FF5500]/40 text-[#FF5500]' :
                                                     'bg-white/5 border border-white/10 text-white/40'
                                                     }`}>
                                                     {r.name.charAt(1).toUpperCase()}
                                                 </div>
-                                                <span className={`font-display font-bold text-sm tracking-tight ${r.highlight ? 'text-[#FF5500]' : 'text-white/80 group-hover/row:text-white'} transition-colors`}>
+                                                <span className={`font-display font-bold text-xs sm:text-sm tracking-tight truncate ${r.highlight ? 'text-[#FF5500]' : 'text-white/80 group-hover/row:text-white'} transition-colors`}>
                                                     {r.name}
                                                 </span>
                                             </div>
                                             <div className="col-span-4 text-right">
-                                                <span className={`font-display font-black text-sm tracking-tight [font-variant-numeric:tabular-nums] ${r.highlight ? 'text-white' : 'text-white/60 group-hover/row:text-white/80'} transition-colors`}>
+                                                <span className={`font-display font-black text-xs sm:text-sm tracking-tight [font-variant-numeric:tabular-nums] ${r.highlight ? 'text-white' : 'text-white/60 group-hover/row:text-white/80'} transition-colors`}>
                                                     {r.value}
                                                 </span>
                                             </div>
@@ -283,6 +285,18 @@ const EliteRewards = () => {
                                             ))}
                                         </div>
                                     </div>
+                                ))}
+                            </div>
+
+                            {/* Dots Indicator - Bottom Right */}
+                            <div className="relative z-10 flex gap-2 mt-4 justify-end">
+                                {tiers.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setActiveTier(i)}
+                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeTier ? 'bg-[#FF5500] shadow-[0_0_8px_#FF5500] w-6' : 'bg-white/20 hover:bg-white/40'
+                                            }`}
+                                    />
                                 ))}
                             </div>
                         </div>

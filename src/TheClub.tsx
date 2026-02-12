@@ -3,15 +3,19 @@ import MasterButton from './components/ui/MasterButton';
 
 const IPhoneMockup = ({ className = "" }) => {
     return (
-        <div className={`relative ${className} w-full`}>
-            {/* Sombras e brilho atmosférico */}
+        <div className={`relative ${className} w-full flex justify-center`}>
+            {/* Sombras e brilho atmosférico (Ambient) */}
             <div className="absolute h-[85%] w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FF5500] opacity-20 blur-[90px] rounded-[3rem] pointer-events-none" />
+
+            {/* Simulated Shadow (Standalone for iOS safety) */}
+            <div className="absolute z-0 bottom-[5%] left-[10%] right-[10%] h-[20%] bg-black/90 blur-3xl rounded-full" />
 
             {/* Uso direto do arquivo SVG para fidelidade total */}
             <img
                 src="/iPhone17.svg"
                 alt="iPhone 17 Pro Cosmic Orange"
-                className="w-full h-auto relative z-10 drop-shadow-[0_45px_100px_rgba(0,0,0,0.9)]"
+                className="w-full h-auto relative z-10 border-none outline-none transform-gpu backface-hidden"
+                style={{ WebkitTouchCallout: 'none' }}
             />
         </div>
     );
@@ -29,7 +33,7 @@ const TheClub = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
 
                     {/* Visual: iPhones (Esquerda) */}
-                    <div className="relative h-[450px] sm:h-[550px] md:h-[700px] flex items-center justify-center order-2 lg:order-1">
+                    <div className="relative h-[450px] sm:h-[550px] md:h-[700px] flex items-center justify-center">
                         {/* Floor Glow (Stage Light) */}
                         <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[150px] bg-[#FF5500] opacity-10 blur-[100px] rounded-[100%] pointer-events-none transform scale-y-50" />
 
@@ -45,7 +49,7 @@ const TheClub = () => {
                     </div>
 
                     {/* Conteúdo (Direita) */}
-                    <div className="space-y-12 order-1 lg:order-2">
+                    <div className="space-y-12">
                         <div className="space-y-8 text-center lg:text-left">
                             {/* Tag Uppercase */}
                             <div className="inline-flex items-center gap-2 text-[#FF5500]">

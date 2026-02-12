@@ -16,89 +16,123 @@ const Navbar = () => {
         { name: 'FAQ', href: '#faq' }
     ];
 
+    // Lock body scroll when menu is open
+    if (typeof document !== 'undefined') {
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    }
+
     return (
-        <nav className="fixed top-0 left-0 w-full z-[100] h-20 border-b border-white/[0.05] bg-background/60 backdrop-blur-xl px-6 md:px-12 flex items-center">
-            {/* Lado Esquerdo: Logo */}
-            <div className="flex-1 flex items-center">
-                <div className="cursor-pointer group">
-                    <img
-                        src="/logo.png"
-                        alt="BW DIGITAL"
-                        className="h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
+        <>
+            {/* ═══ NAVBAR ═══ */}
+            <nav className="fixed top-0 left-0 w-full z-[100] h-20 border-b border-white/[0.05] bg-background/60 backdrop-blur-xl px-4 md:px-12 flex items-center">
+                {/* Left: Logo */}
+                <div className="flex-1 flex items-center">
+                    <div className="cursor-pointer group">
+                        <img
+                            src="/logo.png"
+                            alt="BW DIGITAL"
+                            className="h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            {/* Centro: Navegação Centralizada (Desktop) */}
-            <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold text-gray-400">
-                {navLinks.map(item => (
-                    <a key={item.name} href={item.href} className="hover:text-white transition-colors relative group tracking-wider whitespace-nowrap">
-                        {item.name}
-                        <span className="absolute -bottom-1.5 left-0 w-0 h-[1px] bg-brand transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                ))}
-            </div>
-
-            {/* Lado Direito: Ações (Desktop) */}
-            <div className="flex-1 flex items-center justify-end gap-3 md:gap-6">
-                <div className="hidden sm:flex items-center gap-6">
-                    <a href="https://www.instagram.com/bw_contingencia/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E4405F] transition-colors" title="Instagram BW Digital">
-                        <Instagram size={28} strokeWidth={2.5} />
-                    </a>
-                    <a href="https://digitalbw.com.br/central" className="text-[15px] font-medium text-gray-400 hover:text-white transition-colors">
-                        Entrar
+                {/* Mobile: Instagram Icon (shifted right) */}
+                <div className="flex lg:hidden items-center ml-auto -mr-1">
+                    <a href="https://www.instagram.com/bw_contingencia/" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-[#E4405F] transition-colors" title="Instagram BW Digital">
+                        <Instagram size={32} strokeWidth={2} />
                     </a>
                 </div>
 
-                <a href="https://digitalbw.com.br/central" className="h-11 px-6 rounded-md border border-brand/50 text-brand text-[13px] font-bold hover:bg-brand/5 transition-all flex items-center justify-center">
-                    Criar Conta
-                </a>
+                {/* Desktop: Nav Links */}
+                <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold text-gray-400">
+                    {navLinks.map(item => (
+                        <a key={item.name} href={item.href} className="hover:text-white transition-colors relative group tracking-wider whitespace-nowrap">
+                            {item.name}
+                            <span className="absolute -bottom-1.5 left-0 w-0 h-[1px] bg-brand transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                    ))}
+                </div>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="lg:hidden p-3 text-white transition-colors"
-                >
-                    {isMenuOpen ? (
-                        <div className="relative w-8 h-8 flex items-center justify-center">
-                            <span className="absolute w-8 h-[2px] bg-white rotate-45"></span>
-                            <span className="absolute w-8 h-[2px] bg-white -rotate-45"></span>
-                        </div>
-                    ) : (
-                        <div className="space-y-2">
-                            <div className="w-8 h-[2px] bg-white"></div>
-                            <div className="w-6 h-[2px] bg-white ml-auto"></div>
-                            <div className="w-8 h-[2px] bg-white"></div>
-                        </div>
-                    )}
-                </button>
-            </div>
+                {/* Right side */}
+                <div className="flex-1 flex items-center justify-end gap-3 md:gap-6">
+                    {/* Desktop Only: Instagram + Login */}
+                    <div className="hidden lg:flex items-center gap-6">
+                        <a href="https://www.instagram.com/bw_contingencia/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E4405F] transition-colors" title="Instagram BW Digital">
+                            <Instagram size={28} strokeWidth={2.5} />
+                        </a>
+                        <a href="https://digitalbw.com.br/central" className="text-[15px] font-medium text-gray-400 hover:text-white transition-colors">
+                            Entrar
+                        </a>
+                    </div>
 
-            {/* THE GLASS HATCH: Mobile Menu Drawer */}
-            <div className={`fixed inset-0 z-[90] bg-black/98 backdrop-blur-2xl transition-all duration-500 lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                <div className="flex flex-col items-center justify-center h-full gap-8 px-6 text-center">
+                    {/* Mobile: Hamburger Toggle */}
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="lg:hidden p-2 text-white transition-colors relative z-[101]"
+                        aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+                    >
+                        {isMenuOpen ? (
+                            <div className="relative w-7 h-7 flex items-center justify-center">
+                                <span className="absolute w-7 h-[2px] bg-white rotate-45 transition-transform"></span>
+                                <span className="absolute w-7 h-[2px] bg-white -rotate-45 transition-transform"></span>
+                            </div>
+                        ) : (
+                            <div className="space-y-[6px]">
+                                <div className="w-7 h-[2px] bg-white"></div>
+                                <div className="w-5 h-[2px] bg-white ml-auto"></div>
+                                <div className="w-7 h-[2px] bg-white"></div>
+                            </div>
+                        )}
+                    </button>
+
+                    {/* CTA */}
+                    <a
+                        href="https://digitalbw.com.br/central"
+                        className="h-12 lg:h-11 px-5 lg:px-6 rounded-xl lg:rounded-md bg-[#FF5500] lg:bg-transparent border-0 lg:border lg:border-brand/50 text-white lg:text-brand text-[13px] font-bold lg:hover:bg-brand/5 transition-all flex items-center justify-center shadow-[0_0_20px_rgba(255,85,0,0.3)] lg:shadow-none active:scale-95"
+                    >
+                        Criar Conta
+                    </a>
+                </div>
+            </nav>
+
+            {/* ═══ MOBILE FULLSCREEN DRAWER ═══ */}
+            <div
+                className={`fixed inset-0 z-[99] lg:hidden transition-all duration-400 ${isMenuOpen ? 'visible' : 'invisible'}`}
+            >
+                {/* Background: box-shadow trick covers ANY gap from zoom */}
+                <div
+                    className={`absolute inset-0 bg-[#050505] transition-opacity duration-400 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ boxShadow: '0 0 0 9999px #050505' }}
+                />
+
+                {/* Menu content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full gap-6 px-8 pt-24 pb-16">
                     {navLinks.map((item, idx) => (
                         <a
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className={`text-2xl font-display font-black tracking-tighter text-white hover:text-brand transition-all transform duration-500 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                            style={{ transitionDelay: `${idx * 100}ms` }}
+                            className={`text-[22px] font-display font-black tracking-tight text-white/90 hover:text-brand transition-all duration-400 min-h-[48px] flex items-center ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
+                            style={{ transitionDelay: isMenuOpen ? `${idx * 60 + 100}ms` : '0ms' }}
                         >
                             {item.name}
                         </a>
                     ))}
-                    <div className={`mt-8 flex flex-col gap-6 w-full max-w-xs transition-all duration-700 delay-500 ${isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                        <a href="https://digitalbw.com.br/central" className="h-14 rounded-lg bg-brand text-white font-bold uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(255,85,0,0.3)] flex items-center justify-center">
+
+                    {/* Bottom CTA */}
+                    <div className={`mt-8 flex flex-col gap-4 w-full max-w-[280px] transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                        style={{ transitionDelay: isMenuOpen ? '500ms' : '0ms' }}
+                    >
+                        <a href="https://digitalbw.com.br/central" className="h-[52px] rounded-xl bg-brand text-white font-bold uppercase tracking-widest text-[13px] shadow-[0_0_25px_rgba(255,85,0,0.25)] flex items-center justify-center active:scale-95 transition-transform">
                             Acessar plataforma
                         </a>
-                        <a href="https://digitalbw.com.br/central" className="text-gray-400 font-bold uppercase tracking-widest text-xs">
+                        <a href="https://digitalbw.com.br/central" className="text-gray-500 font-bold uppercase tracking-widest text-[11px] text-center py-2">
                             LOGIN NA PLATAFORMA
                         </a>
                     </div>
                 </div>
             </div>
-        </nav>
+        </>
     );
 };
 
