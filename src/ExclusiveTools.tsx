@@ -68,6 +68,10 @@ const ExclusiveTools = () => {
 
     return (
         <section className="relative min-h-screen bg-[#050505] py-16 md:py-24 px-4 overflow-hidden flex flex-col items-center">
+            {/* Seamless Transition Overlays */}
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-[11]" />
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-[11]" />
+
             {/* Design System Anchor: Discrete Utility Grid with Radial Mask */}
             <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.015]"
                 style={{

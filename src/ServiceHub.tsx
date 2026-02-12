@@ -184,6 +184,10 @@ const ServiceHub = () => {
 
     return (
         <section id="servicos" className="relative bg-[#050505] py-16 md:py-24">
+            {/* Seamless Transition Overlays */}
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-[11]" />
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-[11]" />
+
             <div className="background-container !opacity-[0.08]" />
 
             <div

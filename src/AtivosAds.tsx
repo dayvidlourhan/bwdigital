@@ -42,7 +42,10 @@ const adsCards = [
 
 const AtivosAds = () => {
     return (
-        <section id="ativos" className="relative bg-[#050505] py-16 md:py-24 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
+        <section id="ativos" className="relative bg-[#050505] py-16 md:py-24 px-6 md:px-12 overflow-hidden">
+            {/* Top Seamless Transition */}
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent pointer-events-none z-[5]" />
+
             <div className="max-w-7xl mx-auto overflow-visible relative z-10">
                 <SectionHeader
                     title="ATIVOS ADS"
