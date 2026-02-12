@@ -42,7 +42,7 @@ const adsCards = [
 
 const AtivosAds = () => {
     return (
-        <section id="ativos" className="relative bg-[#050505] py-24 md:pt-48 md:pb-24 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
+        <section id="ativos" className="relative bg-[#050505] py-16 md:py-24 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
             <div className="max-w-7xl mx-auto overflow-visible relative z-10">
                 <SectionHeader
                     title="ATIVOS ADS"
@@ -98,17 +98,16 @@ const AtivosAds = () => {
                 </div>
 
                 {/* Aviso de Compliance */}
-                <div className="max-w-4xl mx-auto mt-24 mb-0 px-4">
-                    <div className="relative p-6 md:p-8 rounded-r-2xl bg-black/40 backdrop-blur-md border border-white/[0.05] border-l-4 border-l-[#FF5500] shadow-[-10px_0_30px_-5px_rgba(255,85,0,0.2)] transition-all duration-500 hover:bg-black/50 group">
-                        <div className="absolute inset-y-0 left-[-4px] w-[4px] bg-[#FF5500] shadow-[0_0_15px_rgba(255,85,0,0.5)] animate-pulse-glow" />
-                        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 relative z-10">
-                            <div className="flex-shrink-0 text-[#FF5500] mt-1">
-                                <LockIcon size={20} strokeWidth={2.5} className="drop-shadow-[0_0_5px_rgba(255,85,0,0.5)]" />
+                <div className="max-w-3xl mx-auto mt-16 mb-0 px-4">
+                    <div className="relative p-5 md:p-8 rounded-xl bg-black/40 backdrop-blur-md border border-white/[0.05] border-l-2 border-l-[#FF5500] transition-all duration-500 hover:bg-black/50 group">
+                        <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 relative z-10">
+                            <div className="flex-shrink-0 text-[#FF5500] opacity-80 group-hover:opacity-100 transition-opacity">
+                                <LockIcon size={18} strokeWidth={2.5} />
                             </div>
                             <div className="text-center md:text-left">
-                                <h4 className="text-white font-bold text-sm tracking-[0.2em] uppercase mb-2 font-display">AVISO IMPORTANTE</h4>
-                                <p className="text-gray-400 text-[14px] leading-relaxed font-sans font-normal antialiased">
-                                    Os serviços oferecidos não garantem aprovação, desbloqueio ou permanência de contas em plataformas de anúncios, respeitando os Termos de Uso de cada sistema.
+                                <h4 className="text-white/90 font-bold text-[11px] tracking-[0.25em] uppercase mb-1.5 font-display">AVISO LEGAL</h4>
+                                <p className="text-gray-500 text-[12px] md:text-[14px] leading-relaxed font-sans max-w-2xl mx-auto">
+                                    Serviços sob Termos de Uso das plataformas. Não há garantia de aprovação, desbloqueio ou permanência de contas.
                                 </p>
                             </div>
                         </div>

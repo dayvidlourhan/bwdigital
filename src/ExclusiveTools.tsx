@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Shield, Database, LayoutDashboard, Share2, Palette, Code2, ArrowRight } from 'lucide-react';
 import SectionHeader from './components/ui/SectionHeader';
 import MasterButton from './components/ui/MasterButton';
 
 const ExclusiveTools = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [activeTab, setActiveTab] = useState(0);
 
     const segments = [
         {
@@ -65,7 +67,7 @@ const ExclusiveTools = () => {
     };
 
     return (
-        <section className="relative min-h-screen bg-[#050505] py-32 px-4 overflow-hidden flex flex-col items-center">
+        <section className="relative min-h-screen bg-[#050505] py-16 md:py-24 px-4 overflow-hidden flex flex-col items-center">
             {/* Design System Anchor: Discrete Utility Grid with Radial Mask */}
             <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.015]"
                 style={{
@@ -182,36 +184,85 @@ const ExclusiveTools = () => {
                 </div>
             </div>
 
-            {/* STACKED LIST - Mobile Only */}
-            <div className="lg:hidden grid grid-cols-1 gap-6 w-full max-w-lg">
-                {segments.map((segment, index) => (
-                    <div
-                        key={index}
-                        className="bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl p-8 relative overflow-hidden transition-all duration-300 active:scale-[0.98] active:border-[#FF5500]/40 group"
-                    >
-                        <div className="flex items-center gap-5 mb-8">
-                            <div className="w-14 h-14 rounded-xl bg-[#FF5500]/10 border border-[#FF5500]/20 flex items-center justify-center group-active:scale-110 transition-transform duration-500">
-                                <segment.icon size={26} className="text-[#FF5500]" />
+            {/* INTERACTIVE MOBILE HUB - Replaces long stacked list */}
+            <div className="lg:hidden w-full max-w-lg mt-8">
+                {/* 1. Module Selector Strip */}
+                <div className="flex overflow-x-auto pb-6 gap-3 no-scrollbar snap-x px-4 -mx-4">
+                    {segments.map((segment, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setActiveTab(index)}
+                            className={`flex flex-col items-center gap-2 shrink-0 snap-center p-3 rounded-xl border transition-all duration-300 ${activeTab === index
+                                ? 'bg-[#FF5500]/10 border-[#FF5500] shadow-[0_0_15px_rgba(255,85,0,0.2)]'
+                                : 'bg-white/[0.03] border-white/10'
+                                }`}
+                        >
+                            <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors ${activeTab === index ? 'text-[#FF5500]' : 'text-gray-500'
+                                }`}>
+                                <segment.icon size={20} />
                             </div>
-                            <h3 className="font-display font-bold text-lg tracking-wider text-white uppercase">{segment.title}</h3>
-                        </div>
-                        <div className="space-y-4">
-                            {segment.items.map((item, i) => (
-                                <div key={i} className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-[#FF5500]/40 shrink-0" />
-                                    <p className="text-gray-400 font-sans font-semibold text-sm uppercase tracking-widest">{item}</p>
-                                </div>
-                            ))}
-                        </div>
-                        {/* Interactive Hint */}
-                        <div className="absolute top-4 right-4 group-active:opacity-100 opacity-20 transition-opacity">
-                            <div className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
-                        </div>
-                    </div>
-                ))}
+                            <span className={`text-[9px] font-bold tracking-widest uppercase ${activeTab === index ? 'text-white' : 'text-gray-600'
+                                }`}>
+                                MOD-0{index + 1}
+                            </span>
+                        </button>
+                    ))}
+                </div>
 
-                {/* Mobile CTA Button - Standard Size */}
-                <div className="mt-8 flex justify-center w-full md:hidden">
+                {/* 2. Active Module Interface */}
+                <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="relative bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-3xl border border-white/10 rounded-2xl p-7 md:p-8 overflow-hidden min-h-[340px] flex flex-col"
+                >
+                    {/* Industrial Accents */}
+
+                    <div className="absolute top-0 left-0 w-12 h-px bg-gradient-to-r from-[#FF5500] to-transparent" />
+                    <div className="absolute top-0 left-0 h-12 w-px bg-gradient-to-b from-[#FF5500] to-transparent" />
+
+                    {/* Module Header */}
+                    <div className="mb-8">
+                        <div className="flex items-center gap-2 mb-2">
+                            <div className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />
+                            <span className="text-[10px] font-extrabold text-[#FF5500] tracking-[0.2em] uppercase font-sans">MÓDULO ATIVO</span>
+                        </div>
+                        <h3 className="font-display font-black text-2xl tracking-tight text-white uppercase leading-none">
+                            {segments[activeTab].title}
+                        </h3>
+                    </div>
+
+                    {/* Features List */}
+                    <div className="space-y-4 flex-grow">
+                        {segments[activeTab].items.map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                className="flex items-center gap-4 bg-white/[0.02] border border-white/[0.05] p-4 rounded-xl group"
+                            >
+                                <div className="w-1.5 h-1.5 rounded-sm bg-[#FF5500]/30 group-hover:bg-[#FF5500] transition-colors" />
+                                <p className="text-gray-300 font-sans font-bold text-xs uppercase tracking-[0.15em]">
+                                    {item}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Decorative Scanner Bar */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FF5500]/20 to-transparent">
+                        <motion.div
+                            className="h-full w-1/3 bg-[#FF5500]/40 blur-sm"
+                            animate={{ x: ["-100%", "300%"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
+                    </div>
+                </motion.div>
+
+                {/* Mobile CTA Button - Centered */}
+                <div className="mt-10 flex justify-center w-full">
                     <MasterButton href="https://digitalbw.com.br/central" className="w-full max-w-[320px] mx-auto">
                         ACESSAR FERRAMENTAS
                         <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-300" />

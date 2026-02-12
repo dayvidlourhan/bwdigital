@@ -49,22 +49,22 @@ const services = [
 const steps = [
     {
         id: 'SOLICITAÇÃO',
-        title: 'Envio rápido de demanda via Hub principal.',
+        title: 'Serviço pedido até 72h resposta',
         icon: FileInput
     },
     {
         id: 'ANÁLISE',
-        title: 'Validação de escopo e compatibilidade técnica.',
+        title: 'BW vai encontrar um profissional',
         icon: Cpu
     },
     {
         id: 'MATCH',
-        title: 'Alocação de especialista sênior BW dedicado.',
+        title: 'Alinhamento do pedido',
         icon: Users
     },
     {
         id: 'ENTREGA',
-        title: 'Ativos funcionais entregues em tempo recorde.',
+        title: 'Realização da entrega data estimada',
         icon: Zap
     },
 ];
@@ -183,7 +183,7 @@ const ServiceHub = () => {
     const [activeIndex, setActiveIndex] = useState(-1);
 
     return (
-        <section id="servicos" className="relative bg-[#050505] pb-32 pt-0">
+        <section id="servicos" className="relative bg-[#050505] py-16 md:py-24">
             <div className="background-container !opacity-[0.08]" />
 
             <div
@@ -203,18 +203,7 @@ const ServiceHub = () => {
                 }}
             />
 
-            <div className="relative w-full py-24 flex items-center justify-center z-20">
-                <div className="absolute w-full h-px bg-white/10 hidden md:block" />
-                <div className="relative px-0 md:px-6 bg-[#050505] flex items-center gap-4 text-center w-full justify-center">
-                    <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 hidden md:flex items-center justify-center">
-                        <div className="w-1 h-1 bg-[#FF5500]" />
-                    </div>
-                    <span className="text-[10px] md:text-xs font-mono text-white/40 tracking-[0.3em] md:tracking-[0.6em] uppercase">Engine Core Transmission</span>
-                    <div className="w-2.5 h-2.5 border border-[#FF5500] rotate-45 hidden md:flex items-center justify-center">
-                        <div className="w-1 h-1 bg-[#FF5500]" />
-                    </div>
-                </div>
-            </div>
+
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 pt-12">
                 <SectionHeader
@@ -317,7 +306,7 @@ const ServiceHub = () => {
                     {[
                         { icon: Shield, title: 'Sem Custo Inicial', sub: 'Análise de viabilidade gratuita' },
                         { icon: CheckCircle, title: 'Experts Validados', sub: 'Profissionais com track record' },
-                        { icon: Clock, title: 'SLA de 72h', sub: 'Resposta rápida e ágil' },
+                        { icon: Clock, title: 'Análise de 72h', sub: 'Resposta rápida e ágil' },
                         { icon: Lock, title: 'Dados Criptografados', sub: 'Segurança total das informações' },
                     ].map((item, idx) => (
                         <div key={idx} className="flex flex-col items-center md:items-start text-center md:text-left group">
@@ -341,7 +330,7 @@ const ServiceHub = () => {
                         INICIAR ANÁLISE DE PROJETO
                         <RocketIcon className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </MasterButton>
-                    <span className="mt-10 text-xs md:text-sm font-mono text-gray-700 uppercase tracking-[0.2em] md:tracking-[0.5em] text-center">Scalability Infrastructure Protocol</span>
+
                 </div>
             </div>
         </section>

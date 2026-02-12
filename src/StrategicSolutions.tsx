@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-    ChevronRight, Play, Check, Medal, ChevronLast, GraduationCap
+    ChevronRight, Play, Check, Medal, GraduationCap
 } from 'lucide-react';
 import { SOLUTIONS_DATA } from './data/solutions';
 import MasterButton from './components/ui/MasterButton';
@@ -13,7 +13,7 @@ const StrategicSolutions = () => {
     const activeData = SOLUTIONS_DATA.find(s => s.id === activeTab) || SOLUTIONS_DATA[0];
 
     return (
-        <section id="solucoes" className="relative bg-[#050505] pt-40 pb-20 overflow-hidden">
+        <section id="solucoes" className="relative bg-[#050505] py-16 md:py-24 overflow-hidden">
             {/* Background Atmosphere */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
@@ -204,13 +204,7 @@ const StrategicSolutions = () => {
             </div>
 
             {/* Industrial Bottom Decorative Element */}
-            <div className="relative mt-20 w-full flex items-center justify-center opacity-10 pointer-events-none">
-                <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-                <div className="relative px-8 bg-[#050505] flex items-center gap-3">
-                    <ChevronLast size={14} className="text-[#FF5500]" />
-                    <span className="text-[9px] font-mono text-white/40 tracking-[0.2em] md:tracking-[0.8em] uppercase text-center w-full">Structural Integrity Protocol</span>
-                </div>
-            </div>
+
         </section>
     );
 };

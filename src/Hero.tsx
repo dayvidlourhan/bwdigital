@@ -248,8 +248,8 @@ const HeroSection = () => {
 
             <Navbar />
 
-            <div className="flex-grow flex flex-col items-center justify-center px-6 md:px-12 z-10 pt-14 md:pt-24">
-                <div className="max-w-[1200px] w-full text-center mb-16 animate-fade-in-up">
+            <div className="flex-grow flex flex-col items-center justify-center px-6 md:px-12 z-10 pt-12 md:pt-20">
+                <div className="max-w-[1200px] w-full text-center mb-12 animate-fade-in-up">
 
                     {/* Status Badge */}
                     <div className="inline-flex items-center gap-2.5 h-7 px-4 rounded-full border border-white/10 bg-white/[0.01] backdrop-blur-sm mb-8 md:mb-10 shadow-inner group cursor-default">
@@ -289,7 +289,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* The "Golden" Visual - macOS Console */}
-                <div className="w-full max-w-[1000px] mx-auto animate-fade-in-up delay-200 mb-20 lg:mb-20">
+                <div className="w-full max-w-[1000px] mx-auto animate-fade-in-up delay-200 mb-12 lg:mb-16">
                     <MacOSChrome>
                         <DashboardContent />
                     </MacOSChrome>

@@ -40,7 +40,7 @@ const IPhoneVisual = ({ className = "" }) => (
 
 const TheClub = () => {
     return (
-        <section className="relative min-h-screen bg-[#050505] py-24 md:py-32 overflow-hidden flex items-center">
+        <section className="relative min-h-screen bg-[#050505] py-16 md:py-24 overflow-hidden flex items-center">
             {/* Global Vignette */}
             <div className="absolute inset-0 pointer-events-none z-0"
                 style={{ background: 'radial-gradient(circle at center, transparent 0%, #050505 90%)' }}

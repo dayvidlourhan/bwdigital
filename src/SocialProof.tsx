@@ -100,7 +100,7 @@ const SocialProof = () => {
     const cardBaseStyle = "relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 md:hover:bg-white/[0.08] md:hover:border-[#FF5500]/40 overflow-hidden flex flex-col md:hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu w-[260px] md:w-[350px] flex-shrink-0";
 
     return (
-        <section id="social" className="relative bg-[#050505] pt-24 md:pt-48 pb-12 md:pb-20 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
+        <section id="social" className="relative bg-[#050505] py-16 md:py-24 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
 
             {/* Background Atmosphere synced with project style */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -107,7 +107,7 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="relative bg-[#000] py-24 overflow-hidden">
+        <section id="faq" className="relative bg-[#000] py-16 md:py-24 overflow-hidden">
             {/* BACKGROUND SYSTEM: Grid + Atmospheric Lighting */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="background-container !opacity-[0.03]" />

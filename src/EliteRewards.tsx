@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
     Trophy, Gift, ShoppingBag, Crown, Target, Award,
-    ArrowRight, Camera, Check, ChevronLast, Gem
+    ArrowRight, Camera, Check, Gem
 } from 'lucide-react';
 import MasterButton from './components/ui/MasterButton';
 import SectionHeader from './components/ui/SectionHeader';
@@ -93,7 +93,7 @@ const EliteRewards = () => {
     }, [tiers.length]);
 
     return (
-        <section id="rewards" className="relative bg-[#050505] pt-32 pb-16 overflow-hidden selection:bg-[#FF5500]/30">
+        <section id="rewards" className="relative bg-[#050505] py-16 md:py-24 overflow-hidden selection:bg-[#FF5500]/30">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -329,13 +329,7 @@ const EliteRewards = () => {
                 </div>
             </div>
 
-            <div className="relative mt-16 w-full flex items-center justify-center opacity-10 pointer-events-none">
-                <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-                <div className="relative px-8 bg-[#050505] flex items-center gap-3">
-                    <ChevronLast size={14} className="text-[#FF5500]" />
-                    <span className="text-[9px] font-mono text-white/40 tracking-[0.2em] md:tracking-[0.8em] uppercase text-center w-full">ELITE LOYALTY PROTOCOL</span>
-                </div>
-            </div>
+
 
             <div className="absolute -bottom-24 -left-24 w-[500px] h-[500px] bg-[#FF5500]/5 blur-[120px] rounded-full pointer-events-none" />
         </section>
