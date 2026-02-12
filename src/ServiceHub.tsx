@@ -75,7 +75,7 @@ interface ServiceTicketProps {
 }
 
 const ServiceTicket = ({ title, icon: Icon }: ServiceTicketProps) => (
-    <div className="group flex flex-col items-center gap-1.5 flex-shrink-0 w-[72px] md:w-24 cursor-pointer transition-all duration-500">
+    <div className="group flex flex-col items-center gap-1.5 flex-shrink-0 w-[110px] md:w-32 cursor-pointer transition-all duration-500">
         <div className="relative">
             <div className="absolute inset-0 rounded-full border border-[#FF5500]/40 scale-100 opacity-0 group-hover:scale-[1.6] group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
             <div className="absolute inset-0 rounded-full border border-[#FF5500]/20 scale-100 opacity-0 group-hover:scale-[1.3] group-hover:opacity-0 transition-all duration-500 delay-75 pointer-events-none" />
@@ -89,13 +89,9 @@ const ServiceTicket = ({ title, icon: Icon }: ServiceTicketProps) => (
                 />
             </div>
         </div>
-        <div className="text-center">
-            <span className="text-[10px] md:text-[11px] font-mono text-white/70 uppercase tracking-[0.1em] md:tracking-[0.15em] leading-tight group-hover:text-white transition-colors duration-500">
-                {title.split(' ').map((word, i) => (
-                    <span key={i} className="block">
-                        {word}
-                    </span>
-                ))}
+        <div className="text-center w-full px-1">
+            <span className="text-[10px] md:text-[11px] font-mono text-white/70 uppercase tracking-[0.1em] md:tracking-[0.15em] leading-[1.2] group-hover:text-white transition-colors duration-500 block">
+                {title}
             </span>
         </div>
     </div>
@@ -220,7 +216,7 @@ const ServiceHub = () => {
                 <div className="relative pt-6 pb-16 -mx-6">
                     <div className="absolute inset-x-0 -top-2 h-48 bg-white/[0.01] backdrop-blur-[2px] border-y border-white/[0.03] z-0" />
                     <div className="relative flex overflow-hidden z-10 will-change-transform">
-                        <div className="flex gap-5 md:gap-10 animate-marquee py-4">
+                        <div className="flex gap-8 md:gap-12 animate-marquee py-4 flex-nowrap shrink-0">
                             {[...services, ...services].map((service, idx) => (
                                 <ServiceTicket key={idx} title={service.title} icon={service.icon} />
                             ))}
