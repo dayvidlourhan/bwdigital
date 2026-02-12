@@ -21,6 +21,23 @@ const IPhoneMockup = ({ className = "" }) => {
     );
 };
 
+const IPhoneVisual = ({ className = "" }) => (
+    <div className={`relative h-[450px] sm:h-[550px] md:h-[700px] flex items-center justify-center ${className}`}>
+        {/* Floor Glow (Stage Light) */}
+        <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[150px] bg-[#FF5500] opacity-10 blur-[100px] rounded-[100%] pointer-events-none transform scale-y-50" />
+
+        {/* Celular de trás (Faded) - Adjusted for mobile */}
+        <div className="absolute left-[10%] sm:left-[15%] top-[50%] -translate-y-[45%] w-[180px] sm:w-[240px] md:w-[300px] opacity-20 filter grayscale blur-[1px]">
+            <IPhoneMockup className="" />
+        </div>
+
+        {/* Celular da frente (Principal) - Adjusted for mobile */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[260px] md:w-[320px] z-20">
+            <IPhoneMockup className="" />
+        </div>
+    </div>
+);
+
 const TheClub = () => {
     return (
         <section className="relative min-h-screen bg-[#050505] py-24 md:py-32 overflow-hidden flex items-center">
@@ -32,21 +49,8 @@ const TheClub = () => {
             <div className="container relative z-10 px-6 mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
 
-                    {/* Visual: iPhones (Esquerda) */}
-                    <div className="relative h-[450px] sm:h-[550px] md:h-[700px] flex items-center justify-center">
-                        {/* Floor Glow (Stage Light) */}
-                        <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[150px] bg-[#FF5500] opacity-10 blur-[100px] rounded-[100%] pointer-events-none transform scale-y-50" />
-
-                        {/* Celular de trás (Faded) - Adjusted for mobile */}
-                        <div className="absolute left-[10%] sm:left-[15%] top-[50%] -translate-y-[45%] w-[180px] sm:w-[240px] md:w-[300px] opacity-20 filter grayscale blur-[1px]">
-                            <IPhoneMockup className="" />
-                        </div>
-
-                        {/* Celular da frente (Principal) - Adjusted for mobile */}
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[260px] md:w-[320px] z-20">
-                            <IPhoneMockup className="" />
-                        </div>
-                    </div>
+                    {/* Visual: iPhones (Esquerda - Desktop apenas) */}
+                    <IPhoneVisual className="hidden lg:flex" />
 
                     {/* Conteúdo (Direita) */}
                     <div className="space-y-12">
@@ -90,6 +94,9 @@ const TheClub = () => {
                                 </div>
                             </div>
                         </div>
+
+                        {/* Visual para Mobile (Entre texto e CTA) */}
+                        <IPhoneVisual className="lg:hidden" />
 
                         {/* Botão Tactile Industrial */}
                         <div className="pt-4 flex justify-center lg:justify-start">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Activity, Calendar, Users, Instagram, Monitor, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import MasterButton from './components/ui/MasterButton';
 
 
@@ -163,6 +164,82 @@ const DashboardContent = () => (
     </div>
 );
 
+const heroStats = [
+    {
+        id: 'clientes',
+        value: '+5.000',
+        label: 'Clientes Atendidos',
+        sub: 'Empresas que confiaram na BW Digital',
+        icon: Users
+    },
+    {
+        id: 'ativos',
+        value: '+10.000',
+        label: 'Ativos Digitais Entregues',
+        sub: 'Campanhas e soluções executadas',
+        icon: Box
+    },
+    {
+        id: 'entrega',
+        value: '24/7',
+        label: 'Entrega Monitorada',
+        sub: 'Processos contínuos sem interrupção',
+        icon: Activity
+    },
+    {
+        id: 'mercado',
+        value: 'Desde 2022',
+        label: 'Atuação no Mercado',
+        sub: 'Experiência em cenários reais',
+        icon: Calendar
+    }
+];
+
+const StatCard = ({ item, isMobile = false }: { item: typeof heroStats[0], isMobile?: boolean }) => {
+    const Icon = item.icon;
+
+    if (isMobile) {
+        return (
+            <div className="flex items-center gap-4 px-10 whitespace-nowrap relative">
+                <div className="font-display text-2xl font-bold text-[#FF5500] tracking-tighter">
+                    {item.value}
+                </div>
+                <div className="flex flex-col">
+                    <div className="flex items-center gap-1.5">
+                        <Icon size={10} fill="#666" className="text-gray-500" />
+                        <span className="text-[10px] font-extrabold text-white uppercase tracking-wider font-sans">
+                            {item.label}
+                        </span>
+                    </div>
+                </div>
+                {/* Vertical Separator */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-white/20" />
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex flex-col items-center justify-center py-0 px-8 relative group h-full">
+            <div className="flex flex-col items-center text-center">
+                <div className="font-display text-4xl md:text-5xl font-bold text-[#FF5500] tracking-tighter mb-3">
+                    {item.value}
+                </div>
+                <div className="flex flex-col items-center gap-1.5">
+                    <div className="flex items-center gap-2">
+                        <Icon size={14} fill="#666" className="text-gray-500" />
+                        <span className="text-[13px] font-bold text-white uppercase tracking-wider font-sans">
+                            {item.label}
+                        </span>
+                    </div>
+                    <span className="text-[11px] font-medium text-gray-500 font-sans max-w-[200px]">
+                        {item.sub}
+                    </span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const HeroSection = () => {
     return (
         <section className="relative min-h-screen w-full bg-[#000000] flex flex-col pt-20 overflow-hidden">
@@ -222,89 +299,33 @@ const HeroSection = () => {
 
             {/* System Status Strip (Bloomberg/Data-First Style) */}
             <div id="stats" className="w-full border-y border-white/10 bg-[#000000] z-20 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-4 md:divide-x divide-white/10 h-auto md:h-44">
-                    {/* Item 01: Clientes */}
-                    <div className="flex flex-col items-center justify-center py-12 md:py-0 px-8 relative group">
-                        <div className="flex flex-col items-center text-center">
-                            <div className="font-display text-4xl md:text-5xl font-bold text-[#FF5500] tracking-tighter mb-3">
-                                +5.000
-                            </div>
-                            <div className="flex flex-col items-center gap-1.5">
-                                <div className="flex items-center gap-2">
-                                    <Users size={14} fill="#666" className="text-gray-500" />
-                                    <span className="text-[13px] font-bold text-white uppercase tracking-wider font-sans">
-                                        Clientes Atendidos
-                                    </span>
-                                </div>
-                                <span className="text-[11px] font-medium text-gray-500 font-sans max-w-[200px]">
-                                    Empresas que confiaram na BW Digital
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                {/* Desktop Version: Grid */}
+                <div className="max-w-7xl mx-auto hidden md:grid md:grid-cols-4 md:divide-x divide-white/10 h-44">
+                    {heroStats.map(stat => (
+                        <StatCard key={stat.id} item={stat} />
+                    ))}
+                </div>
 
-                    {/* Item 02: Ativos */}
-                    <div className="flex flex-col items-center justify-center py-12 md:py-0 px-8 border-y border-white/10 md:border-y-0 relative group">
-                        <div className="flex flex-col items-center text-center">
-                            <div className="font-display text-4xl md:text-5xl font-bold text-[#FF5500] tracking-tighter mb-3">
-                                +10.000
-                            </div>
-                            <div className="flex flex-col items-center gap-1.5">
-                                <div className="flex items-center gap-2">
-                                    <Box size={14} fill="#666" className="text-gray-500" />
-                                    <span className="text-[13px] font-bold text-white uppercase tracking-wider font-sans">
-                                        Ativos Digitais Entregues
-                                    </span>
-                                </div>
-                                <span className="text-[11px] font-medium text-gray-500 font-sans max-w-[200px]">
-                                    Campanhas, estruturas e soluções executadas
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                {/* Mobile Version: Marquee */}
+                <div className="md:hidden py-6 relative flex overflow-hidden">
+                    <motion.div
+                        className="flex shrink-0"
+                        animate={{ x: ["0%", "-50%"] }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        {/* Duplicate content for seamless loop */}
+                        {[...heroStats, ...heroStats].map((stat, idx) => (
+                            <StatCard key={`${stat.id}-${idx}`} item={stat} isMobile={true} />
+                        ))}
+                    </motion.div>
 
-                    {/* Item 03: Entrega */}
-                    <div className="flex flex-col items-center justify-center py-12 md:py-0 px-8 border-b border-white/10 md:border-b-0 relative group">
-                        <div className="flex flex-col items-center text-center">
-                            <div className="font-display text-4xl md:text-5xl font-bold text-[#FF5500] tracking-tighter mb-3 flex items-center">
-                                24<span className="ml-[9px] mr-[15px] opacity-90">/</span>7
-                            </div>
-                            <div className="flex flex-col items-center gap-1.5">
-                                <div className="relative">
-                                    {/* Icone em posição absoluta para não 'empurrar' o texto centralizado */}
-                                    <div className="absolute left-[6px] top-0 mt-[3px]">
-                                        <Activity size={14} fill="#666" className="text-gray-500" />
-                                    </div>
-                                    <span className="text-[13px] font-bold text-white uppercase tracking-wider font-sans block text-center">
-                                        Entrega Automatizada e Monitorada
-                                    </span>
-                                </div>
-                                <span className="text-[11px] font-medium text-gray-500 font-sans max-w-[200px]">
-                                    Processos contínuos sem interrupção
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Item 04: Experiência */}
-                    <div className="flex flex-col items-center justify-center py-12 md:py-0 px-8 relative group">
-                        <div className="flex flex-col items-center text-center">
-                            <div className="font-display text-4xl md:text-5xl font-bold text-[#FF5500] tracking-tighter mb-3">
-                                Desde 2022
-                            </div>
-                            <div className="flex flex-col items-center gap-1.5">
-                                <div className="flex items-center gap-2">
-                                    <Calendar size={14} fill="#666" className="text-gray-500" />
-                                    <span className="text-[13px] font-bold text-white uppercase tracking-wider font-sans">
-                                        Atuação no Mercado Digital
-                                    </span>
-                                </div>
-                                <span className="text-[11px] font-medium text-gray-500 font-sans max-w-[200px]">
-                                    Experiência aplicada em cenários reais
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Fades for smooth entry/exit */}
+                    <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent z-10" />
+                    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent z-10" />
                 </div>
             </div>
         </section>

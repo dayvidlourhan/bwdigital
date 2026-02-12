@@ -58,25 +58,25 @@ const AtivosAds = () => {
                                 key={card.id}
                                 className="group relative w-full"
                             >
-                                <div className="relative h-[550px] p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 group-hover:bg-white/[0.08] group-hover:border-[#FF5500]/40 group-hover:-translate-y-2 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu">
+                                <div className="relative h-auto md:h-[550px] p-5 md:p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 group-hover:bg-white/[0.08] group-hover:border-[#FF5500]/40 group-hover:-translate-y-2 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu">
                                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    <div className="relative mb-8 flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 text-white transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FF5500]/15 group-hover:border-[#FF5500]/30 group-hover:text-[#FF5500]">
+                                    <div className="relative mb-4 md:mb-8 flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 text-white transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FF5500]/15 group-hover:border-[#FF5500]/30 group-hover:text-[#FF5500]">
                                         <div className="absolute inset-0 bg-[#FF5500]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                                         <div className="relative z-10 scale-[0.8]">
                                             {card.icon}
                                         </div>
                                     </div>
-                                    <div className="mb-6 flex-shrink-0">
-                                        <h3 className="text-lg md:text-xl font-bold text-white mb-4 tracking-tight group-hover:text-[#FF5500] transition-colors duration-300 font-display uppercase h-12 flex items-start leading-tight pt-0">
+                                    <div className="mb-5 flex-shrink-0">
+                                        <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-4 tracking-tight group-hover:text-[#FF5500] transition-colors duration-300 font-display uppercase h-auto md:h-12 flex items-center md:items-start leading-tight pt-0">
                                             {card.title}
                                         </h3>
-                                        <div className="h-[90px] overflow-hidden">
+                                        <div className="h-auto md:h-[90px] mb-4 md:mb-0 overflow-hidden">
                                             <p className="text-gray-400 text-[13px] leading-relaxed font-medium group-hover:text-white transition-colors duration-300 font-sans">
                                                 {card.desc}
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="space-y-4 pt-8 border-t border-white/[0.05]">
+                                    <div className="space-y-2 md:space-y-4 pt-4 md:pt-8 border-t border-white/[0.05]">
                                         {card.features.map((feat, idx) => (
                                             <div key={idx} className="flex items-start gap-3">
                                                 <div className="mt-1 flex-shrink-0">
