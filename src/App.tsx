@@ -19,9 +19,9 @@ function App() {
       <StrategicSolutions />
       <MarketTrends />
       <ExclusiveTools />
-      <TheClub />
       <EliteRewards />
       <SocialProof />
+      <TheClub />
       <FAQ />
       <Footer />
     </>

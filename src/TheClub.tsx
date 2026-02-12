@@ -96,6 +96,9 @@ const TheClub = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Bottom fade gradient — seamless transition into FAQ */}
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-[#000] pointer-events-none z-[5]" />
         </section>
     );
 };

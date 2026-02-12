@@ -76,7 +76,7 @@ const SocialProof = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase"
                     >
-                        PROVAS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">SOCIAIS</span>
+                        PROVAS SOCIAIS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">(NOSSOS CLIENTES)</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ const SocialProof = () => {
                         transition={{ delay: 0.1 }}
                         className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed"
                     >
-                        Resultados operacionais e feedback de quem já utiliza a infraestrutura BW Digital.
+                        Conquistas, resultados operacionais e feedback de quem já utiliza os serviços da BW Digital.
                     </motion.p>
                 </div>
 
@@ -174,11 +174,6 @@ const SocialProof = () => {
                 </div>
             </div>
 
-            {/* Subtle Grid System from project style */}
-            <div className="background-container !opacity-[0.05] pointer-events-none" />
-
-            {/* Bottom fade gradient — seamless transition into FAQ */}
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-[#000] pointer-events-none z-[5]" />
         </section>
     );
 };
