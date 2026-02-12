@@ -117,7 +117,7 @@ const EliteRewards = () => {
                     </h2>
 
                     <p className="text-gray-500 font-sans text-lg mx-auto leading-relaxed">
-                        Quanto mais você investe, maiores as recompensas exclusivas que você ganha.
+                        Quanto mais você investe em serviços digitais, maiores as recompensas exclusivas que você ganha.
                     </p>
                 </div>
 
@@ -126,14 +126,14 @@ const EliteRewards = () => {
 
                     {/* Card Principal (Esquerda - 8/12) - TOP 10 RANKING */}
                     <div className="lg:col-span-8 group">
-                        <div className="h-full bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl p-8 relative overflow-hidden transition-all duration-500 shadow-2xl hover:border-white/20 hover:bg-white/[0.04] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] flex flex-col">
+                        <div className="lg:mt-12 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl p-8 relative overflow-hidden transition-all duration-500 shadow-2xl hover:border-white/20 hover:bg-white/[0.04] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
                             <div className="flex justify-between items-start mb-8 relative z-10">
                                 <div>
                                     <div className="flex items-center gap-3 mb-2">
                                         <h3 className="text-xl font-display font-bold text-white tracking-tight uppercase">Top 10 Compradores {rankPeriod === 'mensal' ? 'do Mês' : 'do Ano'}</h3>
-                                        <div className="flex items-center gap-2 px-2 py-0.5 rounded-md bg-green-500/10 border border-green-500/20">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                                            <span className="text-[9px] font-mono font-bold text-green-500 uppercase tracking-widest">Live</span>
+                                        <div className="flex items-center gap-2 px-2 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                            <span className="text-[9px] font-mono font-bold text-blue-500 uppercase tracking-widest">Demo</span>
                                         </div>
                                     </div>
                                 </div>
@@ -231,21 +231,7 @@ const EliteRewards = () => {
                                 </button>
                             </div>
 
-                            {/* Stats Footer */}
-                            <div className="grid grid-cols-3 gap-6 pt-8 mt-auto border-t border-white/[0.05] relative z-10">
-                                <div className="[font-variant-numeric:tabular-nums]">
-                                    <p className="text-[10px] font-sans text-white/40 uppercase tracking-[0.2em] mb-2">Volume Total</p>
-                                    <p className="text-2xl font-display font-bold text-white tracking-tight">{rankPeriod === 'mensal' ? 'R$ 1.2M' : 'R$ 14.8M'}</p>
-                                </div>
-                                <div className="border-l border-white/[0.05] pl-6 [font-variant-numeric:tabular-nums]">
-                                    <p className="text-[10px] font-sans text-white/40 uppercase tracking-[0.2em] mb-2">Média por Operador</p>
-                                    <p className="text-2xl font-display font-bold text-white tracking-tight">{rankPeriod === 'mensal' ? 'R$ 62.8K' : 'R$ 384K'}</p>
-                                </div>
-                                <div className="border-l border-white/[0.05] pl-6 [font-variant-numeric:tabular-nums]">
-                                    <p className="text-[10px] font-sans text-white/40 uppercase tracking-[0.2em] mb-2">Maior Faturamento</p>
-                                    <p className="text-2xl font-display font-bold text-[#FF5500] tracking-tight">{rankPeriod === 'mensal' ? 'R$ 152K' : 'R$ 1.24M'}</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 

@@ -176,6 +176,9 @@ const SocialProof = () => {
 
             {/* Subtle Grid System from project style */}
             <div className="background-container !opacity-[0.05] pointer-events-none" />
+
+            {/* Bottom fade gradient — seamless transition into FAQ */}
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-[#000] pointer-events-none z-[5]" />
         </section>
     );
 };
