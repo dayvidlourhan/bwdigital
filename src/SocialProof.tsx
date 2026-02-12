@@ -109,11 +109,11 @@ const SocialProof = () => {
             <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* 1. CABEÇALHO - Consistent Header System */}
-                <div className="text-center mb-20 md:mb-24">
+                <div className="text-center mb-16 md:mb-24">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase"
+                        className="text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase"
                     >
                         NOSSOS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">CLIENTES</span>
                     </motion.h2>
@@ -121,7 +121,7 @@ const SocialProof = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed"
+                        className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed px-4"
                     >
                         Conquistas, resultados operacionais e feedback de quem já utiliza os serviços da BW Digital.
                     </motion.p>
@@ -173,7 +173,7 @@ const SocialProof = () => {
 
                     <div className="flex overflow-hidden px-4 md:px-0">
                         <motion.div
-                            className="flex gap-6 md:gap-7 py-20" // Aumentado padding vertical para não cortar o brilho
+                            className="flex gap-6 md:gap-7 py-20 will-change-transform" // Applied will-change-transform for performance
                             animate={{
                                 x: [0, -((testimonials.length * 350) + (testimonials.length * 28))]
                             }}
@@ -181,7 +181,7 @@ const SocialProof = () => {
                                 x: {
                                     repeat: Infinity,
                                     repeatType: "loop",
-                                    duration: 60, // Mais lento (era 40)
+                                    duration: 60,
                                     ease: "linear",
                                 },
                             }}

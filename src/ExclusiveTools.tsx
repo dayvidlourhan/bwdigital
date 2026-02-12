@@ -74,17 +74,17 @@ const ExclusiveTools = () => {
                 }}
             />
 
-            <div className="relative z-10 text-center mb-16 max-w-3xl">
-                <h2 className="text-4xl md:text-6xl font-display font-bold text-white tracking-tighter uppercase mb-4">
+            <div className="relative z-10 text-center mb-16 md:mb-24 max-w-3xl">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white tracking-tighter uppercase mb-6">
                     Ferramentas <span className="text-[#FF5500]">BW</span>
                 </h2>
-                <p className="text-gray-500 font-body text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                <p className="text-gray-500 font-sans text-base md:text-lg max-w-xl mx-auto leading-relaxed px-4 md:px-0">
                     Mais de 20 Ferramentas gratuitas e extensões inteligentes para acelerar seus resultados no digital.
                 </p>
             </div>
 
-            {/* RADIAL PIZZA SELECTOR */}
-            <div className="relative w-full max-w-[700px] aspect-square flex items-center justify-center">
+            {/* RADIAL PIZZA SELECTOR - Desktop Only */}
+            <div className="hidden lg:flex relative w-full max-w-[700px] aspect-square items-center justify-center">
 
                 <svg viewBox="0 0 1000 1000" className="w-full h-full relative z-[5] overflow-visible">
                     {segments.map((segment, index) => {
@@ -137,13 +137,13 @@ const ExclusiveTools = () => {
                                                 size={18}
                                                 className={`flex-shrink-0 w-5 h-5 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-400'}`}
                                             />
-                                            <h3 className={`font-display font-bold text-[15px] md:text-[18px] tracking-[0.25em] uppercase transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-400'} max-w-[180px] leading-tight`}>
+                                            <h3 className={`font-display font-bold text-[18px] tracking-[0.25em] uppercase transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-400'} max-w-[180px] leading-tight`}>
                                                 {segment.title}
                                             </h3>
                                         </div>
                                         <div className={`space-y-2 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-40 -translate-y-1'}`}>
                                             {segment.items.map((item, i) => (
-                                                <div key={i} className="text-gray-400 text-[12px] md:text-[14px] font-semibold leading-normal font-body uppercase tracking-widest px-4">
+                                                <div key={i} className="text-gray-400 text-[14px] font-semibold leading-normal font-body uppercase tracking-widest px-4">
                                                     {item}
                                                 </div>
                                             ))}
@@ -166,7 +166,7 @@ const ExclusiveTools = () => {
                             <img
                                 src="/logo.png"
                                 alt="BW Digital Logo"
-                                className="w-20 md:w-24 h-auto object-contain opacity-100 drop-shadow-[0_0_15px_rgba(255,85,0,0.3)]"
+                                className="w-24 h-auto object-contain opacity-100 drop-shadow-[0_0_15px_rgba(255,85,0,0.3)]"
                             />
                         </div>
 
@@ -178,6 +178,35 @@ const ExclusiveTools = () => {
                     <div className="absolute inset-[-10px] border border-white/5 rounded-full pointer-events-none z-20"></div>
                     <div className="absolute inset-[-20px] border border-white/[0.03] rounded-full pointer-events-none z-20"></div>
                 </div>
+            </div>
+
+            {/* STACKED LIST - Mobile Only */}
+            <div className="lg:hidden grid grid-cols-1 gap-6 w-full max-w-lg">
+                {segments.map((segment, index) => (
+                    <div
+                        key={index}
+                        className="bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl p-8 relative overflow-hidden transition-all duration-300 active:scale-[0.98] active:border-[#FF5500]/40 group"
+                    >
+                        <div className="flex items-center gap-5 mb-8">
+                            <div className="w-14 h-14 rounded-xl bg-[#FF5500]/10 border border-[#FF5500]/20 flex items-center justify-center group-active:scale-110 transition-transform duration-500">
+                                <segment.icon size={26} className="text-[#FF5500]" />
+                            </div>
+                            <h3 className="font-display font-bold text-lg tracking-wider text-white uppercase">{segment.title}</h3>
+                        </div>
+                        <div className="space-y-4">
+                            {segment.items.map((item, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#FF5500]/40 shrink-0" />
+                                    <p className="text-gray-400 font-sans font-semibold text-sm uppercase tracking-widest">{item}</p>
+                                </div>
+                            ))}
+                        </div>
+                        {/* Interactive Hint */}
+                        <div className="absolute top-4 right-4 group-active:opacity-100 opacity-20 transition-opacity">
+                            <div className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
+                        </div>
+                    </div>
+                ))}
             </div>
 
             <style dangerouslySetInnerHTML={{

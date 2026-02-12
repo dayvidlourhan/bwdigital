@@ -44,20 +44,20 @@ const AtivosAds = () => {
         <section id="ativos" className="relative bg-[#050505] py-24 md:pt-48 md:pb-24 px-6 md:px-12 overflow-visible border-t border-white/[0.03]">
             <div className="max-w-7xl mx-auto overflow-visible relative z-10">
                 <div className="mb-20 md:mb-24 text-center">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase flex items-center gap-4 justify-center">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase flex flex-col md:flex-row items-center gap-2 md:gap-4 justify-center">
                         ATIVOS ADS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">DE ALTA PERFORMANCE</span>
                     </h2>
-                    <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed">
+                    <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto font-medium antialiased leading-relaxed">
                         Soluções para operações comerciais digitais, estruturadas para escalar com segurança, estabilidade e eficiência.
                     </p>
                 </div>
 
-                <div className="overflow-visible p-12 -m-12">
-                    <div className="flex overflow-x-auto md:overflow-x-visible pb-24 md:pb-0 md:grid md:grid-cols-5 gap-6 md:gap-7 snap-x snap-mandatory overflow-visible px-4">
+                <div className="overflow-visible p-4 md:p-12 -m-4 md:-m-12">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-7 overflow-visible">
                         {adsCards.map((card) => (
                             <div
                                 key={card.id}
-                                className="group relative min-w-[320px] md:min-w-0"
+                                className="group relative w-full"
                             >
                                 <div className="relative h-[550px] p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 group-hover:bg-white/[0.08] group-hover:border-[#FF5500]/40 group-hover:-translate-y-2 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu">
                                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

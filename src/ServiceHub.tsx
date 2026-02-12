@@ -218,12 +218,12 @@ const ServiceHub = () => {
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 pt-12">
                 {/* Layer 1: Header & Service Marquee */}
-                <div className="text-center mb-20 animate-fade-in-up">
-                    <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 uppercase tracking-tighter">
+                <div id="servicos" className="text-center mb-16 md:mb-20 animate-fade-in-up">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 uppercase tracking-tighter leading-tight">
                         <span className="text-white">Solicite um </span>
                         <span className="text-[#FF5500]">Serviço Especializado</span>
                     </h2>
-                    <p className="text-gray-400 text-sm md:text-base font-sans max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-400 text-sm md:text-base font-sans max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
                         Faça sua solicitação abaixo e a BW Digital conecta você a um profissional / especialista validado em até 72 horas.
                     </p>
                 </div>
@@ -234,7 +234,7 @@ const ServiceHub = () => {
                     <div className="absolute inset-x-0 -top-2 h-48 bg-white/[0.01] backdrop-blur-[2px] border-y border-white/[0.03] z-0" />
 
                     {/* Marquee Container */}
-                    <div className="relative flex overflow-hidden z-10">
+                    <div className="relative flex overflow-hidden z-10 will-change-transform">
                         <div className="flex gap-10 animate-marquee py-4">
                             {[...services, ...services].map((service, idx) => (
                                 <ServiceTicket key={idx} title={service.title} icon={service.icon} />
@@ -270,10 +270,10 @@ const ServiceHub = () => {
                 </div>
 
                 {/* Layer 3: Real-time Status Panel */}
-                <div className="max-w-4xl mx-auto mb-40 px-4">
-                    <div className="rounded-xl bg-[#080808] border border-white/5 p-8 relative overflow-hidden backdrop-blur-sm">
+                <div className="max-w-4xl mx-auto mb-24 md:mb-40 px-4">
+                    <div className="rounded-xl bg-[#080808] border border-white/5 p-6 md:p-8 relative overflow-hidden backdrop-blur-sm">
                         {/* Header */}
-                        <div className="flex justify-between items-center mb-12 pb-6 border-b border-white/5 font-mono">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 md:mb-12 pb-6 border-b border-white/5 font-mono">
                             <span className="text-[10px] text-gray-500 uppercase tracking-[0.3em]">STATUS EM TEMPO REAL</span>
                             <span className="text-[9px] text-[#00FF66]/40 uppercase tracking-widest">SOCKET: CONNECTED_V4</span>
                         </div>
@@ -287,13 +287,13 @@ const ServiceHub = () => {
                                 <div className="w-7 h-7 rounded-full bg-[#0a0a0a] border border-[#FF5500]/40 flex items-center justify-center shadow-[0_0_10px_rgba(255,85,0,0.1)]">
                                     <RefreshCw size={13} className="text-[#FF5500] animate-spin" />
                                 </div>
-                                <div className="flex items-center gap-5 font-mono">
+                                <div className="flex flex-wrap items-center gap-2 md:gap-5 font-mono">
                                     <div className="flex flex-col">
                                         <span className="text-[11px] text-[#FF5500] font-bold uppercase tracking-widest">PENDENTE</span>
                                         <span className="text-[7px] text-[#FF5500]/30 -mt-0.5 tracking-tighter">REQ_ID: 9812-BW</span>
                                     </div>
-                                    <span className="text-white/10">—</span>
-                                    <span className="text-[11px] text-white/80 tracking-tight font-sans">Solicitação recebida no sistema</span>
+                                    <span className="text-white/10 hidden sm:inline">—</span>
+                                    <span className="text-[10px] md:text-[11px] text-white/80 tracking-tight font-sans">Solicitação recebida no sistema</span>
                                 </div>
                             </div>
 
@@ -301,13 +301,13 @@ const ServiceHub = () => {
                                 <div className="w-7 h-7 rounded-full bg-[#0a0a0a] border border-[#00A3FF]/40 flex items-center justify-center">
                                     <Target size={13} className="text-[#00A3FF]" />
                                 </div>
-                                <div className="flex items-center gap-5 font-mono">
+                                <div className="flex flex-wrap items-center gap-2 md:gap-5 font-mono">
                                     <div className="flex flex-col">
                                         <span className="text-[11px] text-[#00A3FF] font-bold uppercase tracking-widest">EM ANÁLISE</span>
                                         <span className="text-[7px] text-[#00A3FF]/30 -mt-0.5 tracking-tighter">ALGO_PROC: ACTIVE</span>
                                     </div>
-                                    <span className="text-white/10">—</span>
-                                    <span className="text-[11px] text-white/50 tracking-tight font-sans">Triagem técnica e de viabilidade</span>
+                                    <span className="text-white/10 hidden sm:inline">—</span>
+                                    <span className="text-[10px] md:text-[11px] text-white/50 tracking-tight font-sans">Triagem técnica e de viabilidade</span>
                                 </div>
                             </div>
 
@@ -315,13 +315,13 @@ const ServiceHub = () => {
                                 <div className="w-7 h-7 rounded-full bg-[#0a0a0a] border border-[#00FF66]/40 flex items-center justify-center">
                                     <CheckCircle size={13} className="text-[#00FF66]" />
                                 </div>
-                                <div className="flex items-center gap-5 font-mono">
+                                <div className="flex flex-wrap items-center gap-2 md:gap-5 font-mono">
                                     <div className="flex flex-col">
                                         <span className="text-[11px] text-[#00FF66] font-bold uppercase tracking-widest">ACEITO</span>
                                         <span className="text-[7px] text-[#00FF66]/30 -mt-0.5 tracking-tighter">NODE: PRODUCTION_01</span>
                                     </div>
-                                    <span className="text-white/10">—</span>
-                                    <span className="text-[11px] text-white font-medium tracking-tight font-sans">Especialista dedicado alocado</span>
+                                    <span className="text-white/10 hidden sm:inline">—</span>
+                                    <span className="text-[10px] md:text-[11px] text-white font-medium tracking-tight font-sans">Especialista dedicado alocado</span>
                                 </div>
                             </div>
                         </div>

@@ -112,11 +112,11 @@ const EliteRewards = () => {
                         </span>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tighter">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tighter uppercase">
                         Recompensas <span className="text-[#FF5500]">BW</span>
                     </h2>
 
-                    <p className="text-gray-500 font-sans text-lg mx-auto leading-relaxed">
+                    <p className="text-gray-500 font-sans text-base md:text-lg mx-auto leading-relaxed max-w-2xl px-4 md:px-0">
                         Quanto mais você investe em serviços digitais, maiores as recompensas exclusivas que você ganha.
                     </p>
                 </div>
@@ -162,12 +162,12 @@ const EliteRewards = () => {
                             </div>
 
                             {/* Ranking Table */}
-                            <div className="relative z-10">
+                            <div className="relative z-10 overflow-x-auto no-scrollbar">
                                 {/* Table Header */}
-                                <div className="grid grid-cols-12 gap-4 pb-4 mb-2 border-b border-white/[0.05]">
-                                    <div className="col-span-1 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest">#</div>
-                                    <div className="col-span-7 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest">Operador</div>
-                                    <div className="col-span-4 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest text-right">Faturamento</div>
+                                <div className="grid grid-cols-12 gap-2 sm:gap-4 pb-4 mb-2 border-b border-white/[0.05] min-w-[450px] sm:min-w-0">
+                                    <div className="col-span-2 sm:col-span-1 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest px-1">#</div>
+                                    <div className="col-span-6 sm:col-span-7 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest px-1">Operador</div>
+                                    <div className="col-span-4 text-[9px] font-sans font-bold text-white/30 uppercase tracking-widest text-right px-1">Faturamento</div>
                                 </div>
 
                                 {/* Ranking Rows */}
@@ -210,9 +210,9 @@ const EliteRewards = () => {
                             </div>
 
                             {/* Aspirational Banner */}
-                            <div className="relative z-10 mt-8 p-5 rounded-xl bg-[#FF5500]/[0.06] border border-[#FF5500]/15 flex items-center gap-6">
-                                <div className="flex items-center gap-4 shrink-0">
-                                    <div className="w-12 h-12 rounded-full bg-white/[0.06] border border-[#FF5500]/20 border-dashed flex items-center justify-center">
+                            <div className="relative z-10 mt-8 p-6 rounded-xl bg-[#FF5500]/[0.06] border border-[#FF5500]/15 flex flex-col md:flex-row items-center gap-6">
+                                <div className="flex items-center gap-4 shrink-0 w-full md:w-auto">
+                                    <div className="w-12 h-12 rounded-full bg-white/[0.06] border border-[#FF5500]/20 border-dashed flex items-center justify-center shrink-0">
                                         <span className="text-[#FF5500]/60 font-display font-bold text-lg">?</span>
                                     </div>
                                     <div>
@@ -220,13 +220,13 @@ const EliteRewards = () => {
                                         <p className="text-white/40 font-sans text-xs">A 1ª posição está esperando por você</p>
                                     </div>
                                 </div>
-                                <div className="flex-1 mx-4">
+                                <div className="flex-1 w-full md:mx-4">
                                     <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
                                         <div className="h-full rounded-full bg-gradient-to-r from-[#FF5500]/40 to-[#FF5500] w-[100%] animate-pulse shadow-[0_0_12px_rgba(255,85,0,0.4)]" />
                                     </div>
                                     <p className="text-white/30 font-mono text-[9px] mt-1.5 text-right">Próxima vaga disponível</p>
                                 </div>
-                                <button className="shrink-0 px-5 py-2.5 rounded-lg bg-[#FF5500] text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-[#FF6600] transition-all duration-300 shadow-[0_0_20px_rgba(255,85,0,0.3)]">
+                                <button className="shrink-0 w-full md:w-auto px-5 py-3 rounded-lg bg-[#FF5500] text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-[#FF6600] transition-all duration-300 shadow-[0_0_20px_rgba(255,85,0,0.3)] active:scale-95">
                                     Começar Agora
                                 </button>
                             </div>

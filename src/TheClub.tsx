@@ -28,17 +28,17 @@ const TheClub = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
 
                     {/* Visual: iPhones (Esquerda) */}
-                    <div className="relative h-[550px] md:h-[700px] flex items-center justify-center order-2 lg:order-1">
+                    <div className="relative h-[450px] sm:h-[550px] md:h-[700px] flex items-center justify-center order-2 lg:order-1">
                         {/* Floor Glow (Stage Light) */}
                         <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[120%] h-[150px] bg-[#FF5500] opacity-10 blur-[100px] rounded-[100%] pointer-events-none transform scale-y-50" />
 
-                        {/* Celular de trás (Faded) */}
-                        <div className="absolute left-[15%] top-[50%] -translate-y-[45%] w-[240px] md:w-[300px] opacity-20 filter grayscale blur-[1px]">
+                        {/* Celular de trás (Faded) - Adjusted for mobile */}
+                        <div className="absolute left-[10%] sm:left-[15%] top-[50%] -translate-y-[45%] w-[180px] sm:w-[240px] md:w-[300px] opacity-20 filter grayscale blur-[1px]">
                             <IPhoneMockup className="" />
                         </div>
 
-                        {/* Celular da frente (Principal) */}
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] md:w-[320px] z-20">
+                        {/* Celular da frente (Principal) - Adjusted for mobile */}
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[260px] md:w-[320px] z-20">
                             <IPhoneMockup className="" />
                         </div>
                     </div>
@@ -53,12 +53,12 @@ const TheClub = () => {
                             </div>
 
                             {/* Headline conforme print */}
-                            <h2 className="font-display text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.0] tracking-tight">
+                            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.1] md:leading-[1.0] tracking-tight uppercase">
                                 Instale o <br />
                                 <span className="text-[#FF5500]">App Digital BW</span>
                             </h2>
 
-                            <p className="font-sans text-lg text-gray-400 max-w-xl leading-relaxed mx-auto lg:mx-0">
+                            <p className="font-sans text-base md:text-lg text-gray-400 max-w-xl leading-relaxed mx-auto lg:mx-0 px-4 sm:px-0">
                                 Acesse todos os recursos da plataforma direto do seu celular.
                                 Compre ativos, solicite serviços e acompanhe métricas em tempo real.
                             </p>

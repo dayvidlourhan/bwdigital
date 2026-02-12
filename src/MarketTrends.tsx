@@ -20,11 +20,11 @@ const MarketTrends = () => {
                         </span>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tighter">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tighter uppercase">
                         Mercado em <span className="text-[#FF5500]">Alta</span>
                     </h2>
 
-                    <p className="text-gray-500 font-sans text-lg mx-auto leading-relaxed">
+                    <p className="text-gray-500 font-sans text-base md:text-lg mx-auto leading-relaxed max-w-2xl">
                         Análises avançadas com base em dados reais e Inteligência Artificial.
                     </p>
                 </div>
@@ -109,17 +109,17 @@ const MarketTrends = () => {
                                 </div>
                             </div>
 
-                            {/* Stats Footer (3 colunas) */}
-                            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/[0.05] relative z-10">
-                                <div className="[font-variant-numeric:tabular-nums]">
+                            {/* Stats Footer (Responsive) */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 pt-10 border-t border-white/[0.05] relative z-10">
+                                <div className="[font-variant-numeric:tabular-nums] flex flex-col items-center sm:items-start text-center sm:text-left">
                                     <p className="text-[10px] font-sans text-white/40 uppercase tracking-[0.2em] mb-2">Volume 24h</p>
                                     <p className="text-2xl font-display font-bold text-white tracking-tight">R$ 2.4M</p>
                                 </div>
-                                <div className="border-l border-white/[0.05] pl-6 [font-variant-numeric:tabular-nums]">
+                                <div className="border-t sm:border-t-0 sm:border-l border-white/[0.05] pt-8 sm:pt-0 sm:pl-6 [font-variant-numeric:tabular-nums] flex flex-col items-center sm:items-start text-center sm:text-left">
                                     <p className="text-[10px] font-sans text-white/40 uppercase tracking-[0.2em] mb-2">Transações</p>
                                     <p className="text-2xl font-display font-bold text-white tracking-tight">12.847</p>
                                 </div>
-                                <div className="border-l border-white/[0.05] pl-6 [font-variant-numeric:tabular-nums]">
+                                <div className="border-t sm:border-t-0 sm:border-l border-white/[0.05] pt-8 sm:pt-0 sm:pl-6 [font-variant-numeric:tabular-nums] flex flex-col items-center sm:items-start text-center sm:text-left">
                                     <p className="text-[10px] font-sans text-white/40 uppercase tracking-[0.2em] mb-2">Crescimento</p>
                                     <p className="text-2xl font-display font-bold text-green-500 tracking-tight">+156%</p>
                                 </div>

@@ -128,7 +128,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick, index }: { question:
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                     >
-                        <div className="px-16 pb-8">
+                        <div className="px-6 md:px-16 pb-8">
                             <div className="h-px w-full bg-gradient-to-r from-[#FF5500]/30 to-transparent mb-6" />
                             <p className="font-sans text-[14px] md:text-[15px] leading-relaxed text-gray-400 max-w-3xl antialiased">
                                 {answer}
@@ -158,11 +158,11 @@ const FAQ = () => {
                 {/* 1. CABEÇALHO (Industrial & Technical) */}
                 <div className="text-center mb-20 relative">
 
-                    <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter uppercase leading-none">
+                    <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter uppercase leading-none">
                         Dúvidas <span className="text-[#FF5500] drop-shadow-[0_0_20px_rgba(255,85,0,0.3)]">Frequentes</span>
                     </h2>
 
-                    <p className="text-gray-500 text-sm md:text-lg font-sans max-w-2xl mx-auto leading-relaxed antialiased">
+                    <p className="text-gray-500 text-sm md:text-lg font-sans max-w-2xl mx-auto leading-relaxed antialiased px-4">
                         Sua jornada para a escala global começa com clareza técnica. <br className="hidden md:block" />
                         Explore os parâmetros do nosso ecossistema de alta performance.
                     </p>

@@ -27,24 +27,24 @@ const StrategicSolutions = () => {
 
                 {/* Título e Subtítulo da Seção */}
                 <div className="text-center mb-16 animate-fade-in-up">
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 uppercase tracking-tighter">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white mb-6 uppercase tracking-tighter">
                         Três Módulos <span className="text-[#FF5500]">Poderosos</span>
                     </h2>
-                    <p className="text-gray-400 font-sans text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-400 font-sans text-base md:text-xl max-w-2xl mx-auto leading-relaxed">
                         Escolha o caminho perfeito para transformar seu negócio
                     </p>
                 </div>
 
                 {/* 1. REFINAMENTO DA NAVEGAÇÃO (Tabs como "Switch" Físico) */}
-                <div className="flex justify-center mb-32">
-                    <div className="inline-flex p-1 bg-white/[0.02] border border-white/[0.05] rounded-full backdrop-blur-3xl shadow-2xl relative">
+                <div className="flex justify-center mb-20 md:mb-32">
+                    <div className="inline-flex p-1 bg-white/[0.02] border border-white/[0.05] rounded-full backdrop-blur-3xl shadow-2xl relative max-w-full overflow-x-auto no-scrollbar scroll-smooth px-4 sm:px-1">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`px-10 py-3.5 rounded-full text-[10px] font-display font-bold uppercase tracking-[0.2em] transition-all duration-500 relative ${activeTab === tab.id
-                                        ? 'bg-white/10 text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)]'
-                                        : 'text-gray-500 hover:text-gray-300'
+                                className={`px-6 md:px-10 py-3 md:py-3.5 rounded-full text-[9px] md:text-[10px] font-display font-bold uppercase tracking-[0.2em] transition-all duration-500 relative whitespace-nowrap ${activeTab === tab.id
+                                    ? 'bg-white/10 text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)]'
+                                    : 'text-gray-500 hover:text-gray-300'
                                     }`}
                             >
                                 {tab.label}
@@ -61,17 +61,17 @@ const StrategicSolutions = () => {
 
                     {/* ABA 3: GESTÃO (Agora como primeira opção lógica) */}
                     {activeTab === 2 && (
-                        <div className="grid lg:grid-cols-2 gap-24 items-center animate-fade-in-up">
+                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center animate-fade-in-up">
                             <div>
-                                <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
+                                <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
                                     Deixe seu tráfego <br />
                                     <span className="text-[#FF5500]">com especialistas</span>
                                 </h2>
-                                <p className="text-gray-400 font-sans text-lg mb-14 max-w-xl leading-relaxed">
+                                <p className="text-gray-400 font-sans text-base md:text-lg mb-12 lg:mb-14 max-w-xl leading-relaxed">
                                     Nossa equipe cuida de todas as suas campanhas enquanto você foca no que realmente importa: seu negócio.
                                 </p>
 
-                                <div className="grid md:grid-cols-2 gap-y-12 gap-x-10 mb-16">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 md:gap-y-12 gap-x-10 mb-16">
                                     {[
                                         { icon: TrendingUp, title: 'Meta & Google Ads', sub: 'Gestão completa de campanhas' },
                                         { icon: Server, title: 'Relatórios Semanais', sub: 'Acompanhamento detalhado' },
@@ -128,8 +128,8 @@ const StrategicSolutions = () => {
                                             }
                                         ].map((plan, idx) => (
                                             <div key={idx} className={`relative p-8 rounded-xl border transition-all duration-500 overflow-hidden group/plan ${plan.popular
-                                                    ? 'bg-[#FF5500]/5 border-[#FF5500]/20 shadow-[0_0_40px_rgba(255,85,0,0.05)]'
-                                                    : 'bg-white/[0.02] border-white/5 hover:border-white/10'
+                                                ? 'bg-[#FF5500]/5 border-[#FF5500]/20 shadow-[0_0_40px_rgba(255,85,0,0.05)]'
+                                                : 'bg-white/[0.02] border-white/5 hover:border-white/10'
                                                 }`}>
                                                 {plan.popular && (
                                                     <span className="absolute top-0 right-0 bg-[#FF5500] text-white text-[9px] font-mono font-black px-4 py-1.5 rounded-bl-lg tracking-[0.2em] shadow-lg">
@@ -163,17 +163,17 @@ const StrategicSolutions = () => {
 
                     {/* ABA 1: ESTRUTURAÇÃO */}
                     {activeTab === 0 && (
-                        <div className="grid lg:grid-cols-2 gap-24 items-center animate-fade-in-up">
+                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center animate-fade-in-up">
                             <div>
-                                <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
+                                <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
                                     Estruture seu negócio para <br />
                                     <span className="text-[#FF5500]">escalar</span>
                                 </h2>
-                                <p className="text-gray-400 font-sans text-lg mb-14 max-w-xl leading-relaxed">
+                                <p className="text-gray-400 font-sans text-base md:text-lg mb-12 lg:mb-14 max-w-xl leading-relaxed">
                                     Nossa mentoria vai além do básico. Ajudamos você a estruturar seu negócio do zero, definir processos, organizar finanças e criar um plano de crescimento sustentável.
                                 </p>
 
-                                <div className="grid md:grid-cols-2 gap-y-12 gap-x-10 mb-16">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 md:gap-y-12 gap-x-10 mb-16">
                                     {[
                                         { icon: Shield, title: 'Diagnóstico Completo', sub: 'Análise profunda do seu negócio' },
                                         { icon: TrendingUp, title: 'Estratégia Personalizada', sub: 'Plano sob medida para você' },
@@ -243,16 +243,16 @@ const StrategicSolutions = () => {
 
                     {/* ABA 2: CURSO */}
                     {activeTab === 1 && (
-                        <div className="grid lg:grid-cols-2 gap-24 items-center animate-fade-in-up">
+                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center animate-fade-in-up">
                             <div>
-                                <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
+                                <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-8 leading-[1.1] tracking-tighter text-white">
                                     Domine a <span className="text-[#FF5500]">Contingência</span> no <br /> Facebook Ads
                                 </h2>
-                                <p className="text-gray-400 font-sans text-lg mb-14 max-w-xl leading-relaxed">
+                                <p className="text-gray-400 font-sans text-base md:text-lg mb-12 lg:mb-14 max-w-xl leading-relaxed">
                                     Aprenda as estratégias que profissionais usam para manter suas contas ativas, escalar campanhas e nunca mais perder dinheiro com bloqueios.
                                 </p>
 
-                                <div className="grid md:grid-cols-2 gap-y-12 gap-x-10 mb-16">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 md:gap-y-12 gap-x-10 mb-16">
                                     {[
                                         { icon: Shield, title: 'Contingência Avançada', sub: 'Proteja seus ativos' },
                                         { icon: TrendingUp, title: 'Métricas de Escala', sub: 'Saiba quando escalar' },
