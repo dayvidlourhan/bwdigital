@@ -1,21 +1,6 @@
-import { Box, Activity, Calendar, Users, Instagram } from 'lucide-react';
+import { Box, Activity, Calendar, Users, Instagram, Monitor, MessageCircle } from 'lucide-react';
 
-const RocketIcon = ({ className }: { className?: string }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-    </svg>
-);
 
-const BoxIcon = ({ className }: { className?: string }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-    </svg>
-);
 
 const Navbar = () => (
     <nav className="fixed top-0 left-0 w-full z-50 h-16 border-b border-white/[0.05] bg-background/60 backdrop-blur-xl px-6 md:px-12 flex items-center justify-between">
@@ -115,13 +100,13 @@ const HeroSection = () => {
                     {/* Finalized Buttons */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                         <button className="h-12 px-8 rounded-[8px] bg-gradient-to-b from-[#FF6010] to-[#E04800] border border-white/5 text-sm font-semibold text-white transition-all flex items-center gap-3 active:scale-[0.98] outline-none group shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_0_20px_-5px_rgba(255,85,0,0.5)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_0_30px_-5px_rgba(255,85,0,0.6)] hover:-translate-y-px">
-                            <span>Solicitar um serviço agora</span>
-                            <RocketIcon className="w-[14px] h-[14px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            <span>Acessar plataforma</span>
+                            <Monitor className="w-[14px] h-[14px] group-hover:scale-110 transition-transform" />
                         </button>
 
                         <button className="h-12 px-8 rounded-[8px] border border-white/10 bg-white/[0.03] text-sm font-semibold text-white hover:bg-white/5 hover:border-white/30 transition-all flex items-center gap-3 group active:scale-[0.98]">
-                            <span>Ver ativos disponíveis</span>
-                            <BoxIcon className="w-[14px] h-[14px] text-white/60 group-hover:text-white transition-colors" />
+                            <span>Falar no WhatsApp</span>
+                            <MessageCircle className="w-[14px] h-[14px] text-white/60 group-hover:text-white transition-colors" />
                         </button>
                     </div>
                 </div>

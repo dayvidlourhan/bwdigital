@@ -1,4 +1,5 @@
-import { Rocket, MessageCircle, ShieldCheck, Zap, Headphones, Instagram, Mail, Send } from 'lucide-react';
+import { UserPlus, Rocket, Instagram, Mail, Send } from 'lucide-react';
+import { EnergyFlowOrb } from './EnergyFlowOrb';
 
 const Footer = () => {
     return (
@@ -25,63 +26,30 @@ const Footer = () => {
                     Pronto para <span className="text-[#FF5500]">escalar <br className="hidden md:block" /> sua operação?</span>
                 </h2>
 
-                <p className="text-gray-400 font-sans text-lg md:text-2xl max-w-3xl mx-auto mb-14 leading-relaxed font-medium opacity-80">
+                <p className="text-gray-400 font-sans text-lg md:text-2xl max-w-3xl mx-auto mb-4 leading-relaxed font-medium opacity-80">
                     Junte-se a milhares de profissionais que já transformaram seus resultados com a Digital BW.
                 </p>
 
-                {/* 2. AÇÃO DUPLA (Botões - Premium Sizing) */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+                {/* Integrated Energy Flow Visual Effect */}
+                <div className="scale-75 md:scale-90 lg:scale-100 -my-10 md:-my-18 opacity-90">
+                    <EnergyFlowOrb />
+                </div>
+
+                {/* 2. AÇÃO DUPLA (Botões - Hero Style) */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-20 mb-20 relative z-20">
                     {/* Botão 1 (Primário) */}
-                    <button className="group relative h-14 sm:h-16 px-9 rounded-xl bg-[#FF5500] flex items-center gap-4 text-white font-black text-base transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_-5px_rgba(255,85,0,0.45)] hover:shadow-[0_0_60px_-5px_rgba(255,85,0,0.65)] overflow-hidden">
-                        {/* Internal Bevel Effect */}
-                        <div className="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-t-2xl z-20"></div>
-
-                        <Rocket size={20} className="group-hover:translate-x-1.5 group-hover:-translate-y-1.5 transition-transform duration-500 ease-out relative z-10" />
-                        <span className="relative z-10 tracking-tight">SOLICITAR SERVIÇO AGORA</span>
-
-                        {/* Reflection Sheen */}
-                        <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
+                    <button className="h-12 px-8 rounded-[8px] bg-gradient-to-b from-[#FF6010] to-[#E04800] border border-white/5 text-sm font-semibold text-white transition-all flex items-center gap-3 active:scale-[0.98] outline-none group shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_0_20px_-5px_rgba(255,85,0,0.5)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_0_30px_-5px_rgba(255,85,0,0.6)] hover:-translate-y-px">
+                        <span className="tracking-tight">Criar Conta na Plataforma</span>
+                        <UserPlus className="w-[14px] h-[14px] group-hover:scale-110 transition-transform" />
                     </button>
 
                     {/* Botão 2 (Secundário) */}
-                    <button className="h-14 sm:h-16 px-9 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-xl flex items-center gap-4 text-white font-bold text-base transition-all hover:bg-white/5 hover:border-white/20 active:scale-[0.98] group">
-                        <MessageCircle size={20} className="text-gray-400 group-hover:text-[#FF5500] transition-colors" />
-                        <span className="tracking-tight">FALAR COM ESPECIALISTA</span>
+                    <button className="h-12 px-8 rounded-[8px] border border-white/10 bg-white/[0.03] text-sm font-semibold text-white hover:bg-white/5 hover:border-white/30 transition-all flex items-center gap-3 group active:scale-[0.98]">
+                        <span className="tracking-tight">Solicitar um Serviço</span>
+                        <Rocket className="w-[14px] h-[14px] text-white/60 group-hover:text-white transition-colors" />
                     </button>
                 </div>
 
-                {/* 3. TRUST BADGES (Premium Restore & Slim Band) */}
-                <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10 border-t border-white/5 pt-10">
-                    <div className="flex items-center gap-5 group cursor-default">
-                        <div className="w-13 h-13 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:border-[#FF5500]/40 group-hover:bg-[#FF5500]/5 transition-all duration-500 shadow-xl">
-                            <ShieldCheck size={26} className="text-[#FF5500] opacity-80" />
-                        </div>
-                        <div className="text-left">
-                            <div className="text-white text-[15px] font-bold tracking-tight">100% SEGURO</div>
-                            <div className="text-gray-500 text-[11px] font-bold tracking-wide uppercase">Criptografia BW</div>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-5 group cursor-default">
-                        <div className="w-13 h-13 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:border-[#FF5500]/40 group-hover:bg-[#FF5500]/5 transition-all duration-500 shadow-xl">
-                            <Zap size={26} className="text-[#FF5500] opacity-80" />
-                        </div>
-                        <div className="text-left">
-                            <div className="text-white text-[15px] font-bold tracking-tight">ENTREGA IMEDIATA</div>
-                            <div className="text-gray-500 text-[11px] font-bold tracking-wide uppercase">Setup Instantâneo</div>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-5 group cursor-default">
-                        <div className="w-13 h-13 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:border-[#FF5500]/40 group-hover:bg-[#FF5500]/5 transition-all duration-500 shadow-xl">
-                            <Headphones size={26} className="text-[#FF5500] opacity-80" />
-                        </div>
-                        <div className="text-left">
-                            <div className="text-white text-[15px] font-bold tracking-tight">SUPORTE 24/7</div>
-                            <div className="text-gray-500 text-[11px] font-bold tracking-wide uppercase">Time Técnico</div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             {/* 4. O RODAPÉ (Footer Bar - Balanced Styling) */}

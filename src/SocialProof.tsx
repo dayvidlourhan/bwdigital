@@ -53,11 +53,50 @@ const SocialProof = () => {
             author: 'Ana Oliveira',
             role: 'Infoprodutora',
             initials: 'AO'
+        },
+        {
+            text: 'A infraestrutura mais robusta que já utilizei. Estabilidade total em momentos de pico.',
+            author: 'Lucas Mendes',
+            role: 'Dropshipping expert',
+            initials: 'LM'
+        },
+        {
+            text: 'Finalmente uma empresa que entende a dor do produtor digital no Brasil.',
+            author: 'Beatriz Ferraz',
+            role: 'Estratégista Digital',
+            initials: 'BF'
+        },
+        {
+            text: 'O design dos ativos elevou o nível do meu funil instantaneamente.',
+            author: 'Ricardo Alves',
+            role: 'Copywriter Pro',
+            initials: 'RA'
+        },
+        {
+            text: 'Implementação rápida e resultados sólidos. Recomendo para quem quer profissionalismo.',
+            author: 'Felipe Rocha',
+            role: 'Agência Scale',
+            initials: 'FR'
+        },
+        {
+            text: 'O retorno sobre o investimento foi muito acima do esperado. Fiquei impressionada.',
+            author: 'Juliana Lima',
+            role: 'Social Media',
+            initials: 'JL'
+        },
+        {
+            text: 'Suporte humanizado e ágil. Sinto que realmente tenho uma parceria com a BW.',
+            author: 'Gustavo Paiva',
+            role: 'Empreendedor',
+            initials: 'GP'
         }
     ];
 
+    // Duplicate testimonials for seamless looping
+    const scrollingTestimonials = [...testimonials, ...testimonials];
+
     // Card Glass Style synced with AtivosAds.tsx
-    const cardBaseStyle = "relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 group-hover:bg-white/[0.08] group-hover:border-[#FF5500]/40 group-hover:-translate-y-2 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu";
+    const cardBaseStyle = "relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-2xl border border-white/[0.08] transition-all duration-500 hover:bg-white/[0.08] hover:border-[#FF5500]/40 overflow-hidden flex flex-col hover:shadow-[0_20px_50px_rgba(255,85,0,0.15)] transform-gpu w-[300px] md:w-[350px] flex-shrink-0";
 
     return (
         <section id="social" className="relative bg-[#050505] py-24 md:py-48 px-6 md:px-12 overflow-hidden border-t border-white/[0.03]">
@@ -76,7 +115,7 @@ const SocialProof = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 uppercase"
                     >
-                        PROVAS SOCIAIS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">(NOSSOS CLIENTES)</span>
+                        NOSSOS <span className="text-[#FF5500] drop-shadow-[0_0_15px_rgba(255,85,0,0.3)] font-display">CLIENTES</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -89,7 +128,7 @@ const SocialProof = () => {
                 </div>
 
                 {/* 2. GRID SUPERIOR (Holo-Glass Infrastructure) - Synchronized with AtivosAds small cards */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 mb-16">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7 mb-24">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
@@ -126,54 +165,71 @@ const SocialProof = () => {
                     ))}
                 </div>
 
-                {/* 3. GRID INFERIOR (Technical Testimonials) - Synchronized with AtivosAds Main Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7">
-                    {testimonials.map((test, index) => (
+                {/* 3. CARROSSEL INFINITO (Marquee Depoimentos) */}
+                <div className="relative -mx-6 md:-mx-12">
+                    {/* Shadow Fades for Premium Look */}
+                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-20 pointer-events-none" />
+
+                    <div className="flex overflow-hidden px-4 md:px-0">
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 + index * 0.05 }}
-                            className={cardBaseStyle}
+                            className="flex gap-6 md:gap-7 py-20" // Aumentado padding vertical para não cortar o brilho
+                            animate={{
+                                x: [0, -((testimonials.length * 350) + (testimonials.length * 28))]
+                            }}
+                            transition={{
+                                x: {
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                    duration: 60, // Mais lento (era 40)
+                                    ease: "linear",
+                                },
+                            }}
                         >
-                            {/* Glassy Top Reflection */}
-                            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            {scrollingTestimonials.map((test, index) => (
+                                <div
+                                    key={index}
+                                    className={cardBaseStyle}
+                                >
+                                    {/* Glassy Top Reflection */}
+                                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                            {/* Stars synced color */}
-                            <div className="flex gap-1 mb-6">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-3 h-3 fill-[#FF5500] text-[#FF5500] drop-shadow-[0_0_5px_rgba(255,85,0,0.4)]" />
-                                ))}
-                            </div>
+                                    {/* Stars synced color */}
+                                    <div className="flex gap-1 mb-6">
+                                        {[...Array(5)].map((_, i) => (
+                                            <Star key={i} className="w-3 h-3 fill-[#FF5500] text-[#FF5500] drop-shadow-[0_0_5px_rgba(255,85,0,0.4)]" />
+                                        ))}
+                                    </div>
 
-                            {/* Content Section - Synced with AtivosAds content rhythm */}
-                            <div className="mb-8 flex-grow">
-                                <p className="text-gray-400 text-[13px] leading-relaxed font-medium group-hover:text-white transition-colors duration-300 font-sans">
-                                    "{test.text}"
-                                </p>
-                            </div>
+                                    {/* Content Section */}
+                                    <div className="mb-8 flex-grow">
+                                        <p className="text-gray-400 text-[13px] leading-relaxed font-medium group-hover:text-white transition-colors duration-300 font-sans">
+                                            "{test.text}"
+                                        </p>
+                                    </div>
 
-                            {/* Author Footer - Digital System Style */}
-                            <div className="flex items-center gap-4 pt-6 border-t border-white/[0.05] relative z-10 mt-auto">
-                                <div className="w-10 h-10 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-[#FF5500]/30 transition-colors">
-                                    <span className="text-[10px] font-mono text-white/30 font-bold group-hover:text-[#FF5500]">
-                                        {test.initials}
-                                    </span>
+                                    {/* Author Footer */}
+                                    <div className="flex items-center gap-4 pt-6 border-t border-white/[0.05] relative z-10 mt-auto">
+                                        <div className="w-10 h-10 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-[#FF5500]/30 transition-colors">
+                                            <span className="text-[10px] font-mono text-white/30 font-bold group-hover:text-[#FF5500]">
+                                                {test.initials}
+                                            </span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <h4 className="text-white font-display font-bold text-xs uppercase tracking-wider">
+                                                {test.author}
+                                            </h4>
+                                            <span className="text-zinc-600 font-mono text-[9px] uppercase tracking-widest mt-0.5">
+                                                {test.role}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex flex-col">
-                                    <h4 className="text-white font-display font-bold text-xs uppercase tracking-wider">
-                                        {test.author}
-                                    </h4>
-                                    <span className="text-zinc-600 font-mono text-[9px] uppercase tracking-widest mt-0.5">
-                                        {test.role}
-                                    </span>
-                                </div>
-                            </div>
+                            ))}
                         </motion.div>
-                    ))}
+                    </div>
                 </div>
             </div>
-
         </section>
     );
 };
