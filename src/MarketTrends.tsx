@@ -111,7 +111,7 @@ const MarketTrends = () => {
     const activeDataIndex = (currentIdx - START_INDEX + baseSlides.length) % baseSlides.length;
 
     return (
-        <section id="mercado" className="relative bg-[#050505] py-16 md:py-24 overflow-hidden selection:bg-[#FF5500]/30">
+        <section id="mercado" className="relative bg-[#050505] py-10 md:py-24 overflow-hidden selection:bg-[#FF5500]/30">
             {/* Seamless Transition Overlays */}
             <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-[11]" />
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-[11]" />
@@ -129,10 +129,10 @@ const MarketTrends = () => {
                     title="Mercado em"
                     highlight="Alta"
                     subtitle={subtitles[activeDataIndex]}
-                    className="mb-0 min-h-[140px] md:min-h-[120px]"
+                    className="mb-0 min-h-[80px] md:min-h-[120px]"
                 />
 
-                <div ref={macRef} className="relative w-full h-[450px] sm:h-[550px] md:h-[700px] lg:h-[850px] flex items-center justify-center -mt-12 md:-mt-24">
+                <div ref={macRef} className="relative w-full h-[250px] sm:h-[550px] md:h-[700px] lg:h-[850px] flex items-center justify-center -mt-12 md:-mt-24">
 
                     <MacbookMockup isOpen={isOpen}>
                         {/* Overlay Fades - High Contrast Focus */}

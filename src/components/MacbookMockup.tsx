@@ -21,8 +21,8 @@ const MacbookMockup: React.FC<MacbookMockupProps> = ({ isOpen, children }) => {
                 <div className="relative w-full flex justify-center items-center">
                     {/* Responsive Scaler - Calibrated Scale and Position */}
                     <div className="transition-transform duration-1000 ease-in-out transform
-            scale-[0.27] sm:scale-[0.41] md:scale-[0.70] lg:scale-[0.84]
-            translate-y-[-75px] sm:translate-y-[-112px] md:translate-y-[-175px] lg:translate-y-[-212px]
+            scale-[0.31] sm:scale-[0.41] md:scale-[0.70] lg:scale-[0.84]
+            translate-y-[-86px] sm:translate-y-[-112px] md:translate-y-[-175px] lg:translate-y-[-212px]
           ">
                         {children}
                     </div>
@@ -30,7 +30,7 @@ const MacbookMockup: React.FC<MacbookMockupProps> = ({ isOpen, children }) => {
             </div>
 
             {/* 2. MACBOOK TELA (Z-INDEX 2) */}
-            <div className="tela absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[2] w-[300px] sm:w-[450px] md:w-[750px] lg:w-[950px] pointer-events-none"
+            <div className="tela absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[2] w-[340px] sm:w-[450px] md:w-[750px] lg:w-[950px] pointer-events-none"
                 style={{ perspective: '2800px' }}
             >
                 <img
@@ -47,7 +47,7 @@ const MacbookMockup: React.FC<MacbookMockupProps> = ({ isOpen, children }) => {
             </div>
 
             {/* 3. MACBOOK BASE (Z-INDEX 3) */}
-            <div className="base absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[3] w-[300px] sm:w-[450px] md:w-[750px] lg:w-[950px] pointer-events-none">
+            <div className="base absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[3] w-[340px] sm:w-[450px] md:w-[750px] lg:w-[950px] pointer-events-none">
                 <img src="/inferior-macbook.webp" alt="Macbook Base" className="w-full" />
             </div>
         </div>
