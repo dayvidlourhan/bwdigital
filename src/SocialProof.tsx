@@ -110,8 +110,8 @@ const SocialProof = () => {
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#FF5500]/5 blur-[120px] rounded-full opacity-20" />
             </div>
-
-            <div className="max-w-7xl mx-auto relative z-10">
+            {/* Content Container - Elevated above transitions */}
+            <div className="max-w-7xl mx-auto overflow-visible relative z-20">
 
                 <SectionHeader
                     title="NOSSOS"

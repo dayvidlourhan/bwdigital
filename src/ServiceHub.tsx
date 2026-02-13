@@ -205,7 +205,10 @@ const ServiceHub = () => {
 
 
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 pt-12">
+            <div
+                className="max-w-7xl mx-auto px-6 md:px-12 relative z-20"
+                onMouseLeave={() => setActiveIndex(-1)}
+            >
                 <SectionHeader
                     title="Solicite um"
                     highlight="Serviço Especializado"

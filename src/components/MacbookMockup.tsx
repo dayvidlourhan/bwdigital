@@ -21,8 +21,8 @@ const MacbookMockup: React.FC<MacbookMockupProps> = ({ isOpen, children }) => {
                 <div className="relative w-full flex justify-center items-center">
                     {/* Responsive Scaler - Calibrated Scale and Position */}
                     <div className="transition-transform duration-1000 ease-in-out transform
-            scale-[0.36] sm:scale-[0.55] md:scale-[0.70] lg:scale-[0.84]
-            translate-y-[-100px] sm:translate-y-[-138px] md:translate-y-[-175px] lg:translate-y-[-212px]
+            scale-[0.27] sm:scale-[0.41] md:scale-[0.70] lg:scale-[0.84]
+            translate-y-[-75px] sm:translate-y-[-112px] md:translate-y-[-175px] lg:translate-y-[-212px]
           ">
                         {children}
                     </div>

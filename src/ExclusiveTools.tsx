@@ -82,7 +82,7 @@ const ExclusiveTools = () => {
                 }}
             />
 
-            <div className="relative z-10 w-full mb-16 md:mb-24">
+            <div className="relative z-20 w-full mb-16 md:mb-24">
                 <SectionHeader
                     title="Ferramentas"
                     highlight="BW"
@@ -92,7 +92,7 @@ const ExclusiveTools = () => {
             </div>
 
             {/* RADIAL PIZZA SELECTOR - Desktop Only */}
-            <div className="hidden lg:flex relative w-full max-w-[700px] aspect-square items-center justify-center">
+            <div className="hidden lg:flex relative z-20 w-full max-w-[700px] aspect-square items-center justify-center">
 
                 <svg viewBox="0 0 1000 1000" className="w-full h-full relative z-[5] overflow-visible">
                     {segments.map((segment, index) => {
@@ -138,7 +138,8 @@ const ExclusiveTools = () => {
                                     height="200"
                                     className="overflow-visible pointer-events-none"
                                 >
-                                    <div className="w-full h-full flex flex-col items-center justify-center text-center p-2">
+                                    {/* Content Core */}
+                                    <div className="relative z-20 w-full h-full flex flex-col items-center justify-center text-center p-2">
                                         <div className="flex items-center justify-center gap-3 mb-4 w-full px-2">
                                             {/* Standardized Header: Mathematically centered and spaced */}
                                             <segment.icon
@@ -189,7 +190,7 @@ const ExclusiveTools = () => {
             </div>
 
             {/* INTERACTIVE MOBILE HUB - Replaces long stacked list */}
-            <div className="lg:hidden w-full max-w-lg mt-8">
+            <div className="lg:hidden w-full max-w-lg mt-8 relative z-20">
                 {/* 1. Module Selector Strip */}
                 <div className="flex overflow-x-auto pb-6 gap-3 no-scrollbar snap-x px-4 -mx-4">
                     {segments.map((segment, index) => (

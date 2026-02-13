@@ -46,7 +46,7 @@ const AtivosAds = () => {
             {/* Top Seamless Transition */}
             <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent pointer-events-none z-[5]" />
 
-            <div className="max-w-7xl mx-auto overflow-visible relative z-10">
+            <div className="max-w-7xl mx-auto overflow-visible relative z-20">
                 <SectionHeader
                     title="ATIVOS ADS"
                     highlight="DE ALTA PERFORMANCE"

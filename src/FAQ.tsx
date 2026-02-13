@@ -115,7 +115,7 @@ const FAQ = () => {
                 <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#FF5500]/5 blur-[150px] rounded-full opacity-20" />
             </div>
 
-            <div className="max-w-5xl mx-auto px-6 relative z-10">
+            <div className="max-w-5xl mx-auto px-6 relative z-20">
 
                 <SectionHeader
                     title="Dúvidas"

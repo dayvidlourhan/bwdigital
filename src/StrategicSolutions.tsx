@@ -21,7 +21,7 @@ const StrategicSolutions = () => {
             {/* Background Atmosphere */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-20">
                 <SectionHeader
                     title="Três Módulos"
                     highlight="Poderosos"

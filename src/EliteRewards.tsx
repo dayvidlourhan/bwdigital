@@ -100,7 +100,7 @@ const EliteRewards = () => {
 
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-20">
                 <SectionHeader
                     title="Recompensas"
                     highlight="BW"
