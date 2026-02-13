@@ -158,7 +158,7 @@ const MarketTrends = () => {
                                 return (
                                     <div
                                         key={i}
-                                        className={`w-[820px] h-[512px] flex-shrink-0 rounded-[4px] overflow-hidden border border-white/5 bg-black transition-all duration-1000 ${isCenter ? 'opacity-100 scale-100 shadow-2xl' : 'opacity-10 scale-[0.98]'
+                                        className={`w-[820px] h-[512px] flex-shrink-0 rounded-[4px] overflow-hidden border border-white/5 bg-black transition-all duration-1000 ${isCenter ? 'opacity-100 scale-100 shadow-2xl' : 'opacity-30 scale-[0.98]'
                                             }`}
                                     >
                                         <img src={src} alt="" className="w-full h-full object-cover" />
