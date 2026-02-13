@@ -45,18 +45,26 @@ const MarketTrends = () => {
     const GAP = 24;
     const TOTAL_SLIDE_WIDTH = SLIDE_WIDTH + GAP;
 
-    // Handle Scroll for Opening the MacBook
+    // Handle Scroll for Opening the MacBook using IntersectionObserver (Better for Mobile/iOS)
     useEffect(() => {
-        const handleScroll = () => {
-            if (!macRef.current) return;
-            const rect = macRef.current.getBoundingClientRect();
-            const trigger = window.innerHeight * 0.8;
-            setIsOpen(rect.top <= trigger);
-        };
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Trigger when 15% is visible, but allow toggle if scrolling back up is desired.
+                // For "opening" effect, usually we want it to open and stay open while in view.
+                // Using a slightly lower threshold for mobile responsiveness.
+                setIsOpen(entry.isIntersecting);
+            },
+            {
+                threshold: 0.15, // Trigger when 15% of the element is visible
+                rootMargin: "-10% 0px 0px 0px" // Slight offset to ensure it's actually entering well
+            }
+        );
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
+        if (macRef.current) {
+            observer.observe(macRef.current);
+        }
+
+        return () => observer.disconnect();
     }, []);
 
     // Auto-Play Logic (5s Pause)

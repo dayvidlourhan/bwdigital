@@ -30,15 +30,18 @@ const MacbookMockup: React.FC<MacbookMockupProps> = ({ isOpen, children }) => {
             </div>
 
             {/* 2. MACBOOK TELA (Z-INDEX 2) */}
-            <div className="tela absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[2] w-[300px] sm:w-[450px] md:w-[750px] lg:w-[950px] pointer-events-none">
+            <div className="tela absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[2] w-[300px] sm:w-[450px] md:w-[750px] lg:w-[950px] pointer-events-none"
+                style={{ perspective: '2800px' }}
+            >
                 <img
                     src="/superior-macbook.webp"
                     alt="Macbook Screen"
                     className={`w-full transition-all duration-700 ease-in-out origin-bottom ${isOpen ? 'telaaberta' : ''}`}
                     style={{
+                        transformStyle: 'preserve-3d',
                         transform: isOpen
-                            ? 'perspective(2800px) translateX(0%) translateY(0%) rotateX(0deg) translateZ(0)'
-                            : 'perspective(2800px) translateX(0%) translateY(-5%) rotateX(-90deg) translateZ(0)'
+                            ? 'translateY(0%) rotateX(0deg) translateZ(0)'
+                            : 'translateY(-5%) rotateX(-90deg) translateZ(0)'
                     }}
                 />
             </div>
