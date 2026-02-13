@@ -329,7 +329,7 @@ const ServiceHub = () => {
                 </div>
 
                 <div className="flex flex-col items-center animate-fade-in-up">
-                    <MasterButton className="h-20 px-12 !rounded-[10px] text-[18px]">
+                    <MasterButton href="https://digitalbw.com.br/central" className="h-20 px-12 !rounded-[10px] text-[18px]">
                         INICIAR ANÁLISE DE PROJETO
                         <RocketIcon className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </MasterButton>

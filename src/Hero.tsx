@@ -10,8 +10,8 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'ATIVOS ADS', href: '#ativos' },
-        { name: 'SOLICITE SERVIÇOS', href: '#solicitacao' },
-        { name: 'GESTÃO DE TRÁFEGO', href: '#gestao' },
+        { name: 'SOLICITE SERVIÇOS', href: '#servicos' },
+        { name: 'GESTÃO DE TRÁFEGO', href: '#solucoes' },
         { name: 'MERCADO EM ALTA', href: '#mercado' },
         { name: 'PREMIAÇÕES', href: '#rewards' },
         { name: 'FAQ', href: '#faq' }

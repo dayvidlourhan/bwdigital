@@ -88,7 +88,7 @@ const StrategicSolutions = () => {
                             </div>
 
                             <div className="hidden lg:block">
-                                <MasterButton>
+                                <MasterButton href={activeData.id === 0 ? "https://api.whatsapp.com/send/?phone=553184780515&text&type=phone_number&app_absent=0" : "https://digitalbw.com.br/central"}>
                                     {activeData.ctaText}
                                     <ChevronRight size={18} />
                                 </MasterButton>
@@ -188,7 +188,7 @@ const StrategicSolutions = () => {
                                                 </div>
                                             ))}
                                         </div>
-                                        <MasterButton className="w-full h-20 !rounded-xl hidden lg:flex">
+                                        <MasterButton href="https://digitalbw.com.br/central" className="w-full h-20 !rounded-xl hidden lg:flex">
                                             Quero Garantir Minha Vaga
                                             <ChevronRight size={22} />
                                         </MasterButton>
@@ -198,7 +198,7 @@ const StrategicSolutions = () => {
                         </div>
 
                         <div className="order-3 lg:hidden w-full">
-                            <MasterButton className="w-full">
+                            <MasterButton href={activeTab === 0 ? "https://api.whatsapp.com/send/?phone=553184780515&text&type=phone_number&app_absent=0" : "https://digitalbw.com.br/central"} className="w-full">
                                 {activeTab === 1 ? 'Quero Garantir Minha Vaga' : activeData.ctaText}
                                 <ChevronRight size={18} />
                             </MasterButton>

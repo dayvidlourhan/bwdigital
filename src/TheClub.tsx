@@ -101,7 +101,7 @@ const TheClub = () => {
 
                         {/* Botão Tactile Industrial */}
                         <div className="pt-4 flex justify-center lg:justify-start">
-                            <MasterButton className="h-16 px-10 rounded-md">
+                            <MasterButton href="https://digitalbw.com.br/central" className="h-16 px-10 rounded-md">
                                 <span className="text-base">INSTALAR APP BW</span>
                                 <ArrowUpRight size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </MasterButton>
