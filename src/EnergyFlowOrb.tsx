@@ -11,7 +11,8 @@ const nodesData = [
         animClass: 'animate-float-orb-1',
         delay: 400,
         pathLength: 420,
-        lineDuration: 2500
+        lineDuration: 2500,
+        zIndex: 30
     },
     {
         id: 2,
@@ -22,7 +23,8 @@ const nodesData = [
         animClass: 'animate-float-orb-2',
         delay: 200,
         pathLength: 320,
-        lineDuration: 2200
+        lineDuration: 2200,
+        zIndex: 40
     },
     {
         id: 3,
@@ -33,7 +35,8 @@ const nodesData = [
         animClass: 'animate-float-orb-3',
         delay: 0,
         pathLength: 260,
-        lineDuration: 2000
+        lineDuration: 2000,
+        zIndex: 50
     },
     {
         id: 4,
@@ -44,7 +47,8 @@ const nodesData = [
         animClass: 'animate-float-orb-2',
         delay: 200,
         pathLength: 320,
-        lineDuration: 2200
+        lineDuration: 2200,
+        zIndex: 40
     },
     {
         id: 5,
@@ -55,7 +59,8 @@ const nodesData = [
         animClass: 'animate-float-orb-1',
         delay: 400,
         pathLength: 420,
-        lineDuration: 2500
+        lineDuration: 2500,
+        zIndex: 30
     },
 ];
 
@@ -157,6 +162,7 @@ interface OrbNodeProps {
         delay: number;
         pathLength: number;
         lineDuration: number;
+        zIndex: number;
     };
     isEnergized: boolean;
 }
@@ -171,6 +177,7 @@ const OrbNode = ({ data, isEnergized }: OrbNodeProps) => {
             style={{
                 left: currentPos.left,
                 top: currentPos.top,
+                zIndex: data.zIndex,
                 transform: 'translate3d(-50%, -50%, 0)',
                 transitionProperty: 'left, top',
                 transitionDuration: '1500ms',

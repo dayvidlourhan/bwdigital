@@ -11,31 +11,37 @@ const ExclusiveTools = () => {
     const segments = [
         {
             title: "SEGURANÇA & CONTAS",
+            shortLabel: "CONTAS",
             icon: Shield,
             items: ["Gerador de Código 2FA", "Gerador de Senhas Seguras", "Testador de Proxy"],
         },
         {
             title: "DADOS & TRACKING",
+            shortLabel: "DADOS",
             icon: Database,
             items: ["Conversor de Cookies (JSON)", "Gerador de UTM", "Calculadora ROI / ROAS"],
         },
         {
-            title: "GESTÃO & LUCRO",
+            title: "GESTÃO & LUCRATIVIDADE",
+            shortLabel: "GESTÃO",
             icon: LayoutDashboard,
             items: ["Calculadora de Margem", "Markup e Lucratividade"],
         },
         {
             title: "SOCIAL & CONVERSÃO",
+            shortLabel: "SOCIAL",
             icon: Share2,
             items: ["Gerador de Bio Instagram", "Gerador de Hashtags", "Gerador de Link WhatsApp"],
         },
         {
             title: "IMAGEM & DESIGN",
+            shortLabel: "DESIGN",
             icon: Palette,
             items: ["Conversor de Imagens", "Compactador de Imagens", "Remoção de Fundo", "Extrator de Cores"],
         },
         {
             title: "CÓDIGO & AUTOMAÇÃO",
+            shortLabel: "CÓDIGO",
             icon: Code2,
             items: ["Editor HTML com preview", "Gerador de QR Code", "Contador de Caracteres"],
         },
@@ -82,7 +88,7 @@ const ExclusiveTools = () => {
                 }}
             />
 
-            <div className="relative z-20 w-full mb-16 md:mb-24">
+            <div className="relative z-20 w-full mb-8 md:mb-24">
                 <SectionHeader
                     title="Ferramentas"
                     highlight="BW"
@@ -190,25 +196,23 @@ const ExclusiveTools = () => {
             </div>
 
             {/* INTERACTIVE MOBILE HUB - Replaces long stacked list */}
-            <div className="lg:hidden w-full max-w-lg mt-8 relative z-20">
-                {/* 1. Module Selector Strip */}
-                <div className="flex overflow-x-auto pb-6 gap-3 no-scrollbar snap-x px-4 -mx-4">
+            <div className="lg:hidden w-full max-w-lg mt-0 relative z-20">
+                {/* 1. Module Selector Grid - All options visible at once */}
+                <div className="grid grid-cols-3 gap-2 px-4 mb-4">
                     {segments.map((segment, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveTab(index)}
-                            className={`flex flex-col items-center gap-2 shrink-0 snap-center p-3 rounded-xl border transition-all duration-300 ${activeTab === index
-                                ? 'bg-[#FF5500]/10 border-[#FF5500] shadow-[0_0_15px_rgba(255,85,0,0.2)]'
-                                : 'bg-white/[0.03] border-white/10'
+                            className={`flex flex-col items-center justify-center gap-1 p-2 rounded-xl border transition-all duration-300 ${activeTab === index
+                                ? 'bg-[#FF5500]/10 border-[#FF5500] shadow-[0_0_15px_rgba(255,85,0,0.15)]'
+                                : 'bg-white/[0.03] border-white/10 hover:border-white/20'
                                 }`}
                         >
-                            <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors ${activeTab === index ? 'text-[#FF5500]' : 'text-gray-500'
-                                }`}>
-                                <segment.icon size={20} />
+                            <div className={`transition-colors duration-300 ${activeTab === index ? 'text-[#FF5500]' : 'text-gray-500'}`}>
+                                <segment.icon size={18} />
                             </div>
-                            <span className={`text-[9px] font-bold tracking-widest uppercase ${activeTab === index ? 'text-white' : 'text-gray-600'
-                                }`}>
-                                MOD-0{index + 1}
+                            <span className={`text-[9px] font-bold tracking-widest uppercase ${activeTab === index ? 'text-white' : 'text-gray-500'}`}>
+                                {segment.shortLabel}
                             </span>
                         </button>
                     ))}
@@ -224,14 +228,47 @@ const ExclusiveTools = () => {
                 >
                     {/* Industrial Accents */}
 
-                    <div className="absolute top-0 left-0 w-12 h-px bg-gradient-to-r from-[#FF5500] to-transparent" />
-                    <div className="absolute top-0 left-0 h-12 w-px bg-gradient-to-b from-[#FF5500] to-transparent" />
+                    {/* High-fidelity Tech Corner - SVG path liquid light effect */}
+                    <div className="absolute top-0 left-0 w-24 h-24 pointer-events-none z-50 overflow-visible">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" className="overflow-visible">
+                            <defs>
+                                <radialGradient id="corner-glow" cx="0" cy="0" r="100" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stopColor="#FF5500" stopOpacity="1" />
+                                    <stop offset="0.5" stopColor="#FF5500" stopOpacity="0.8" />
+                                    <stop offset="1" stopColor="#FF5500" stopOpacity="0" />
+                                </radialGradient>
+                                <filter id="glow-blur" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            {/* Glow Layer */}
+                            <path
+                                d="M100 2 H16 C8.268 2 2 8.268 2 16 V100"
+                                stroke="url(#corner-glow)"
+                                strokeWidth="4"
+                                strokeLinecap="round"
+                                opacity="0.4"
+                                filter="url(#glow-blur)"
+                            />
+                            {/* Core Layer - Thinner and Sharper */}
+                            <path
+                                d="M100 2 H16 C8.268 2 2 8.268 2 16 V100"
+                                stroke="url(#corner-glow)"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                            />
+                        </svg>
+                    </div>
 
                     {/* Module Header */}
                     <div className="mb-8">
                         <div className="flex items-center gap-2 mb-2">
                             <div className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />
-                            <span className="text-[10px] font-extrabold text-[#FF5500] tracking-[0.2em] uppercase font-sans">MÓDULO ATIVO</span>
+                            <span className="text-[10px] font-extrabold text-[#FF5500] tracking-[0.2em] uppercase font-sans">SOLUÇÃO ATIVA</span>
                         </div>
                         <h3 className="font-display font-black text-2xl tracking-tight text-white uppercase leading-none">
                             {segments[activeTab].title}

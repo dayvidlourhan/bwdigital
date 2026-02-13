@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, MessageCircle, ShieldCheck } from 'lucide-react';
+import { Plus, Minus, MessageCircle } from 'lucide-react';
 import SectionHeader from './components/ui/SectionHeader';
 import MasterButton from './components/ui/MasterButton';
 
@@ -149,15 +149,7 @@ const FAQ = () => {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-[#FF5500]/20 blur-[60px] pointer-events-none" />
                 </div>
 
-                {/* Industrial Divider Section */}
-                <div className="mt-20 flex flex-col items-center gap-8 opacity-30 md:opacity-20 group">
-                    <div className="flex items-center gap-4">
-                        <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/20 hidden md:block" />
-                        <ShieldCheck size={20} className="text-[#FF5500] hidden md:block" />
-                        <div className="h-px w-24 bg-gradient-to-l from-transparent to-white/20 hidden md:block" />
-                    </div>
-                    <span className="text-[9px] font-mono text-white/40 md:text-white/40 tracking-[0.2em] md:tracking-[0.8em] uppercase group-hover:text-[#FF5500]/60 transition-colors duration-700 text-center">BW Digital Global Infrastructure</span>
-                </div>
+
             </div>
         </section>
     );
